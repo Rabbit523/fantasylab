@@ -73,22 +73,26 @@ class Page extends React.Component {
                     className="navbar" minWidth={769}>
                     <Menu inverted pointing secondary size='large'>
                         <Container>
-                            <Menu.Item as={Link} to="/" className="logo" replace><img
-                                src={require('../../../images/theme/logo.png')} alt="infoTiq" /></Menu.Item>
-                            <Dropdown text="Services" className="collapsible-menu">
-                                <Dropdown.Menu className='bounceIn animated'>
-                                    <div>
-                                        <Dropdown.Item as={NavLink} to="/login" text="login" />
-                                        <Divider />
-                                        <Dropdown.Item as={NavLink} to="/register" text="register" />
-                                    </div>
-                                </Dropdown.Menu>
-                            </Dropdown>
-                            <Menu.Item as={NavLink} to="/portfolio">Portfolio</Menu.Item>
-                            <Menu.Item as={NavLink} to="/features">Features</Menu.Item>
-                            <Menu.Item as={NavLink} to="/about">About</Menu.Item>
-                            <Menu.Item as={NavLink} to="/blog">Blog</Menu.Item>
-                            <Menu.Item as={NavLink} to="/contact">Contact</Menu.Item>
+                            <Menu.Item as={Link} to="/" className="logo" replace>
+                                <img src={require('../../../images/theme/logo.png')} alt="infoTiq" /></Menu.Item>
+                            {this.props.isAdmin && this.props.isAuthenticated ?'' : 
+                                <div>
+                                    <Dropdown text="Services" className="collapsible-menu">
+                                        <Dropdown.Menu className='bounceIn animated'>
+                                            <div>
+                                                <Dropdown.Item as={NavLink} to="/login" text="login" />
+                                                <Divider />
+                                                <Dropdown.Item as={NavLink} to="/register" text="register" />
+                                            </div>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                    <Menu.Item as={NavLink} to="/portfolio">Portfolio</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/features">Features</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/about">About</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/blog">Blog</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/contact">Contact</Menu.Item>
+                                </div>
+                            }
                             <Menu.Menu position='right'>
                                 {this.props.isAuthenticated
                                     ? 
