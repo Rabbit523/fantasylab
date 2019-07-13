@@ -5,9 +5,9 @@ import Main from '../Main'
 
 const PublicRoute = ({component: Component, ...rest}) => (
     <Route {...rest} render={props => (
-            <Main>
-                <Component {...props}/>
-            </Main>
+        <Main>
+            <Component {...props}/>
+        </Main>
     )}/>
 );
 

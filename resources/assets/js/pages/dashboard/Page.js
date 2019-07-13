@@ -17,7 +17,6 @@ class Page extends React.Component {
     }
 
     render() {
-        console.log("dashboard props", this.props.isAdmin);
         return (
             <div>
                 <PageHeader heading="Dashboard"/>
