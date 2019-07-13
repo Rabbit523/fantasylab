@@ -9,8 +9,6 @@ import {
     Segment,
     Step
 } from 'semantic-ui-react'
-import PageHeader from '../../common/pageHeader'
-
 class Page extends React.Component {
     constructor(props) {
         super(props);
@@ -19,8 +17,7 @@ class Page extends React.Component {
     render() {
         return (
             <div>
-                <PageHeader heading="Dashboard"/>
-                <Segment vertical textAlign='center' style={{minHeight: '100vh'}}>
+                <Segment vertical textAlign='center' style={{minHeight: '110vh', paddingTop: 70}}>
                     <Header as='h1'>Dashboard</Header>
                 </Segment>
             </div>
