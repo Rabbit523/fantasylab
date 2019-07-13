@@ -1,4 +1,5 @@
-const mix = require('laravel-mix')
+let mix = require('laravel-mix');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
@@ -10,14 +11,7 @@ const mix = require('laravel-mix')
  |
  */
 
-mix.react('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
-
-if (mix.inProduction()) {
-  mix.version()
-} else {
-  mix.sourceMaps()
-  mix.browserSync({
-    proxy: 'http://laravel-react.test',
-  })
-}
+mix.react('resources/assets/js/app.js', 'public/js')
+   .sass('resources/assets/sass/app.scss', 'public/css')
+    .styles(['resources/assets/css/semantic-ui.css',
+        'resources/assets/css/animate.css'],'public/css/all.css');

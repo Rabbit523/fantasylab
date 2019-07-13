@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,17 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// default name space for all routes is 'App\Http\Controllers\Api'
-$api_version = config('api.api_version');
+Route::group(['prefix' => 'password'],function() {
+	Route::post('/email', 'Auth\ForgotPasswordController@getResetToken');
+	Route::post('/reset', 'Auth\ResetPasswordController@reset');
+});
 
-Route::group(["prefix" => "{$api_version}"], function() {
-    // register auth routes
-    Route::prefix('auth')
-        ->group(base_path('routes/api/auth.php'));
-    // register users routes
-    Route::prefix('users')
-        ->group(base_path('routes/api/users.php'));
-    // register articles routes
-    Route::prefix('articles')
-        ->group(base_path('routes/api/articles.php'));
+Route::group(['prefix'=> 'auth'],function(){
+    Route::post('/register','Auth\RegisterController@register');
+    Route::post("/login",'Auth\LoginController@login');
+    Route::post('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|');
+});
+
+Route::middleware(['jwt_auth'])->group(function(){
+   Route::get('/hello',function(){
+       return "Cool dude";
+   });
 });

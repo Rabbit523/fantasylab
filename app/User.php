@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Laravel\Passport\HasApiTokens;
+use App\Notifications\ResetPassword as ResetPasswordNotification;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, Notifiable;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'about', 'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -28,17 +28,9 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $casts = [
-        'is_admin' => 'boolean',
-    ];
-
-    /**
-     * The relation between user and articles
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function articles()
+    public function sendPasswordResetNotification($token)
     {
-        return $this->hasMany(Article::class);
+        // Your your own implementation.
+        $this->notify(new ResetPasswordNotification($token, $this->getEmailForPasswordReset()));
     }
 }
