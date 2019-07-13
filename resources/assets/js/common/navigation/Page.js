@@ -35,6 +35,10 @@ class Page extends React.Component {
                {this.props.userName}
             </span>
         );
+        let is_dashboard = false;
+        if (window.location.href.indexOf("/dashboard") > 0) {
+            is_dashboard = true;
+        }
         return (
             <div>
                 <Responsive as={Segment} inverted maxWidth={768} className="mobile-navbar">
@@ -75,8 +79,8 @@ class Page extends React.Component {
                         <Container>
                             <Menu.Item as={Link} to="/" className="logo" replace>
                                 <img src={require('../../../images/theme/logo.png')} alt="infoTiq" /></Menu.Item>
-                            {this.props.isAdmin && this.props.isAuthenticated ?'' : 
-                                <div>
+                            {this.props.isAdmin && this.props.isAuthenticated && is_dashboard ? '' : 
+                                <React.Fragment>
                                     <Dropdown text="Services" className="collapsible-menu">
                                         <Dropdown.Menu className='bounceIn animated'>
                                             <div>
@@ -91,7 +95,7 @@ class Page extends React.Component {
                                     <Menu.Item as={NavLink} to="/about">About</Menu.Item>
                                     <Menu.Item as={NavLink} to="/blog">Blog</Menu.Item>
                                     <Menu.Item as={NavLink} to="/contact">Contact</Menu.Item>
-                                </div>
+                                </React.Fragment>
                             }
                             <Menu.Menu position='right'>
                                 {this.props.isAuthenticated
