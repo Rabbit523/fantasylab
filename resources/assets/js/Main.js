@@ -55,26 +55,30 @@ class Main extends React.Component {
     }
 
     render() {
-        return (
-            ( this.props.isAdmin ) ? (
-                <div>
-                    <AdminSidebar/>
-                    <Navigation/>
-                    <main className="fadeIn animated" style={{paddingLeft: 150}}>
-                        {this.props.children}
-                    </main>
-                    <Footer/>
-                </div>
-            ) : (
-                <div>
-                    <Navigation/>
-                    <main className="fadeIn animated">
-                        {this.props.children}
-                    </main>
-                    <Footer/>
-                </div>
-            )
-        );
+      let is_dashboard = false;
+      if (window.location.href.indexOf("/dashboard") > 0) {
+        is_dashboard = true;
+      }
+      return (
+        ( this.props.isAdmin && this.props.isAuthenticated ) ? (
+          <div>
+            {!!is_dashboard && <AdminSidebar/> }
+            <Navigation/>
+            <main className="fadeIn animated" style={is_dashboard ? {paddingLeft: 150} : {paddingLeft: 0}}>
+              {this.props.children}
+            </main>
+            <Footer/>
+          </div>
+        ) : (
+          <div>
+            <Navigation/>
+            <main className="fadeIn animated">
+                {this.props.children}
+            </main>
+            <Footer/>
+          </div>
+        )
+      );
     }
 }
 
