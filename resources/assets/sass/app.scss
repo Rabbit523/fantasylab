@@ -160,13 +160,43 @@ $WorkSans: 'Work Sans', sans-serif;
 /* ************************************************************************* */
 
 .admin-sidebar {
-  top: 71px !important;
+  top: 60px !important;
   position: absolute !important;
 }
+.custom-col-1 {
+  width: 10% !important;
+}
+.custom-col-2 {
+  width: 20% !important;
+}
+.custom-col-6 {
+  width: 60% !important;
+}
+.login {
+  background: transparent !important;
+  color:#9da6c7 !important;
+  padding: 22px 12px 22px 12px !important;
+  line-height: normal !important;
+}
+.register {
+  line-height: normal !important;
+  background: linear-gradient(to bottom, #8341ff 0%, #7126ff 100%) !important;
+  color: #fff !important;
+}
+.nav-color {
+  color:#9da6c7 !important;
+  margin: 0 !important;
+  padding: 22px 12px 22px 12px !important;
+  border: none !important;
+  line-height: normal !important;
+  &.active {
+    background: #060d26 !important;
+    border: none !important;
+  }
+}
 @media (min-width: 320px) {
-
   .segment.mobile-navbar {
-    background: transparent !important;
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
     z-index: +1;
     border-bottom: 1px solid rgba(255, 255, 255, .15) !important;
     position: absolute;
@@ -319,14 +349,15 @@ $WorkSans: 'Work Sans', sans-serif;
   }
   .footer {
     background: #000;
-    margin-top: 19px;
+    margin-top: 8px;
 
   }
 }
 
-// End of Media 320px
-
 @media (min-width: 383px) {
+  .segment.navbar {
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
   .home-header {
     .main-heading {
       font-size: 2.2em !important;
@@ -344,6 +375,9 @@ $WorkSans: 'Work Sans', sans-serif;
 }
 
 @media (min-width: 551px) {
+  .segment.navbar {
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
   .home-header {
     .main-heading {
       font-size: 2.7em !important;
@@ -361,6 +395,9 @@ $WorkSans: 'Work Sans', sans-serif;
 }
 
 @media (min-width: 620px) {
+  .segment.navbar {
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
   .home-header {
     .main-heading {
       font-size: 3.0em !important;
@@ -382,12 +419,13 @@ $WorkSans: 'Work Sans', sans-serif;
     z-index: +1;
     position: absolute;
     width: 100%;
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
     .menu {
       border: none !important;
     }
     .logo img {
-      width: 20px !important;
-      margin-bottom: -3px !important;
+      width: 40px !important;
+      margin-bottom: 8px !important;
     }
     .or {
       top: 12% !important;
@@ -418,6 +456,7 @@ $WorkSans: 'Work Sans', sans-serif;
 
 @media (min-width: 992px) {
   .segment.navbar {
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
     .or {
       top: 11% !important;
     }
@@ -444,6 +483,9 @@ $WorkSans: 'Work Sans', sans-serif;
 }
 
 @media (min-width: 1224px) {
+  .segment.navbar {
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
   .home-header {
     .pretitle {
       font-size: 1.3em !important;

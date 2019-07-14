@@ -73,15 +73,18 @@ class Page extends React.Component {
                         </Menu.Menu>
                     </Menu>
                 </Responsive>
-                <Responsive as={Segment} inverted style={{ marginBottom: '0', borderRadius: '0', padding: '1em 0em' }}
+                <Responsive as={Segment} inverted style={{ margin: 0, borderRadius: '0', padding: 0 }}
                     className="navbar" minWidth={769}>
                     <Menu inverted pointing secondary size='large'>
-                        <Container>
-                            <Menu.Item as={Link} to="/" className="logo" replace>
-                                <img src={require('../../../images/theme/logo.png')} alt="infoTiq" /></Menu.Item>
-                            {this.props.isAdmin && this.props.isAuthenticated && is_dashboard ? '' : 
+                        <Container className="custom-col-6">
+                            {this.props.isAdmin && this.props.isAuthenticated && is_dashboard ? 
+                                <Menu.Item as={Link} to="/" className="logo" replace style={{margin: 0, paddingTop: 10, paddingRight: 20, paddingBottom: 0, paddingLeft: 0}}>
+                                    <img src={require('../../../images/theme/logo.png')} alt="infoTiq" /></Menu.Item> 
+                                : 
                                 <React.Fragment>
-                                    <Dropdown text="Services" className="collapsible-menu">
+                                    <Menu.Item as={Link} to="/" className="logo" replace style={{margin: 0, padding: 0, paddingRight: 20}}>
+                                        <img src={require('../../../images/theme/logo.png')} alt="infoTiq" /></Menu.Item>
+                                    <Dropdown text="Services" className="collapsible-menu nav-color">
                                         <Dropdown.Menu className='bounceIn animated'>
                                             <div>
                                                 <Dropdown.Item as={NavLink} to="/login" text="login" />
@@ -90,17 +93,17 @@ class Page extends React.Component {
                                             </div>
                                         </Dropdown.Menu>
                                     </Dropdown>
-                                    <Menu.Item as={NavLink} to="/portfolio">Portfolio</Menu.Item>
-                                    <Menu.Item as={NavLink} to="/features">Features</Menu.Item>
-                                    <Menu.Item as={NavLink} to="/about">About</Menu.Item>
-                                    <Menu.Item as={NavLink} to="/blog">Blog</Menu.Item>
-                                    <Menu.Item as={NavLink} to="/contact">Contact</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/portfolio" className="nav-color">Portfolio</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/features" className="nav-color">Features</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/about" className="nav-color">About</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/blog" className="nav-color">Blog</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/contact" className="nav-color">Contact</Menu.Item>
                                 </React.Fragment>
                             }
                             <Menu.Menu position='right'>
                                 {this.props.isAuthenticated
                                     ? 
-                                    <Dropdown text={this.props.userName} pointing='top right' className='user-dropdown'>
+                                    <Dropdown text={this.props.userName} pointing='top right' className='user-dropdown' style={{paddingTop: 22}}>
                                         <Dropdown.Menu className='bounceIn animated'>
                                             <Dropdown.Item
                                                 text={"Signed in as " + this.props.userName}
@@ -115,10 +118,11 @@ class Page extends React.Component {
                                     </Dropdown>
                                     : <Button.Group>
                                         <Button as={Link} to="/login" replace positive compact
-                                            style={{ lineHeight: '2em' }}>Login</Button>
-                                        <Button.Or />
-                                        <Button as={Link} to="/register" replace color='blue' compact
-                                            style={{ lineHeight: '2em' }}>Register</Button>
+                                            className="login">Login</Button>
+                                        <div style={{paddingTop: 15, paddingRight: 12, paddingBottom: 10, paddingLeft: 12}}>
+                                        <Button as={Link} to="/register" replace compact
+                                            className="register">Craft Enterprise</Button>
+                                        </div>
                                     </Button.Group>
                                 }
                             </Menu.Menu>
