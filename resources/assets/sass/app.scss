@@ -172,23 +172,36 @@ $WorkSans: 'Work Sans', sans-serif;
 .custom-col-6 {
   width: 60% !important;
 }
+.custom-col-8 {
+  width: 80% !important;
+}
 .login {
   background: transparent !important;
-  color:#9da6c7 !important;
-  padding: 22px 12px 22px 12px !important;
+  color:#9aa2bf !important;
+  padding: 25px 12px 22px 12px !important;
   line-height: normal !important;
+  font-family: "Gotham Bold" !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  
 }
 .register {
   line-height: normal !important;
-  background: linear-gradient(to bottom, #8341ff 0%, #7126ff 100%) !important;
+  background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%) !important;
   color: #fff !important;
+  font-family: "Gotham Bold" !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
 }
 .nav-color {
-  color:#9da6c7 !important;
+  color:#9aa2bf !important;
   margin: 0 !important;
   padding: 22px 12px 22px 12px !important;
   border: none !important;
   line-height: normal !important;
+  font-family: "Gotham Bold";
+  font-weight: bold !important;
+  font-size: 18px;
   &.active {
     background: #060d26 !important;
     border: none !important;
@@ -348,9 +361,42 @@ $WorkSans: 'Work Sans', sans-serif;
     }
   }
   .footer {
-    background: #000;
+    background: #070a2b !important;
     margin-top: 8px;
-
+    color: #656b88;
+    font-size: 16px;
+    font-family: "Gotham Book";
+    img {
+      width: 20px !important;
+    }
+    .footer-title {
+      padding-bottom: 20px;
+      font-weight: bold;
+      font-size: 18px;
+      font-family: "Gotham Bold";
+      &.service {
+        color: #5a2db6;
+      }
+      &.platform {
+        color: #cf409d;
+      }
+      &.company {
+        color: #4f7335;
+      }
+      &.started {
+        color: #f49d43;
+      }
+      &.legal {
+        color: #c0ae1e;
+      }
+    }
+    .footer-item {
+      .item-link {
+        color: #656b88 !important;
+        margin-bottom: 15px;
+        display: block;
+      }
+    }
   }
 }
 
@@ -422,6 +468,14 @@ $WorkSans: 'Work Sans', sans-serif;
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
     .menu {
       border: none !important;
+      .text {
+        margin: 0 !important;
+        border: none !important;
+        line-height: normal !important;
+        font-family: "Gotham Bold";
+        font-weight: bold !important;
+        font-size: 16px;
+      }
     }
     .logo img {
       width: 40px !important;

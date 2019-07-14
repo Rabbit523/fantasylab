@@ -73,10 +73,10 @@ class Page extends React.Component {
                         </Menu.Menu>
                     </Menu>
                 </Responsive>
-                <Responsive as={Segment} inverted style={{ margin: 0, borderRadius: '0', padding: 0 }}
+                <Responsive as={Segment} style={{ margin: 0, borderRadius: '0', padding: 0 }}
                     className="navbar" minWidth={769}>
-                    <Menu inverted pointing secondary size='large'>
-                        <Container className="custom-col-6">
+                    <Menu pointing secondary size='large'>
+                        <Container className="custom-col-8">
                             {this.props.isAdmin && this.props.isAuthenticated && is_dashboard ? 
                                 <Menu.Item as={Link} to="/" className="logo" replace style={{margin: 0, paddingTop: 10, paddingRight: 20, paddingBottom: 0, paddingLeft: 0}}>
                                     <img src={require('../../../images/theme/logo.png')} alt="infoTiq" /></Menu.Item> 
@@ -103,7 +103,7 @@ class Page extends React.Component {
                             <Menu.Menu position='right'>
                                 {this.props.isAuthenticated
                                     ? 
-                                    <Dropdown text={this.props.userName} pointing='top right' className='user-dropdown' style={{paddingTop: 22}}>
+                                    <Dropdown text={this.props.userName} pointing='top right' className='user-dropdown' style={{paddingTop: 22, color: '#9aa2bf'}}>
                                         <Dropdown.Menu className='bounceIn animated'>
                                             <Dropdown.Item
                                                 text={"Signed in as " + this.props.userName}
