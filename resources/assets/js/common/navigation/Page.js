@@ -10,8 +10,10 @@ import {
     Dropdown,
     Divider,
     Image,
+    Icon,
     Menu,
     Responsive,
+    Grid,
     Segment
 } from 'semantic-ui-react';
 import * as actions from '../../store/actions'
@@ -73,25 +75,97 @@ class Page extends React.Component {
                         </Menu.Menu>
                     </Menu>
                 </Responsive>
-                <Responsive as={Segment} style={{ margin: 0, borderRadius: '0', padding: 0 }}
+                <Responsive as={Segment} style={{ margin: 0, borderRadius: '0', padding: 0, border: 0 }}
                     className="navbar" minWidth={769}>
                     <Menu pointing secondary size='large'>
-                        <Container className="custom-col-8">
+                        <Container className="custom-col-7">
                             {this.props.isAdmin && this.props.isAuthenticated && is_dashboard ? 
                                 <Menu.Item as={Link} to="/" className="logo" replace style={{margin: 0, paddingTop: 10, paddingRight: 20, paddingBottom: 0, paddingLeft: 0}}>
-                                    <img src={require('../../../images/theme/logo.png')} alt="infoTiq" /></Menu.Item> 
+                                    <img src={require('../../../images/theme/logo.png')} /></Menu.Item> 
                                 : 
                                 <React.Fragment>
                                     <Menu.Item as={Link} to="/" className="logo" replace style={{margin: 0, padding: 0, paddingRight: 20}}>
-                                        <img src={require('../../../images/theme/logo.png')} alt="infoTiq" /></Menu.Item>
+                                        <img src={require('../../../images/theme/logo.png')} /></Menu.Item>
                                     <Dropdown text="Services" className="collapsible-menu nav-color">
-                                        <Dropdown.Menu className='bounceIn animated'>
-                                            <div>
-                                                <Dropdown.Item as={NavLink} to="/login" text="login" />
-                                                <Divider />
-                                                <Dropdown.Item as={NavLink} to="/register" text="register" />
-                                            </div>
-                                        </Dropdown.Menu>
+                                            <Dropdown.Menu className='bounceIn animated custom-col-7'>
+                                                <div className="custom-box">
+                                                    <Container className="custom-col-7">
+                                                        <Grid padded='horizontally'>
+                                                            <Grid.Row columns={6} className="custom-row">
+                                                                <Grid.Column className="custom-dropdown">
+                                                                    <div className="custom-dropdown-item">
+                                                                        <div className="avatar-item desktop">
+                                                                            <img src={require('../../../images/theme/desktop.png')} />
+                                                                            <Icon name='arrow right' className="icon-right-arrow"/>
+                                                                        </div>
+                                                                        <div className="text-item">
+                                                                            <p>Web Development</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </Grid.Column>
+                                                                <Grid.Column className="custom-dropdown">
+                                                                    <div className="custom-dropdown-item mobile">
+                                                                        <div className="avatar-item mobile">
+                                                                            <img src={require('../../../images/theme/mobile.png')} />
+                                                                            <Icon name='arrow right' className="icon-right-arrow"/>
+                                                                        </div>
+                                                                        <div className="text-item">
+                                                                            <p>Mobile Development</p>
+                                                                        </div>
+                                                                        <div className="description">
+                                                                            <p>Lorem ipsum dolor sit amet constatur ipsum</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </Grid.Column>
+                                                                <Grid.Column className="custom-dropdown">
+                                                                    <div className="custom-dropdown-item">
+                                                                        <div className="avatar-item ui">
+                                                                            <img src={require('../../../images/theme/ui.png')} />
+                                                                            <Icon name='arrow right' className="icon-right-arrow"/>
+                                                                        </div>
+                                                                        <div className="text-item">
+                                                                            <p>UI & UX Design</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </Grid.Column>
+                                                                <Grid.Column className="custom-dropdown">
+                                                                    <div className="custom-dropdown-item">
+                                                                        <div className="avatar-item branding">
+                                                                            <img src={require('../../../images/theme/branding.png')} />
+                                                                            <Icon name='arrow right' className="icon-right-arrow"/>
+                                                                        </div>
+                                                                        <div className="text-item">
+                                                                            <p>Branding</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </Grid.Column>
+                                                                <Grid.Column className="custom-dropdown">
+                                                                    <div className="custom-dropdown-item">
+                                                                        <div className="avatar-item illustration">
+                                                                            <img src={require('../../../images/theme/illustration.png')} />
+                                                                            <Icon name='arrow right' className="icon-right-arrow"/>
+                                                                        </div>
+                                                                        <div className="text-item">
+                                                                            <p>Illustration</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </Grid.Column>
+                                                                <Grid.Column className="custom-dropdown">
+                                                                    <div className="custom-dropdown-item">
+                                                                        <div className="avatar-item marketing">
+                                                                            <img src={require('../../../images/theme/marketing.png')} />
+                                                                            <Icon name='arrow right' className="icon-right-arrow"/>
+                                                                        </div>
+                                                                        <div className="text-item">
+                                                                            <p>Marketing</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </Grid.Column>
+                                                            </Grid.Row>
+                                                        </Grid>
+                                                    </Container>
+                                                </div>
+                                            </Dropdown.Menu>
                                     </Dropdown>
                                     <Menu.Item as={NavLink} to="/portfolio" className="nav-color">Portfolio</Menu.Item>
                                     <Menu.Item as={NavLink} to="/features" className="nav-color">Features</Menu.Item>
@@ -100,7 +174,7 @@ class Page extends React.Component {
                                     <Menu.Item as={NavLink} to="/contact" className="nav-color">Contact</Menu.Item>
                                 </React.Fragment>
                             }
-                            <Menu.Menu position='right'>
+                            <Menu.Menu position='right' className="right-menu-width">
                                 {this.props.isAuthenticated
                                     ? 
                                     <Dropdown text={this.props.userName} pointing='top right' className='user-dropdown' style={{paddingTop: 22, color: '#9aa2bf'}}>
@@ -119,7 +193,7 @@ class Page extends React.Component {
                                     : <Button.Group>
                                         <Button as={Link} to="/login" replace positive compact
                                             className="login">Login</Button>
-                                        <div style={{paddingTop: 15, paddingRight: 12, paddingBottom: 10, paddingLeft: 12}}>
+                                        <div style={{paddingTop: 15}}>
                                         <Button as={Link} to="/register" replace compact
                                             className="register">Craft Enterprise</Button>
                                         </div>
