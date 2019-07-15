@@ -211,6 +211,13 @@ $WorkSans: 'Work Sans', sans-serif;
     border: none !important;
   }
 }
+.home-page-header {
+  background-image: url(/images/home-header-back.png?4b61ec2…);
+  min-height: 550px;
+  height: auto;
+  width: 100%;
+  background-size: cover;
+}
 @media (min-width: 320px) {
   .segment.mobile-navbar {
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
@@ -546,7 +553,7 @@ $WorkSans: 'Work Sans', sans-serif;
             &.mobile {
               &:hover {
                 background-image: url('../images/theme/mobile-back.png') !important;
-                box-shadow: 8px 10px 25px 10px #101535
+                box-shadow: 8px 10px 25px 10px #101535;
               }
             }
             &:hover {
