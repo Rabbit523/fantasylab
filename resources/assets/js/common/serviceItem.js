@@ -1,9 +1,6 @@
-/**
- * Created by Sumit-Yadav on 16-10-2017.
- */
 import React from 'react'
 import PropTypes from 'prop-types'
-import image from '../../images/theme/desktop.png'
+
 class ServiceItem extends React.Component {
     constructor(props) {
         super(props);
