@@ -3,11 +3,7 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-    Header,
-    Grid,
-    Segment
-} from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 
 class PageHeader extends React.Component {
     constructor(props) {
@@ -16,14 +12,19 @@ class PageHeader extends React.Component {
 
     render() {
         return (
-            <Segment inverted className="page-header" textAlign="center" vertical>
-                <Header as="h1">{this.props.heading}</Header>
-            </Segment>
+            <div className="main-header" style={{backgroundImage: `url(${this.props.url})`}}>
+                <Container className="custom-col-6">
+                    <div className="main-header-description">
+                        <h1>{this.props.title}</h1>
+                    </div>
+                </Container>
+            </div>
         );
     }
 }
 
 PageHeader.propTypes = {
-    heading : PropTypes.string.isRequired
+    url: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired
 };
 export default PageHeader;
