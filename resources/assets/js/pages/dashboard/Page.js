@@ -16,11 +16,11 @@ class Page extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <Segment vertical textAlign='center' style={{minHeight: '110vh', paddingTop: 70}}>
                     <Header as='h1'>Dashboard</Header>
                 </Segment>
-            </div>
+            </React.Fragment>
         );
     }
 }

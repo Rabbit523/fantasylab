@@ -42,7 +42,7 @@ class Page extends React.Component {
             is_dashboard = true;
         }
         return (
-            <div>
+            <React.Fragment>
                 <Responsive as={Segment} inverted maxWidth={768} className="mobile-navbar">
                     <Menu size="large" inverted secondary>
                         <Menu.Item as={Link} to="/" className="logo" replace>
@@ -203,7 +203,7 @@ class Page extends React.Component {
                         </Container>
                     </Menu>
                 </Responsive>
-            </div>
+            </React.Fragment>
         );
     }
 }

@@ -43,7 +43,7 @@ class Page extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <Segment
                     inverted
                     textAlign='center'
@@ -113,7 +113,7 @@ class Page extends React.Component {
                         </Responsive>
                     </Container>
                 </div>
-            </div>
+            </React.Fragment>
         );
     }
 }

@@ -9,7 +9,7 @@ class AdminSidebar extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                  <Sidebar
                     as={Menu}
                     animation='push'
@@ -34,7 +34,7 @@ class AdminSidebar extends React.Component {
                     <Menu.Item as='a'> <Icon name='camera' /> Illustration </Menu.Item>
                     <Menu.Item as='a'> <Icon name='camera' /> Marketing </Menu.Item>
                 </Sidebar>
-            </div>
+            </React.Fragment>
         );
     }
 }
