@@ -9,7 +9,7 @@ class AdminSidebar extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                  <Sidebar
                     as={Menu}
                     animation='push'
@@ -21,20 +21,20 @@ class AdminSidebar extends React.Component {
                     width='thin'
                     className="admin-sidebar"
                 >
-                    <Menu.Item as='a'>
-                        <Icon name='home' />
-                        Home
-                    </Menu.Item>
-                    <Menu.Item as='a'>
-                        <Icon name='gamepad' />
-                        Games
-                    </Menu.Item>
-                    <Menu.Item as='a'>
-                        <Icon name='camera' />
-                        Channels
-                    </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='home' /> Home </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='gamepad' /> Portfolio </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> Features </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> About </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> Blog </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> Contact </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> Web Development </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> Mobile Development </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> UI & UX design </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> Branding </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> Illustration </Menu.Item>
+                    <Menu.Item as='a'> <Icon name='camera' /> Marketing </Menu.Item>
                 </Sidebar>
-            </div>
+            </React.Fragment>
         );
     }
 }
