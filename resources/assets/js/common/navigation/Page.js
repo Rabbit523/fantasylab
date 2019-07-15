@@ -78,7 +78,7 @@ class Page extends React.Component {
                 <Responsive as={Segment} style={{ margin: 0, borderRadius: '0', padding: 0, border: 0 }}
                     className="navbar" minWidth={769}>
                     <Menu pointing secondary size='large'>
-                        <Container className="custom-col-7">
+                        <Container className="custom-col-6">
                             {this.props.isAdmin && this.props.isAuthenticated && is_dashboard ? 
                                 <Menu.Item as={Link} to="/" className="logo" replace style={{margin: 0, paddingTop: 10, paddingRight: 20, paddingBottom: 0, paddingLeft: 0}}>
                                     <img src={require('../../../images/theme/logo.png')} /></Menu.Item> 
@@ -87,9 +87,9 @@ class Page extends React.Component {
                                     <Menu.Item as={Link} to="/" className="logo" replace style={{margin: 0, padding: 0, paddingRight: 20}}>
                                         <img src={require('../../../images/theme/logo.png')} /></Menu.Item>
                                     <Dropdown text="Services" className="collapsible-menu nav-color">
-                                            <Dropdown.Menu className='bounceIn animated custom-col-7'>
+                                            <Dropdown.Menu className='bounceIn animated custom-col-6'>
                                                 <div className="custom-box">
-                                                    <Container className="custom-col-7">
+                                                    <Container className="custom-col-6">
                                                         <Grid padded='horizontally'>
                                                             <Grid.Row columns={6} className="custom-row">
                                                                 <Grid.Column className="custom-dropdown">
