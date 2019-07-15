@@ -106,7 +106,7 @@ class Page extends React.Component {
         const {errors} = this.state;
 
         return (
-            <div>
+            <React.Fragment>
                 <PageHeader heading="login"/>
                 <Segment className='page-loader' style={{display: this.state.isLoading ? 'block' : 'none'}}>
                     <Dimmer active inverted>
@@ -178,7 +178,7 @@ class Page extends React.Component {
                         </Message>
                     </Grid.Column>
                 </Grid>
-            </div>
+            </React.Fragment>
         );
     }
 }
