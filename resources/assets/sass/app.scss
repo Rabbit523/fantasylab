@@ -442,6 +442,38 @@ p {
     }
   }
 }
+.portfolio-item {
+  padding: 20px 20px 30px 20px;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  .portfolio {
+    padding: 90px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    img {
+      width: auto;
+      height: auto;
+      position: absolute;
+      top: 0;
+      margin-top: 100px;
+    }
+  }
+  .portfolio-text {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+    p {
+      font-size: 16px;
+      font-family: "Gotham Book";
+      white-space: pre-wrap;
+      color: #fff;
+    }
+  }
+}
 @media (min-width: 320px) {
   .segment.mobile-navbar {
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
@@ -853,15 +885,15 @@ p {
         }
       }
     }
-    .home-services {
+    .home-section {
       min-height: 50vh;
       color: #fff;
-      margin-top: 70px;
+      margin-top: 90px;
     }
     .home-estimation {
       min-height: 50vh;
       color: #fff;
-      margin-top: 70px;
+      margin-top: 90px;
       .home-estimation-description {
         margin-bottom: 40px;
         h3 {
@@ -874,6 +906,10 @@ p {
       }
       .home-button-group {
         margin-top: 40px;
+        .button {
+          padding-left: 40px;
+          padding-right: 40px;
+        }
       }
     }
   }

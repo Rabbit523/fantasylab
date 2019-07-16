@@ -5,6 +5,7 @@ import PageHeader from '../../common/pageHeader'
 import PageFooter from '../../common/pageFooter'
 import ServiceItem from '../../common/serviceItem'
 import BadgeTextCard from '../../common/badgeTextCard'
+import PortfolioCard from '../../common/portfolioCard'
 import AuthService from '../../services'
 class Page extends React.Component {
     constructor(props) {
@@ -102,6 +103,32 @@ class Page extends React.Component {
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                 }
             },
+            portfolios: {
+                'avollon': {
+                    from: 'home',
+                    icon_url: '../images/avollon.png'
+                },
+                'osg': {
+                    from: 'home',
+                    icon_url: '../images/osg.png'
+                },
+                'proguiden': {
+                    from: 'home',
+                    icon_url: '../images/proguiden.png'
+                },
+                'attitude': {
+                    from: 'home',
+                    icon_url: '../images/attitude.png'
+                },
+                'maora': {
+                    from: 'home',
+                    icon_url: '../images/maora.png'
+                },
+                'apotek': {
+                    from: 'home',
+                    icon_url: '../images/123apotek.png'
+                }
+            }
         };
     }
 
@@ -133,7 +160,7 @@ class Page extends React.Component {
         return (
             <div className="home-page">
                 <PageHeader url={this.state.header_url} title={this.state.header_title} />
-                <section className="home-services">
+                <section className="home-section">
                     <Container className="custom-col-6">
                         <h3>Services</h3>
                         <Grid padded="horizontally">
@@ -196,6 +223,35 @@ class Page extends React.Component {
                             <Button as={Link} to="/register" replace compact className="primary-button">Craft Enterprise</Button>
                             <Button as={Link} to="/login" replace compact className="secondary-button">Platform</Button>
                         </div>
+                    </Container>
+                </section>
+                <section className="home-section">
+                    <Container className="custom-col-6">
+                        <h3>Portfolio</h3>
+                        <Grid padded="horizontally">
+                            <Grid.Row columns={3} className="custom-row">
+                                <Grid.Column className="custom-column">
+                                    <PortfolioCard from={this.state.portfolios.avollon.from} icon_url={this.state.portfolios.avollon.icon_url}/>
+                                </Grid.Column>
+                                <Grid.Column className="custom-column">
+                                    <PortfolioCard from={this.state.portfolios.maora.from} icon_url={this.state.portfolios.maora.icon_url}/>
+                                </Grid.Column>
+                                <Grid.Column className="custom-column">
+                                    <PortfolioCard from={this.state.portfolios.osg.from} icon_url={this.state.portfolios.osg.icon_url}/>
+                                </Grid.Column>
+                            </Grid.Row>
+                            <Grid.Row columns={3} className="custom-row">
+                                <Grid.Column className="custom-column">
+                                    <PortfolioCard from={this.state.portfolios.attitude.from} icon_url={this.state.portfolios.attitude.icon_url}/>
+                                </Grid.Column>
+                                <Grid.Column className="custom-column">
+                                    <PortfolioCard from={this.state.portfolios.proguiden.from} icon_url={this.state.portfolios.proguiden.icon_url}/>
+                                </Grid.Column>
+                                <Grid.Column className="custom-column">
+                                    <PortfolioCard from={this.state.portfolios.apotek.from} icon_url={this.state.portfolios.apotek.icon_url}/>
+                                </Grid.Column>
+                            </Grid.Row>
+                        </Grid>
                     </Container>
                 </section>
                 <PageFooter url={this.state.footer_url} />
