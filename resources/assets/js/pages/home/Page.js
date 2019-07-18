@@ -328,7 +328,6 @@ class Page extends React.Component {
                             <Grid.Row columns={3} className="custom-row">
                             {
                                 this.state.news.map(function(item, i){
-                                    console.log(item);
                                     return (
                                         <Grid.Column key={i} className="custom-column">
                                             <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
