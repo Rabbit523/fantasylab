@@ -561,9 +561,21 @@ p {
   }
   .news-content {
     padding: 30px 20px 20px 20px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
-    justify-content: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: flex-end;
     position: relative;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-start;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex-direction: column;
+    flex: 1;
     p {
       &.title {
         font-weight: bold;
@@ -580,7 +592,9 @@ p {
     }
     .news-icon-arrow {
       display: none;
-      float: right;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
       i {
         color: #7436e9;
       }
