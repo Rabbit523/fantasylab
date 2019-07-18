@@ -275,18 +275,6 @@ p {
   width: 100%;
   background-size: cover !important;
 }
-.main-header {
-  min-height: 550px;
-  height: auto;
-  width: 100%;
-  background-size: cover;
-  .main-header-description {
-    display: inline-block;
-    margin-top: 120px;
-    width: 50%;
-    color: #fff;
-  }
-}
 .main-footer {
   min-height: 350px;
   height: auto;
@@ -997,6 +985,37 @@ p {
     min-height: 110vh;
     padding-top: 70px;
     background: #03051b;
+    .homepage-header {
+      min-height: 550px;
+      height: auto;
+      width: 100%;
+      background-size: cover;
+      .homepage-header-description {
+        display: inline-block;
+        margin-top: 120px;
+        width: 50%;
+        color: #fff;
+        .normal {
+          color: #747b96;
+        }
+        h1 {
+          padding: 0;
+          margin: 0;
+        }
+        .title {
+          margin: 0;
+          padding: 0;
+          font-size: 18px;
+          font-weight: bold;
+          font-family: "Gotham Bold";
+        }
+        .homepage-header-buttons {
+          .register {
+            padding: 20px 60px 20px 60px;
+          }
+        }
+      }
+    }
     .custom-row {
       justify-content: space-between;
       .custom-column {

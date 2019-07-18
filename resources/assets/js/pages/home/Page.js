@@ -217,7 +217,26 @@ class Page extends React.Component {
     render() {
         return (
             <div className="home-page">
-                <PageHeader url={this.state.header_url} title={this.state.header_title} />
+                <div className="homepage-header" style={{backgroundImage: `url(${this.state.header_url})`}}>
+                    <Container className="custom-col-6">
+                        <div className="homepage-header-description">
+                            <h1>Welcome,</h1>
+                            <h1>Visionaries.</h1>
+                            <p className="title">enterprise</p>
+                            <p className="normal">/entərˌprīz</p>
+                            <p className="normal">noun</p>
+                            <p className="normal">1. a project or undertalking, especiaaly a bold or complex orange
+                                "a joint enterprise between adventureful companies"
+                                synonyms: artifical intelligence, information technology, company, ventrue, automation, product, industry, UI & UX design, app development, business
+                            </p>
+                            <div className="homepage-header-buttons">
+                                <Button as={Link} to="/register" replace compact
+                                    className="register primary-button">Craft Enterprise</Button>
+                                <p>Existing user?<Link to="/login" className="item-link">Log in to FantasyLab</Link></p>
+                            </div>  
+                        </div>
+                    </Container>
+                </div>
                 <section className="home-section">
                     <Container className="custom-col-6">
                         <h3>Services</h3>
