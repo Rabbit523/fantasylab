@@ -474,6 +474,82 @@ p {
     }
   }
 }
+.review-item {
+  padding: 20px 80px 30px 80px;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+  margin-right: 5px;
+  border-radius: 5px;
+  .review-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 15px;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    .icon-quote-right {
+      border: 1px solid #202c5a;
+      background: #070e29;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      position: absolute;
+      margin-left: 20px;
+      margin-top: 15px;
+      i {
+        margin-left: 6px;
+        margin-top: 8px;
+        color: #7436e9;
+      }
+    }
+  }
+  .review-text-section {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    .name {
+      color: #7436e9;
+    }
+    .description {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      height: 94px;
+      width: 100%;
+      display: -webkit-box;
+      -webkit-line-clamp: 8;
+      -webkit-box-orient: vertical;
+      font-family: "Gotham Book";
+      font-size: 16px;   
+    }
+    hr {
+      width: 115px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      border: 1px solid #7436e9;
+    }
+  }
+}
+.alice-carousel {
+  .alice-carousel__dots {
+    text-align: left !important;
+    .alice-carousel__dots-item {
+      background-color: #fff !important;
+    }
+    .alice-carousel__dots-item:hover, .alice-carousel__dots-item.__active {
+      background-color: #7436e9 !important;
+    }
+  }
+  .alice-carousel__prev-btn {
+    display: none;
+  }
+  .alice-carousel__next-btn {
+    display: none;
+  }
+}
 @media (min-width: 320px) {
   .segment.mobile-navbar {
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
@@ -889,6 +965,40 @@ p {
       min-height: 50vh;
       color: #fff;
       margin-top: 90px;
+      .home-review {
+        margin-bottom: 20px;
+      }
+      .alice-carousel {
+        margin-left: 167px;
+      }
+      .alice-carousel_prev_btn {
+        position: absolute;
+        top: 135px;
+        left: 110px;
+        border-radius: 50%;
+        border: none;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        i {
+          color: #7436e9;
+          padding-left: 3px;
+        }
+      }
+      .alice-carousel_next_btn {
+        position: absolute;
+        top: 175px;
+        left: 110px;
+        border-radius: 50%;
+        border: none;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        i {
+          color: #7436e9;
+          padding-left: 3px;
+        }
+      }
     }
     .home-estimation {
       min-height: 50vh;

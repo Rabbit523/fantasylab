@@ -6,6 +6,7 @@ import PageFooter from '../../common/pageFooter'
 import ServiceItem from '../../common/serviceItem'
 import BadgeTextCard from '../../common/badgeTextCard'
 import PortfolioCard from '../../common/portfolioCard'
+import Gallery from '../../common/carousel'
 import AuthService from '../../services'
 class Page extends React.Component {
     constructor(props) {
@@ -128,7 +129,34 @@ class Page extends React.Component {
                     from: 'home',
                     icon_url: '../images/123apotek.png'
                 }
-            }
+            },
+            carousels: [
+                {
+                    avatar: "/images/avollon_avatar.jpg",
+                    name: "Cate Backer",
+                    description: "The team in FantasyLab is highly competent and distinguishes itself through flexibility, speed and good understanding of the users. They are nice to work with.",
+                    job: "CEO, Avollon AS"
+                },
+                {
+                    avatar: "/images/maora_avatar.jpg",
+                    name: "Maora-Iren Mahgoub",
+                    description: "FantasyLab is outstanding! Collaboration couldn't be better. They are passionate about delivering a result that both the customer and they themselves can be proud of.",
+                    job: "CEO, MAORA AS"
+                },
+                {
+                    avatar: "/images/accessoslo_avatar.jpg",
+                    name: "Aleksander Aaland",
+                    description: "FantasyLab does an incredibly good job, are quick to respond and make changes when needed. We never get a no, they always find a solution for us.",
+                    job: "CEO, Access Oslo AS"
+                },
+                ,
+                {
+                    avatar: "/images/apotek_avatar.jpg",
+                    name: "Jane Merry",
+                    description: "FantasyLab does an incredibly good job, are quick to respond and make changes when needed. We never get a no, they always find a solution for us.",
+                    job: "CEO, Apotek"
+                }
+            ]
         };
     }
 
@@ -252,6 +280,20 @@ class Page extends React.Component {
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>
+                    </Container>
+                </section>
+                <section className="home-section">
+                    <Container className="custom-col-6 home-review">
+                        <h3>Choose excellence, always.</h3>
+                        <p>The scrum Framework and an Agile mindset is paramount.</p>
+                    </Container>
+                    <Container className="custom-col-8">
+                        <Gallery items={this.state.carousels}/>
+                    </Container>
+                </section>
+                <section className="home-section">
+                    <Container className="custom-col-6">
+                        <h3>Latest News</h3>
                     </Container>
                 </section>
                 <PageFooter url={this.state.footer_url} />
