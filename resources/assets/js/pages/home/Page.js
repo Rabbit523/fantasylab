@@ -7,6 +7,7 @@ import ServiceItem from '../../common/serviceItem'
 import BadgeTextCard from '../../common/badgeTextCard'
 import PortfolioCard from '../../common/portfolioCard'
 import Gallery from '../../common/carousel'
+import NewsCard from '../../common/newsCard'
 import AuthService from '../../services'
 class Page extends React.Component {
     constructor(props) {
@@ -156,6 +157,35 @@ class Page extends React.Component {
                     description: "FantasyLab does an incredibly good job, are quick to respond and make changes when needed. We never get a no, they always find a solution for us.",
                     job: "CEO, Apotek"
                 }
+            ],
+            news: [
+                {
+                    url: '/images/agile-news.jpg',
+                    author: 'Nohman Janjua',
+                    type: 'Design',
+                    title: 'The Agile Principles',
+                    description: '',
+                    time: '5 min ago',
+                    read: '5 min'
+                },
+                {
+                    url: '/images/ui-news.jpg',
+                    author: 'Farhood Gandomani',
+                    type: 'Business',
+                    title: 'UX Design Strategy',
+                    description: 'Lorem lpsum is simply dummy text',
+                    time: '25.03.19',
+                    read: '5 min'
+                },
+                {
+                    url: '/images/wordpress-news.jpg',
+                    author: 'Nohman Janjua',
+                    type: 'Wordpress',
+                    title: 'WordPress Pros and Cons',
+                    description: '',
+                    time: '25.03.19',
+                    read: '5 min'
+                }
             ]
         };
     }
@@ -294,6 +324,20 @@ class Page extends React.Component {
                 <section className="home-section">
                     <Container className="custom-col-6">
                         <h3>Latest News</h3>
+                        <Grid padded="horizontally">
+                            <Grid.Row columns={3} className="custom-row">
+                            {
+                                this.state.news.map(function(item, i){
+                                    console.log(item);
+                                    return (
+                                        <Grid.Column key={i} className="custom-column">
+                                            <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
+                                        </Grid.Column>
+                                    )
+                                })
+                            }
+                            </Grid.Row>
+                        </Grid>
                     </Container>
                 </section>
                 <PageFooter url={this.state.footer_url} />
