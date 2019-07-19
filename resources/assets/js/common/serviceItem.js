@@ -23,7 +23,6 @@ class ServiceItem extends React.Component {
             borderBottom: '2px solid ' + this.props.color,
             cursor: 'pointer'
         };
-        console.log("render",item_hover);
         return (
             <ReactHoverObserver className='service-item-observer'>
                 {({ isHovering }) => (
