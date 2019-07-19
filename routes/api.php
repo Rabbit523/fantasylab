@@ -24,8 +24,10 @@ Route::group(['prefix'=> 'auth'],function(){
     Route::post('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|');
 });
 
-Route::middleware(['jwt_auth'])->group(function(){
+Route::middleware(['prefix'=> 'api'])->group(function(){
    Route::get('/hello',function(){
-       return "Cool dude";
+       return response()->json("Cool dude");
    });
+   Route::get('/front/homepage', 'Api\FrontendController@homepage');
+   Route::get('/front/portfoliopage', 'Api\FrontendController@portfoliopage');
 });

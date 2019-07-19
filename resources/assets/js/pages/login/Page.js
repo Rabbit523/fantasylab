@@ -14,7 +14,6 @@ import {Link, Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ReeValidate from 'ree-validate'
 import AuthService from '../../services'
-import PageHeader from '../../common/pageHeader'
 
 class Page extends React.Component {
     constructor(props) {
@@ -89,6 +88,26 @@ class Page extends React.Component {
     }
 
     componentDidMount(){
+        // const social = this.props.match.params.social
+        // const params = this.props.location.search;
+        // setTimeout(function () {
+
+        //     if (params && social) {
+        //         this.props.dispatch(AuthService.socialLogin({ params, social }))
+        //             .catch(({ error, statusCode }) => {
+        //                 const responseError = {
+        //                     isError: true,
+        //                     code: statusCode,
+        //                     text: error
+        //                 };
+        //                 this.setState({ responseError });
+        //                 this.setState({
+        //                     isLoading: false
+        //                 });
+        //             })
+        //     }
+
+        // }.bind(this), 1000);
         this.setState({
             isLoading: false
         });
@@ -107,7 +126,6 @@ class Page extends React.Component {
 
         return (
             <React.Fragment>
-                <PageHeader heading="login"/>
                 <Segment className='page-loader' style={{display: this.state.isLoading ? 'block' : 'none'}}>
                     <Dimmer active inverted>
                         <Loader size='large'>Authenticating...</Loader>

@@ -18,7 +18,7 @@ class ServiceItem extends React.Component {
 
     render() {
         const item_hover = {
-            backgroundImage: this.props.backimage?`url(${ this.props.backimage})`:'linear-gradient(to bottom, #09133a 0%, #070e28 100%);',
+            backgroundImage: this.props.backimage?`url(${ this.props.backimage})`:'linear-gradient(to bottom, #09133a 0%, #070e28 100%)',
             backgroundSize: 'cover',
             borderBottom: '2px solid ' + this.props.color,
             cursor: 'pointer'
