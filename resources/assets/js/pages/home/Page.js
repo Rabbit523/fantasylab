@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Container, Grid } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import PageHeader from '../../common/pageHeader'
 import PageFooter from '../../common/pageFooter'
 import ServiceItem from '../../common/serviceItem'
 import BadgeTextCard from '../../common/badgeTextCard'
@@ -14,13 +13,14 @@ class Page extends React.Component {
         super(props);
 
         this.state = {
-            header_url: '/images/home-header-back.png',
+            header_url: '../images/home-header-back.png',
             header_title: 'Welcome',
-            footer_url: '/images/home-footer-back.png',
+            footer_url: '../images/home-footer-back.png',
             services: {
                 'desktop': {
                     type: 'desktop',
                     url: '../images/desktop.png',
+                    backimage: '',
                     color: '#7436e9',
                     title: 'Web Development',
                     description: ''
@@ -28,6 +28,7 @@ class Page extends React.Component {
                 'mobile': {
                     type: 'mobile',
                     url: '../images/mobile.png',
+                    backimage: '/images/mobile-back.png',
                     color: '#f34cb5',
                     title: 'Mobile Development',
                     description: 'Lorem ipsum dolor sit amet constatur ipsum'
@@ -35,6 +36,7 @@ class Page extends React.Component {
                 'ui': {
                     type: 'ui',
                     url: '../images/ui.png',
+                    backimage: '',
                     color: '#f3a864',
                     title: 'UI & UX',
                     description: ''
@@ -42,6 +44,7 @@ class Page extends React.Component {
                 'branding': {
                     type: 'branding',
                     url: '../images/branding.png',
+                    backimage: '',
                     color: '#e4cb0d',
                     title: 'Branding',
                     description: ''
@@ -49,6 +52,7 @@ class Page extends React.Component {
                 'illustration': {
                     type: 'illustration',
                     url: '../images/illustration.png',
+                    backimage: '',
                     color: '#90ce41',
                     title: 'Illustration',
                     description: ''
@@ -56,6 +60,7 @@ class Page extends React.Component {
                 'marketing': {
                     type: 'marketing',
                     url: '../images/marketing.png',
+                    backimage: '',
                     color: '#90ce41',
                     title: 'Material',
                     description: ''
@@ -133,26 +138,26 @@ class Page extends React.Component {
             },
             carousels: [
                 {
-                    avatar: "/images/avollon_avatar.jpg",
+                    avatar: "../images/avollon_avatar.jpg",
                     name: "Cate Backer",
                     description: "The team in FantasyLab is highly competent and distinguishes itself through flexibility, speed and good understanding of the users. They are nice to work with.",
                     job: "CEO, Avollon AS"
                 },
                 {
-                    avatar: "/images/maora_avatar.jpg",
+                    avatar: "../images/maora_avatar.jpg",
                     name: "Maora-Iren Mahgoub",
                     description: "FantasyLab is outstanding! Collaboration couldn't be better. They are passionate about delivering a result that both the customer and they themselves can be proud of.",
                     job: "CEO, MAORA AS"
                 },
                 {
-                    avatar: "/images/accessoslo_avatar.jpg",
+                    avatar: "../images/accessoslo_avatar.jpg",
                     name: "Aleksander Aaland",
                     description: "FantasyLab does an incredibly good job, are quick to respond and make changes when needed. We never get a no, they always find a solution for us.",
                     job: "CEO, Access Oslo AS"
                 },
                 ,
                 {
-                    avatar: "/images/apotek_avatar.jpg",
+                    avatar: "../images/apotek_avatar.jpg",
                     name: "Jane Merry",
                     description: "FantasyLab does an incredibly good job, are quick to respond and make changes when needed. We never get a no, they always find a solution for us.",
                     job: "CEO, Apotek"
@@ -160,7 +165,7 @@ class Page extends React.Component {
             ],
             news: [
                 {
-                    url: '/images/agile-news.jpg',
+                    url: '../images/agile-news.jpg',
                     author: 'Nohman Janjua',
                     type: 'Design',
                     title: 'The Agile Principles',
@@ -169,7 +174,7 @@ class Page extends React.Component {
                     read: '5 min'
                 },
                 {
-                    url: '/images/ui-news.jpg',
+                    url: '../images/ui-news.jpg',
                     author: 'Farhood Gandomani',
                     type: 'Business',
                     title: 'UX Design Strategy',
@@ -178,7 +183,7 @@ class Page extends React.Component {
                     read: '5 min'
                 },
                 {
-                    url: '/images/wordpress-news.jpg',
+                    url: '../images/wordpress-news.jpg',
                     author: 'Nohman Janjua',
                     type: 'Wordpress',
                     title: 'WordPress Pros and Cons',
@@ -243,24 +248,24 @@ class Page extends React.Component {
                         <Grid padded="horizontally">
                             <Grid.Row columns={2} className="custom-row">
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.desktop.url} type={this.state.services.desktop.type} title={this.state.services.desktop.title} color={this.state.services.desktop.color} description={this.state.services.desktop.description} />
+                                    <ServiceItem url={this.state.services.desktop.url} type={this.state.services.desktop.type} title={this.state.services.desktop.title} color={this.state.services.desktop.color} description={this.state.services.desktop.description} backimage={this.state.services.desktop.backimage}/>
                                 </Grid.Column>
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.mobile.url} type={this.state.services.mobile.type} title={this.state.services.mobile.title} color={this.state.services.mobile.color} description={this.state.services.mobile.description} />
+                                    <ServiceItem url={this.state.services.mobile.url} type={this.state.services.mobile.type} title={this.state.services.mobile.title} color={this.state.services.mobile.color} description={this.state.services.mobile.description} backimage={this.state.services.mobile.backimage}/>
                                 </Grid.Column>
                             </Grid.Row>
                             <Grid.Row columns={4} className="custom-row">
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.ui.url} type={this.state.services.ui.type} title={this.state.services.ui.title} color={this.state.services.ui.color} description={this.state.services.ui.description} />
+                                    <ServiceItem url={this.state.services.ui.url} type={this.state.services.ui.type} title={this.state.services.ui.title} color={this.state.services.ui.color} description={this.state.services.ui.description} backimage={this.state.services.ui.backimage}/>
                                 </Grid.Column>
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.branding.url} type={this.state.services.branding.type} title={this.state.services.branding.title} color={this.state.services.branding.color} description={this.state.services.branding.description} />
+                                    <ServiceItem url={this.state.services.branding.url} type={this.state.services.branding.type} title={this.state.services.branding.title} color={this.state.services.branding.color} description={this.state.services.branding.description} backimage={this.state.services.branding.backimage}/>
                                 </Grid.Column>
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.illustration.url} type={this.state.services.illustration.type} title={this.state.services.illustration.title} color={this.state.services.illustration.color} description={this.state.services.illustration.description} />
+                                    <ServiceItem url={this.state.services.illustration.url} type={this.state.services.illustration.type} title={this.state.services.illustration.title} color={this.state.services.illustration.color} description={this.state.services.illustration.description} backimage={this.state.services.illustration.backimage}/>
                                 </Grid.Column>
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.marketing.url} type={this.state.services.marketing.type} title={this.state.services.marketing.title} color={this.state.services.marketing.color} description={this.state.services.marketing.description} />
+                                    <ServiceItem url={this.state.services.marketing.url} type={this.state.services.marketing.type} title={this.state.services.marketing.title} color={this.state.services.marketing.color} description={this.state.services.marketing.description} backimage={this.state.services.marketing.backimage}/>
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>

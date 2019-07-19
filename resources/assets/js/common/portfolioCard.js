@@ -16,7 +16,7 @@ class PortfolioCard extends React.Component {
                 : 
                     <div className="portfolio-text">
                         <p>{this.props.title}</p>
-                        <p>{this.props.description}</p>
+                        <p className="portfolio-des">{this.props.description}</p>
                     </div>
                 }
             </div>

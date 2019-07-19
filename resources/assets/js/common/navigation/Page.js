@@ -73,7 +73,7 @@ class Page extends React.Component {
                                 <React.Fragment>
                                     <Menu.Item as={Link} to="/" className="logo" replace style={{margin: 0, padding: 0, paddingRight: 20}}>
                                         <img src={require('../../../images/theme/logo.png')} /></Menu.Item>
-                                    <Dropdown text="Services" className="collapsible-menu nav-color">
+                                    <Dropdown text="Services" className="collapsible-menu nav-color services">
                                             <Dropdown.Menu className='bounceIn animated custom-col-6'>
                                                 <div className="custom-box">
                                                     <Container className="custom-col-6">
@@ -154,11 +154,11 @@ class Page extends React.Component {
                                                 </div>
                                             </Dropdown.Menu>
                                     </Dropdown>
-                                    <Menu.Item as={NavLink} to="/portfolio" className="nav-color">Portfolio</Menu.Item>
-                                    <Menu.Item as={NavLink} to="/features" className="nav-color">Features</Menu.Item>
-                                    <Menu.Item as={NavLink} to="/about" className="nav-color">About</Menu.Item>
-                                    <Menu.Item as={NavLink} to="/blog" className="nav-color">Blog</Menu.Item>
-                                    <Menu.Item as={NavLink} to="/contact" className="nav-color">Contact</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/portfolio" className="nav-color portfolio">Portfolio</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/features" className="nav-color features">Features</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/about" className="nav-color about">About</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/blog" className="nav-color blog">Blog</Menu.Item>
+                                    <Menu.Item as={NavLink} to="/contact" className="nav-color contact">Contact</Menu.Item>
                                 </React.Fragment>
                             }
                             <Menu.Menu position='right' className="right-menu-width">

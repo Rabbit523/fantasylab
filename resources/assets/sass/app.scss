@@ -231,7 +231,7 @@ p {
   font-size: 16px !important;
   &:hover {
     background: linear-gradient(to bottom, #7630f9 0%, #5710de 100%) !important;
-    box-shadow: 5px 5px 30px rgba(130,63,255, 0.5);
+    box-shadow: 5px 5px 30px rgba(130,63,255, 0.5) !important;
   }
   &:active {
     background: linear-gradient(to bottom, #6e29f0 0%, #4e08d1 100%) !important;
@@ -253,6 +253,12 @@ p {
     border: 2px solid #fff !important;
   }
 }
+.item {
+  &.hover {
+    background: #060d26 !important;
+    border: none !important;
+  }
+}
 .nav-color {
   color:#9aa2bf !important;
   margin: 0 !important;
@@ -263,15 +269,48 @@ p {
   font-weight: bold !important;
   font-size: 18px;
   position: inherit !important;
-  &.active {
-    background: #060d26 !important;
-    border: none !important;
+  margin-right: 10px !important;
+  &.services {
+    &.active {
+      border-bottom: 2px solid #8341ff !important;
+      color: #8341ff !important;
+    }
+  }
+  &.portfolio {
+    &.active {
+      border-bottom: 2px solid #f84db8 !important;
+      color: #f84db8 !important;
+    }
+  }
+  &.features {
+    &.active {
+      border-bottom: 2px solid #f49d43 !important;
+      color: #f49d43 !important;
+    }
+  }
+  &.about {
+    &.active {
+      border-bottom: 2px solid #f3dc17 !important;
+      color: #f3dc17 !important;
+    }
+  }
+  &.blog {
+    &.active {
+      border-bottom: 2px solid #94d544 !important;
+      color: #94d544 !important;
+    }
+  }
+  &.contact {
+    &.active {
+      border-bottom: 2px solid #3e75db !important;
+      color: #3e75db !important;
+    }
   }
 }
 .divide {
   background-image: url('../images/theme/divide-back3.png') !important;
   min-height: 110px;
-  height: 150px;
+  height: 175px;
   width: 100%;
   background-size: cover !important;
 }
@@ -299,7 +338,7 @@ p {
 }
 .service-item {
   padding: 20px 20px 30px 20px;
-  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -340,49 +379,6 @@ p {
       color: #fff;
       font-weight: 100;
     }
-  }
-  &.mobile {
-    &:hover {
-      background-image: url('../images/theme/mobile-back.png') !important;
-      background-size: cover !important;
-      border-bottom: 2px solid #f34cb5;
-    }
-  }
-  &:hover {
-    cursor: pointer;
-    &.desktop {
-      border-bottom: 2px solid #7436e9 !important;
-    }
-    .avatar-item {
-      margin-bottom: 5px;
-      &.desktop {
-        border-color: #7436e9;
-        color: #7436e9;
-      }
-      &.mobile {
-        border-color: #f34cb5;
-        color: #f34cb5;
-      }
-      &.ui {
-        border-color: #f3a864;
-        color: #f3a864;
-      }
-      &.branding {
-        border-color: #e4cb0d;
-        color: #e4cb0d;
-      }
-      &.illustration {
-        border-color: #90ce41;
-        color: #90ce41;
-      }
-      &.marketing {
-        border-color: #285596;
-        color: #285596;
-      }
-    }
-    .description {
-      display: block;
-    }             
   }
 }
 .badge-item {
@@ -452,13 +448,22 @@ p {
   }
   .portfolio-text {
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     flex: 1;
+    margin-top: 130px;
+    flex-direction: column;
     p {
-      font-size: 16px;
-      font-family: "Gotham Book";
+      font-size: 18px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
       white-space: pre-wrap;
       color: #fff;
+      margin: 0;
+      &.portfolio-des {
+        color: #8341ff;
+        font-size: 16px;
+        font-family: "Gotham Book";
+      }
     }
   }
 }
@@ -1025,7 +1030,7 @@ p {
         }
         .homepage-header-buttons {
           .register {
-            padding: 20px 60px 20px 60px;
+            padding: 15px 70px 15px 70px;
           }
         }
       }
@@ -1036,7 +1041,7 @@ p {
         padding-left: 5px;
         padding-right: 5px;
         &:first-child {
-          padding-left: 0;
+          padding-left: 0;          
         }
         &:last-child {
           padding-right: 0;
@@ -1047,6 +1052,9 @@ p {
       min-height: 50vh;
       color: #fff;
       margin-top: 90px;
+      .service-item-observer {
+        height: 100%;
+      }
       .home-review {
         margin-bottom: 20px;
       }
@@ -1103,6 +1111,53 @@ p {
           padding-right: 40px;
         }
       }
+    }
+  }
+  .portfolio-page {
+    min-height: 110vh;
+    padding-top: 70px;
+    background: #03051b;
+    .portfolio-header {
+      min-height: 550px;
+      height: auto;
+      width: 100%;
+      background-size: cover;
+      .header-gradient {
+        width: 100%;
+        height: 550px;
+        background: linear-gradient(to right bottom, rgba(14, 27, 70, 0.8), rgba(3, 5, 28, 0.9)) !important;
+        .portfolio-header-description {
+          text-align: center;
+          color: #fff;
+          padding: 100px 150px 100px 150px;
+          .portfolio-header-text {
+            padding-left: 100px;
+            padding-right: 100px;
+            padding-bottom: 50px;
+            p {
+              color: #949dbf;
+              font-size: 18px;
+            }
+          }
+          .portfolio-header-figure {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .figure {
+              padding-left: 30px;
+              padding-right: 30px;
+              p {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .portfolio-studios {
+      text-align: center;
+      color: #fff;
+      margin-top: -50px;
     }
   }
   .home-header {
