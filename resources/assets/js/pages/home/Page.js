@@ -13,13 +13,13 @@ class Page extends React.Component {
         super(props);
 
         this.state = {
-            header_url: '../images/home-header-back.png',
+            header_url: '/images/home-header-back.png',
             header_title: 'Welcome',
-            footer_url: '../images/home-footer-back.png',
+            footer_url: '/images/home-footer-back.png',
             services: {
                 'desktop': {
                     type: 'desktop',
-                    url: '../images/desktop.png',
+                    url: '/images/desktop.png',
                     backimage: '',
                     color: '#7436e9',
                     title: 'Web Development',
@@ -27,7 +27,7 @@ class Page extends React.Component {
                 },
                 'mobile': {
                     type: 'mobile',
-                    url: '../images/mobile.png',
+                    url: '/images/mobile.png',
                     backimage: '/images/mobile-back.png',
                     color: '#f34cb5',
                     title: 'Mobile Development',
@@ -35,7 +35,7 @@ class Page extends React.Component {
                 },
                 'ui': {
                     type: 'ui',
-                    url: '../images/ui.png',
+                    url: '/images/ui.png',
                     backimage: '',
                     color: '#f3a864',
                     title: 'UI & UX',
@@ -43,7 +43,7 @@ class Page extends React.Component {
                 },
                 'branding': {
                     type: 'branding',
-                    url: '../images/branding.png',
+                    url: '/images/branding.png',
                     backimage: '',
                     color: '#e4cb0d',
                     title: 'Branding',
@@ -51,7 +51,7 @@ class Page extends React.Component {
                 },
                 'illustration': {
                     type: 'illustration',
-                    url: '../images/illustration.png',
+                    url: '/images/illustration.png',
                     backimage: '',
                     color: '#90ce41',
                     title: 'Illustration',
@@ -59,7 +59,7 @@ class Page extends React.Component {
                 },
                 'marketing': {
                     type: 'marketing',
-                    url: '../images/marketing.png',
+                    url: '/images/marketing.png',
                     backimage: '',
                     color: '#90ce41',
                     title: 'Material',
@@ -69,42 +69,42 @@ class Page extends React.Component {
             badges: {
                 'mapping': {
                     number: '1',
-                    url: '../images/purple-badge.png',
+                    url: '/images/purple-badge.png',
                     color: '#7436e9',
                     title: 'Mapping of requirements',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                 },
                 'estimation': {
                     number: '2',
-                    url: '../images/pink-badge.png',
+                    url: '/images/pink-badge.png',
                     color: '#f34cb5',
                     title: 'Estimation',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                 },
                 'proposal': {
                     number: '3',
-                    url: '../images/orange-badge.png',
+                    url: '/images/orange-badge.png',
                     color: '#f3a864',
                     title: 'Propsal & acceptance',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                 },
                 'design': {
                     number: '4',
-                    url: '../images/yellow-badge.png',
+                    url: '/images/yellow-badge.png',
                     color: '#e4cb0d',
                     title: 'Design process',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                 },
                 'devlopment': {
                     number: '5',
-                    url: '../images/blue-badge.png',
+                    url: '/images/blue-badge.png',
                     color: '#90ce41',
                     title: 'Development process',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
                 },
                 'delivery': {
                     number: '6',
-                    url: '../images/green-badge.png',
+                    url: '/images/green-badge.png',
                     color: '#90ce41',
                     title: 'Delivery',
                     description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
@@ -113,51 +113,51 @@ class Page extends React.Component {
             portfolios: {
                 'avollon': {
                     from: 'home',
-                    icon_url: '../images/avollon.png'
+                    icon_url: '/images/avollon.png'
                 },
                 'osg': {
                     from: 'home',
-                    icon_url: '../images/osg.png'
+                    icon_url: '/images/osg.png'
                 },
                 'proguiden': {
                     from: 'home',
-                    icon_url: '../images/proguiden.png'
+                    icon_url: '/images/proguiden.png'
                 },
                 'attitude': {
                     from: 'home',
-                    icon_url: '../images/attitude.png'
+                    icon_url: '/images/attitude.png'
                 },
                 'maora': {
                     from: 'home',
-                    icon_url: '../images/maora.png'
+                    icon_url: '/images/maora.png'
                 },
                 'apotek': {
                     from: 'home',
-                    icon_url: '../images/123apotek.png'
+                    icon_url: '/images/123apotek.png'
                 }
             },
             carousels: [
                 {
-                    avatar: "../images/avollon_avatar.jpg",
+                    avatar: "/images/avollon_avatar.jpg",
                     name: "Cate Backer",
                     description: "The team in FantasyLab is highly competent and distinguishes itself through flexibility, speed and good understanding of the users. They are nice to work with.",
                     job: "CEO, Avollon AS"
                 },
                 {
-                    avatar: "../images/maora_avatar.jpg",
+                    avatar: "/images/maora_avatar.jpg",
                     name: "Maora-Iren Mahgoub",
                     description: "FantasyLab is outstanding! Collaboration couldn't be better. They are passionate about delivering a result that both the customer and they themselves can be proud of.",
                     job: "CEO, MAORA AS"
                 },
                 {
-                    avatar: "../images/accessoslo_avatar.jpg",
+                    avatar: "/images/accessoslo_avatar.jpg",
                     name: "Aleksander Aaland",
                     description: "FantasyLab does an incredibly good job, are quick to respond and make changes when needed. We never get a no, they always find a solution for us.",
                     job: "CEO, Access Oslo AS"
                 },
                 ,
                 {
-                    avatar: "../images/apotek_avatar.jpg",
+                    avatar: "/images/apotek_avatar.jpg",
                     name: "Jane Merry",
                     description: "FantasyLab does an incredibly good job, are quick to respond and make changes when needed. We never get a no, they always find a solution for us.",
                     job: "CEO, Apotek"
@@ -165,7 +165,7 @@ class Page extends React.Component {
             ],
             news: [
                 {
-                    url: '../images/agile-news.jpg',
+                    url: '/images/agile-news.jpg',
                     author: 'Nohman Janjua',
                     type: 'Design',
                     title: 'The Agile Principles',
@@ -174,7 +174,7 @@ class Page extends React.Component {
                     read: '5 min'
                 },
                 {
-                    url: '../images/ui-news.jpg',
+                    url: '/images/ui-news.jpg',
                     author: 'Farhood Gandomani',
                     type: 'Business',
                     title: 'UX Design Strategy',
@@ -183,7 +183,7 @@ class Page extends React.Component {
                     read: '5 min'
                 },
                 {
-                    url: '../images/wordpress-news.jpg',
+                    url: '/images/wordpress-news.jpg',
                     author: 'Nohman Janjua',
                     type: 'Wordpress',
                     title: 'WordPress Pros and Cons',
