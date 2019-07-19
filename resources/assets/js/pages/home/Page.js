@@ -20,6 +20,7 @@ class Page extends React.Component {
                 'desktop': {
                     type: 'desktop',
                     url: '../images/desktop.png',
+                    backimage: '',
                     color: '#7436e9',
                     title: 'Web Development',
                     description: ''
@@ -27,6 +28,7 @@ class Page extends React.Component {
                 'mobile': {
                     type: 'mobile',
                     url: '../images/mobile.png',
+                    backimage: '/images/mobile-back.png',
                     color: '#f34cb5',
                     title: 'Mobile Development',
                     description: 'Lorem ipsum dolor sit amet constatur ipsum'
@@ -34,6 +36,7 @@ class Page extends React.Component {
                 'ui': {
                     type: 'ui',
                     url: '../images/ui.png',
+                    backimage: '',
                     color: '#f3a864',
                     title: 'UI & UX',
                     description: ''
@@ -41,6 +44,7 @@ class Page extends React.Component {
                 'branding': {
                     type: 'branding',
                     url: '../images/branding.png',
+                    backimage: '',
                     color: '#e4cb0d',
                     title: 'Branding',
                     description: ''
@@ -48,6 +52,7 @@ class Page extends React.Component {
                 'illustration': {
                     type: 'illustration',
                     url: '../images/illustration.png',
+                    backimage: '',
                     color: '#90ce41',
                     title: 'Illustration',
                     description: ''
@@ -55,6 +60,7 @@ class Page extends React.Component {
                 'marketing': {
                     type: 'marketing',
                     url: '../images/marketing.png',
+                    backimage: '',
                     color: '#90ce41',
                     title: 'Material',
                     description: ''
@@ -242,24 +248,24 @@ class Page extends React.Component {
                         <Grid padded="horizontally">
                             <Grid.Row columns={2} className="custom-row">
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.desktop.url} type={this.state.services.desktop.type} title={this.state.services.desktop.title} color={this.state.services.desktop.color} description={this.state.services.desktop.description} />
+                                    <ServiceItem url={this.state.services.desktop.url} type={this.state.services.desktop.type} title={this.state.services.desktop.title} color={this.state.services.desktop.color} description={this.state.services.desktop.description} backimage={this.state.services.desktop.backimage}/>
                                 </Grid.Column>
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.mobile.url} type={this.state.services.mobile.type} title={this.state.services.mobile.title} color={this.state.services.mobile.color} description={this.state.services.mobile.description} />
+                                    <ServiceItem url={this.state.services.mobile.url} type={this.state.services.mobile.type} title={this.state.services.mobile.title} color={this.state.services.mobile.color} description={this.state.services.mobile.description} backimage={this.state.services.mobile.backimage}/>
                                 </Grid.Column>
                             </Grid.Row>
                             <Grid.Row columns={4} className="custom-row">
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.ui.url} type={this.state.services.ui.type} title={this.state.services.ui.title} color={this.state.services.ui.color} description={this.state.services.ui.description} />
+                                    <ServiceItem url={this.state.services.ui.url} type={this.state.services.ui.type} title={this.state.services.ui.title} color={this.state.services.ui.color} description={this.state.services.ui.description} backimage={this.state.services.ui.backimage}/>
                                 </Grid.Column>
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.branding.url} type={this.state.services.branding.type} title={this.state.services.branding.title} color={this.state.services.branding.color} description={this.state.services.branding.description} />
+                                    <ServiceItem url={this.state.services.branding.url} type={this.state.services.branding.type} title={this.state.services.branding.title} color={this.state.services.branding.color} description={this.state.services.branding.description} backimage={this.state.services.branding.backimage}/>
                                 </Grid.Column>
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.illustration.url} type={this.state.services.illustration.type} title={this.state.services.illustration.title} color={this.state.services.illustration.color} description={this.state.services.illustration.description} />
+                                    <ServiceItem url={this.state.services.illustration.url} type={this.state.services.illustration.type} title={this.state.services.illustration.title} color={this.state.services.illustration.color} description={this.state.services.illustration.description} backimage={this.state.services.illustration.backimage}/>
                                 </Grid.Column>
                                 <Grid.Column className="custom-column">
-                                    <ServiceItem url={this.state.services.marketing.url} type={this.state.services.marketing.type} title={this.state.services.marketing.title} color={this.state.services.marketing.color} description={this.state.services.marketing.description} />
+                                    <ServiceItem url={this.state.services.marketing.url} type={this.state.services.marketing.type} title={this.state.services.marketing.title} color={this.state.services.marketing.color} description={this.state.services.marketing.description} backimage={this.state.services.marketing.backimage}/>
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>
