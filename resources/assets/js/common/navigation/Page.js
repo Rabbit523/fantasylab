@@ -4,20 +4,8 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {
-    Button,
-    Container,
-    Dropdown,
-    Divider,
-    Image,
-    Icon,
-    Menu,
-    Responsive,
-    Grid,
-    Segment
-} from 'semantic-ui-react';
+import { Button, Container, Dropdown, Divider, Icon, Menu, Responsive, Grid, Segment } from 'semantic-ui-react';
 import * as actions from '../../store/actions'
-
 
 class Page extends React.Component {
     constructor(props) {
@@ -29,7 +17,6 @@ class Page extends React.Component {
         event.preventDefault();
         this.props.dispatch(actions.authLogout());
     }
-
 
     render() {
         this.avatar = (
@@ -195,7 +182,7 @@ class Page extends React.Component {
                                             className="login">Login</Button>
                                         <div style={{paddingTop: 15}}>
                                         <Button as={Link} to="/register" replace compact
-                                            className="register">Craft Enterprise</Button>
+                                            className="primary-button">Craft Enterprise</Button>
                                         </div>
                                     </Button.Group>
                                 }
