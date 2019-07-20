@@ -14,7 +14,6 @@ class Page extends React.Component {
     componentDidMount() {
         Http.get('api/front/portfoliopage').then(
             res => {
-                console.log(JSON.parse(res.data.data));
                 this.setState({ isLoading: true, data: JSON.parse(res.data.data) });
             }
         ).catch(err => {
