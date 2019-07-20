@@ -1,16 +1,6 @@
 import React from 'react'
-import {
-    Button,
-    Divider,
-    Dimmer,
-    Form,
-    Grid,
-    Header,
-    Icon,
-    Loader,
-    Message,
-    Segment} from 'semantic-ui-react'
-import {Link, Redirect} from 'react-router-dom'
+import { Button, Checkbox, Dimmer, Form, Grid, Header, Icon, Loader, Message, Segment } from 'semantic-ui-react'
+import { Link, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ReeValidate from 'ree-validate'
 import AuthService from '../../services'
@@ -44,18 +34,18 @@ class Page extends React.Component {
         const name = event.target.name;
         const value = event.target.value;
         const { errors } = this.validator;
-        const {credentials} = this.state;
+        const { credentials } = this.state;
         credentials[name] = value;
 
         this.validator.validate(name, value)
             .then(() => {
-                this.setState({errors, credentials})
+                this.setState({ errors, credentials })
             });
     }
 
     handleSubmit(event) {
         event.preventDefault();
-        const {credentials} = this.state;
+        const { credentials } = this.state;
         this.validator.validateAll(credentials)
             .then(success => {
                 if (success) {
@@ -69,13 +59,13 @@ class Page extends React.Component {
 
     submit(credentials) {
         this.props.dispatch(AuthService.login(credentials))
-            .catch(({error, statusCode}) => {
+            .catch(({ error, statusCode }) => {
                 const responseError = {
                     isError: true,
                     code: statusCode,
                     text: error
                 };
-                this.setState({responseError});
+                this.setState({ responseError });
                 this.setState({
                     isLoading: false
                 });
@@ -84,10 +74,10 @@ class Page extends React.Component {
     }
 
     onSocialClick(event, data) {
-       window.location.assign(`redirect/${data.service}`);
+        window.location.assign(`redirect/${data.service}`);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         // const social = this.props.match.params.social
         // const params = this.props.location.search;
         // setTimeout(function () {
@@ -119,41 +109,37 @@ class Page extends React.Component {
 
         if (isAuthenticated) {
             return (
-                <Redirect to={from}/>
+                <Redirect to={from} />
             )
         }
-        const {errors} = this.state;
-
+        const { errors } = this.state;
         return (
             <React.Fragment>
-                <Segment className='page-loader' style={{display: this.state.isLoading ? 'block' : 'none'}}>
+                <Segment className='page-loader' style={{ display: this.state.isLoading ? 'block' : 'none' }}>
                     <Dimmer active inverted>
                         <Loader size='large'>Authenticating...</Loader>
                     </Dimmer>
                 </Segment>
 
-                <Grid
-                    textAlign='center'
-                    verticalAlign='middle'
-                    className='login-form'
-                >
-                    <Grid.Column style={{maxWidth: '450px'}}>
-                        <Header as='h2' color='teal' textAlign='center'>
-                            Login to your account
-                        </Header>
+                <Grid textAlign='center' verticalAlign='middle' className='login-page'>
+                    <Grid.Column style={{ maxWidth: '450px' }}>
+                        <div className="login_title">
+                            <h2>Sign into FantasyLab</h2>                            
+                            <Link to='/register' replace><h3>or create a free FantasyLab account</h3></Link>
+                        </div>
                         {this.state.responseError.isError && <Message negative>
                             <Message.Content>
                                 {this.state.responseError.text}
                             </Message.Content>
                         </Message>}
-                        <Form size='large'>
+                        <Form size='large' className="login-form">
                             <Segment stacked>
                                 <Form.Input
                                     fluid
-                                    icon='user'
-                                    iconPosition='left'
+                                    label="Work email"
                                     name='email'
                                     placeholder='E-mail address'
+                                    className="input-form"
                                     onChange={this.handleChange}
                                     error={errors.has('email')}
                                 />
@@ -162,10 +148,10 @@ class Page extends React.Component {
                                 </Header>}
                                 <Form.Input
                                     fluid
-                                    icon='lock'
-                                    iconPosition='left'
+                                    label="Password"
                                     name='password'
                                     placeholder='Password'
+                                    className="input-form"
                                     type='password'
                                     onChange={this.handleChange}
                                     error={errors.has('password')}
@@ -173,27 +159,16 @@ class Page extends React.Component {
                                 {errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
                                     {errors.first('password')}
                                 </Header>}
-                                <Button color='teal' fluid size='large' onClick={this.handleSubmit}>Login</Button>
-                                <Link to='/forgot-password' replace>Forgot your password?</Link>
-                                 <div className="ui divider"></div>
-                                 <div>Or login with:</div><br/>
-                                <Button onClick={this.onSocialClick.bind(this)} service="facebook" className="ui circular facebook icon button">
-                                  <Icon className="facebook icon" />
-                                </Button>
-                                <Button onClick={this.onSocialClick.bind(this)} service="twitter" className="ui circular twitter icon button">
-                                  <Icon className="twitter icon" />
-                                </Button>
-                                <Button onClick={this.onSocialClick.bind(this)} service="linkedin" className="ui circular linkedin icon button">
-                                 <Icon className="linkedin icon" />
-                                </Button>
-                                <Button onClick={this.onSocialClick.bind(this)} service="google" className="ui circular google plus icon button">
-                                  <Icon className="google plus icon" />
+                                <div className="remember-section">
+                                    <Checkbox label="Remember me" />
+                                    <Link to='/forgot-password' replace><Icon name="lock"/>Forgot password?</Link>
+                                </div>
+                                <Button fluid size='large' className="primary-button" onClick={this.handleSubmit}>Login</Button>
+                                <Button onClick={this.onSocialClick.bind(this)} service="google" className="ui google icon button google-button">
+                                    <img src='images/google.png'/> Login with Google
                                 </Button>
                             </Segment>
                         </Form>
-                        <Message>
-                            New to us? <Link to='/register' replace>Register</Link>
-                        </Message>
                     </Grid.Column>
                 </Grid>
             </React.Fragment>
