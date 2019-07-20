@@ -723,7 +723,7 @@ p {
       text-transform: uppercase;
     }
   }
-  .login-form {
+  .login-page {
     height: 100%;
     margin-top: 3em !important;
     margin-bottom: 5em !important;
@@ -732,11 +732,13 @@ p {
   }
   .form {
     .custom-error {
-      font-family: $Montserrat;
       font-weight: 300;
       margin: 1em !important;
       letter-spacing: 0.06em;
       font-size: 0.85em !important;
+      text-align: left;
+      margin-left: 0 !important;
+      color: #e71f1f !important;
     }
   }
   .page-loader {
@@ -1178,6 +1180,90 @@ p {
     }
     .free-signup-button {
       margin-bottom: 5em;
+    }
+  }
+  .login-page {
+    min-height: 110vh;
+    background: #03051b;
+    margin: 0 !important;
+    padding: 0 !important;
+    .login_title {
+      text-align: center;
+      margin-bottom: 40px;
+      h2 {
+        margin: 0;
+        color: #fff;
+      }
+      h3 {
+        margin: 0;
+        color: #3e75db;
+      }
+    }
+    .login-form {
+      background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+      padding: 20px;
+      border-radius: 5px;
+      .segment {
+        background: transparent;
+        border: none;
+        label {
+          color: #9aa2bf !important;
+          font-weight: bold;
+          font-family: "Gotham Bold";
+          font-size: 16px;
+        }
+        .field {
+          &.error {
+            label:after {
+              content: "*";
+              color: #e71f1f;
+              padding-left: 3px;
+            }
+            input {
+              border-color: #8341ff !important;
+            }
+          }
+          label {
+            text-align: left;
+            padding-bottom: 10px;
+          }
+          input {
+            background: #050a20 !important;
+            border: 2px solid #202c5a;
+            padding: 12px;
+            color: #202c5a !important;
+          }
+        }
+        .remember-section {
+          padding-top: 10px;
+          padding-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+          a {
+            color: #3e75db;
+            font-weight: bold;
+            font-family: "Gotham Bold";
+            font-size: 16px;
+          }
+        }
+        .google-button {
+          width: 100%;
+          margin-top: 10px;
+          color: #363b52;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          background: #fff;
+          font-weight: bold;
+          font-family: "Gotham Bold";
+          font-size: 16px;      
+          img {
+            width: 20px;
+            position: absolute;
+            left: 30px;
+            margin-top: -3px;
+          }
+        }
+      }
     }
   }
 }

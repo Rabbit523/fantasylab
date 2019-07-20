@@ -31,7 +31,7 @@ const Auth = (state= initialState,{type,payload = null}) => {
 const authLogin = (state,payload) => {
     const jwtToken = payload.token;
     const user = payload.user[0];
-    if(!!payload.user[0].is_admin){
+    if(!!payload.user[0].role == 0){
         localStorage.setItem('is_admin',true);
     } else {
         localStorage.setItem('is_admin',false);
