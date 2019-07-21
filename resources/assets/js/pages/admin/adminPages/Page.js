@@ -17,9 +17,8 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        Http.get('api/admin/pages').then(
+        Http.get('/api/admin/pages').then(
             res => {
-                console.log(res);
                 this.setState({ isLoading: true, list: res.data });
             }
         ).catch(err => {
@@ -29,19 +28,24 @@ class Page extends React.Component {
 
     render() {
         return (
-            <div style={{minHeight: '110vh', paddingTop: 70}}>
+            <div className="admin-pages">
             {this.state.isLoading ?
                 <Segment vertical textAlign='center'>
                     {/* <ReactTable data={this.state.list} columns={this.columns} defaultPageSize={10} className="-striped -highlight"/> */}
                     <Container className="custom-col-6">
-                        <List divided relaxed>
-                            <List.Item>
-                            <List.Icon name='github' size='large' verticalAlign='middle' />
-                            <List.Content>
-                                <List.Header as={Link} to="/admin/">Semantic-Org/Semantic-UI</List.Header>
-                                <List.Description as='a'>Updated 10 mins ago</List.Description>
-                            </List.Content>
-                            </List.Item>
+                        <List selection divided relaxed>
+                            { this.state.list.map(function (item, i) {
+                                    return (
+                                        <List.Item key={i}>
+                                            <List.Icon name='github' size='large' verticalAlign='middle' />
+                                            <List.Content>
+                                                <List.Header as={Link} to={`/admin/single-page/${item.page_name}`}>{item.page_name}</List.Header>
+                                                <List.Description as='a'>Updated at {item.updated_at}</List.Description>
+                                            </List.Content>
+                                        </List.Item>
+                                    )
+                                })
+                            }
                         </List>
                     </Container>
                  </Segment>

@@ -1269,6 +1269,26 @@ p {
       }
     }
   }
+  .admin-pages {
+    min-height: 110vh;
+    padding-top: 70px;
+    .list {
+      .item {
+        .content {
+          a {
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-family: "Gotham Bold";
+            padding-bottom: 10px;
+            &.header {
+              font-weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 992px) {

@@ -11,6 +11,7 @@ import About from '../pages/about'
 import Blog from '../pages/blog'
 import Contact from '../pages/contact'
 import AdminPages from '../pages/admin/adminPages'
+import AdminHome from '../pages/admin/single-pages/home'
 const routes = [
     {
         path: '/',
@@ -125,6 +126,12 @@ const routes = [
         exact: true,
         admin: true,
         component: Dashboard
+    },
+    {
+        path: '/admin/single-page/home',
+        exact: true,
+        admin: true,
+        component: AdminHome
     },
     {
         path: '',

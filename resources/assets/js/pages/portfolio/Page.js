@@ -12,7 +12,7 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        Http.get('api/front/portfoliopage').then(
+        Http.post('api/front/get-page', {name: 'portfolio'}).then(
             res => {
                 this.setState({ isLoading: true, data: JSON.parse(res.data.data) });
             }

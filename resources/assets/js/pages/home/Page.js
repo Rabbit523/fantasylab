@@ -18,7 +18,7 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        Http.get('api/front/homepage').then(
+        Http.post('api/front/get-page', {name: 'home'}).then(
             res => {
                 this.setState({ isLoading: true, data: JSON.parse(res.data.data) });
             }

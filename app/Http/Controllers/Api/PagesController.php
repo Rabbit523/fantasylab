@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
-class FrontendController extends Controller
+class PagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -62,13 +62,13 @@ class FrontendController extends Controller
         //
     }
 
-    public function homepage() {
-        $page = Page::where('page_name', 'home')->first();
+    public function getPage(Request $request) {
+        $page = Page::where('page_name', $request->name)->first();
         return response()->json($page);
-    }
+    }  
 
-    public function portfoliopage() {
-        $page = Page::where('page_name', 'portfolio')->first();
-        return response()->json($page);
+    public function getPages() {
+        $pages = Page::get();
+        return response()->json($pages);
     }
 }
