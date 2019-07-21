@@ -10,7 +10,8 @@ import Features from '../pages/features'
 import About from '../pages/about'
 import Blog from '../pages/blog'
 import Contact from '../pages/contact'
-
+import AdminPages from '../pages/admin/adminPages'
+import AdminHome from '../pages/admin/single-pages/home'
 const routes = [
     {
         path: '/',
@@ -49,12 +50,6 @@ const routes = [
         component: ResetPassword
     },
     {
-        path: '/dashboard',
-        exact: true,
-        admin: true,
-        component: Dashboard
-    },
-    {
         path: '/portfolio',
         exact: true,
         auth: false,
@@ -83,6 +78,60 @@ const routes = [
         exact: true,
         auth: false,
         component: Contact
+    },
+    {
+        path: '/admin/dashboard',
+        exact: true,
+        admin: true,
+        component: Dashboard
+    },
+    {
+        path: '/admin/pages',
+        exact: true,
+        admin: true,
+        component: AdminPages
+    },
+    {
+        path: '/admin/services',
+        exact: true,
+        admin: true,
+        component: Dashboard
+    },
+    {
+        path: '/admin/clients',
+        exact: true,
+        admin: true,
+        component: Dashboard
+    },
+    {
+        path: '/admin/projects',
+        exact: true,
+        admin: true,
+        component: Dashboard
+    },
+    {
+        path: '/admin/teams',
+        exact: true,
+        admin: true,
+        component: Dashboard
+    },
+    {
+        path: '/admin/invoices',
+        exact: true,
+        admin: true,
+        component: Dashboard
+    },
+    {
+        path: '/admin/settings',
+        exact: true,
+        admin: true,
+        component: Dashboard
+    },
+    {
+        path: '/admin/single-page/home',
+        exact: true,
+        admin: true,
+        component: AdminHome
     },
     {
         path: '',

@@ -195,6 +195,7 @@ p {
 .admin-sidebar {
   top: 60px !important;
   position: absolute !important;
+  background: #070a2b !important;
 }
 .custom-col-1 {
   width: 10% !important;
@@ -213,6 +214,9 @@ p {
 }
 .custom-col-8 {
   width: 80% !important;
+}
+.ReactTable .rt-td {
+  text-transform: uppercase;
 }
 .login {
   background: transparent !important;
@@ -766,7 +770,6 @@ p {
   }
   .footer {
     background: #070a2b !important;
-    margin-top: 8px;
     color: #656b88;
     font-size: 16px;
     font-family: "Gotham Book";
@@ -1316,6 +1319,26 @@ p {
             margin-top: 10px;
             padding-top: 20px;
             padding-bottom: 20px;
+          }
+        }
+      }
+    }
+  }
+  .admin-pages {
+    min-height: 110vh;
+    padding-top: 70px;
+    .list {
+      .item {
+        .content {
+          a {
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-family: "Gotham Bold";
+            padding-bottom: 10px;
+            &.header {
+              font-weight: bold;
+            }
           }
         }
       }

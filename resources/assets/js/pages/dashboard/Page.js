@@ -1,14 +1,5 @@
 import React from 'react'
-import {
-    Button,
-    Container,
-    Grid,
-    Header,
-    Icon,
-    Responsive,
-    Segment,
-    Step
-} from 'semantic-ui-react'
+import { Button, Container, Grid, Header, Icon, Responsive, Segment, Step } from 'semantic-ui-react'
 class Page extends React.Component {
     constructor(props) {
         super(props);

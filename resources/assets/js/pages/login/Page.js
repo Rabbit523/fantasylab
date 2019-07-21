@@ -23,7 +23,7 @@ class Page extends React.Component {
                 code: '',
                 text: ''
             },
-            isLoading: false,
+            isLoaded: false,
             errors: this.validator.errors
         };
         this.handleChange = this.handleChange.bind(this);
@@ -50,7 +50,7 @@ class Page extends React.Component {
             .then(success => {
                 if (success) {
                     this.setState({
-                        isLoading: true
+                        isLoaded: true
                     });
                     this.submit(credentials);
                 }
@@ -67,7 +67,7 @@ class Page extends React.Component {
                 };
                 this.setState({ responseError });
                 this.setState({
-                    isLoading: false
+                    isLoaded: false
                 });
             })
 
@@ -92,20 +92,20 @@ class Page extends React.Component {
         //                 };
         //                 this.setState({ responseError });
         //                 this.setState({
-        //                     isLoading: false
+        //                     isLoaded: false
         //                 });
         //             })
         //     }
 
         // }.bind(this), 1000);
         this.setState({
-            isLoading: false
+            isLoaded: false
         });
     }
 
     render() {
         const { isAuthenticated, isAdmin } = this.props;
-        const { from } = this.props.location.state || { from: { pathname: isAdmin ? '/dashboard' : '/' } };
+        const { from } = this.props.location.state || { from: { pathname: isAdmin ? '/admin/dashboard' : '/' } };
 
         if (isAuthenticated) {
             return (
@@ -115,7 +115,7 @@ class Page extends React.Component {
         const { errors } = this.state;
         return (
             <React.Fragment>
-                <Segment className='page-loader' style={{ display: this.state.isLoading ? 'block' : 'none' }}>
+                <Segment className='page-loader' style={{ display: this.state.isLoaded ? 'block' : 'none' }}>
                     <Dimmer active inverted>
                         <Loader size='large'>Authenticating...</Loader>
                     </Dimmer>

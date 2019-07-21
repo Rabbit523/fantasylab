@@ -13,14 +13,14 @@ class Page extends React.Component {
         super(props);
 
         this.state = {
-            isLoading: false
+            isLoaded: false
         };
     }
 
     componentDidMount() {
-        Http.get('api/front/homepage').then(
+        Http.post('api/front/get-page', {name: 'home'}).then(
             res => {
-                this.setState({ isLoading: true, data: JSON.parse(res.data.data) });
+                this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
             }
         ).catch(err => {
             console.log(err);
@@ -30,7 +30,7 @@ class Page extends React.Component {
     render() {
         return (
             <div className="home-page">
-                {this.state.isLoading ?
+                {this.state.isLoaded ?
                     <React.Fragment>
                         <div className="homepage-header" style={{ backgroundImage: `url(${this.state.data.header_url})` }}>
                             <Container className="custom-col-6">

@@ -21,18 +21,14 @@ class AdminSidebar extends React.Component {
                     width='thin'
                     className="admin-sidebar"
                 >
-                    <Menu.Item as='a'> <Icon name='home' /> Home </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='gamepad' /> Portfolio </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> Features </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> About </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> Blog </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> Contact </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> Web Development </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> Mobile Development </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> UI & UX design </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> Branding </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> Illustration </Menu.Item>
-                    <Menu.Item as='a'> <Icon name='camera' /> Marketing </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/dashboard" > <Icon name='home' /> Dashboard </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/pages" > <Icon name='gamepad' /> Pages </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/services" > <Icon name='camera' /> Services </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/clients" > <Icon name='camera' /> Clients </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/projects" > <Icon name='camera' /> Projects </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/teams" > <Icon name='camera' /> Teams </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/invoices" > <Icon name='camera' /> Invoices </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/settings" > <Icon name='settings' /> Settings </Menu.Item>
                 </Sidebar>
             </React.Fragment>
         );
