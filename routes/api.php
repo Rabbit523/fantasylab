@@ -30,4 +30,6 @@ Route::middleware(['prefix'=> 'api'])->group(function(){
    });
    Route::get('/front/homepage', 'Api\FrontendController@homepage');
    Route::get('/front/portfoliopage', 'Api\FrontendController@portfoliopage');
+
+   Route::get('/admin/pages', 'Api\BackendController@getPages');
 });

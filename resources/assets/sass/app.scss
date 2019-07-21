@@ -195,6 +195,7 @@ p {
 .admin-sidebar {
   top: 60px !important;
   position: absolute !important;
+  background: #070a2b !important;
 }
 .custom-col-1 {
   width: 10% !important;
@@ -210,6 +211,9 @@ p {
 }
 .custom-col-8 {
   width: 80% !important;
+}
+.ReactTable .rt-td {
+  text-transform: uppercase;
 }
 .login {
   background: transparent !important;
@@ -763,7 +767,6 @@ p {
   }
   .footer {
     background: #070a2b !important;
-    margin-top: 8px;
     color: #656b88;
     font-size: 16px;
     font-family: "Gotham Book";

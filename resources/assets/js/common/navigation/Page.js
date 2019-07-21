@@ -25,7 +25,7 @@ class Page extends React.Component {
             </span>
         );
         let is_dashboard = false;
-        if (window.location.href.indexOf("/dashboard") > 0) {
+        if (window.location.href.indexOf("admin") > 0) {
             is_dashboard = true;
         }
         return (
@@ -170,7 +170,7 @@ class Page extends React.Component {
                                                 text={"Signed in as " + this.props.userName}
                                                 disabled key='user' />
                                             {this.props.isAdmin ?
-                                                <Dropdown.Item as={NavLink} to="/dashboard" text="Dashboard"/>
+                                                <Dropdown.Item as={NavLink} to="/admin/dashboard" text="Dashboard"/>
                                                 : ''
                                             }
                                             <Dropdown.Item onClick={this.handleLogout} text="logout" icon='sign out'

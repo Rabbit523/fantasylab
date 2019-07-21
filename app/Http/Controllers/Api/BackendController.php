@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Page;
 class BackendController extends Controller
 {
     /**
@@ -61,4 +61,10 @@ class BackendController extends Controller
     {
         //
     }
+
+    public function getPages() {
+        $pages = Page::get();
+        return response()->json($pages);
+    }
+
 }

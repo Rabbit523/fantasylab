@@ -11,7 +11,7 @@ class Main extends React.Component {
 
   render() {
     let is_dashboard = false;
-    if (window.location.href.indexOf("/dashboard") > 0) {
+    if (window.location.href.indexOf("admin") > 0) {
       is_dashboard = true;
     }
     return (
