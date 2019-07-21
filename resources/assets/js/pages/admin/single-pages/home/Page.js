@@ -8,7 +8,7 @@ class Page extends React.Component {
         super(props);
         this.state = {
             list: [],
-            isLoading: false
+            isLoaded: false
         }
         this.columns = [
             { Header: 'Name', accessor: 'page_name' }, { Header: 'Updated Date', accessor: 'updated_at' }
@@ -18,7 +18,7 @@ class Page extends React.Component {
     componentDidMount() {
         Http.post('/api/front/get-page', {name: 'home'}).then(
             res => {
-                this.setState({ isLoading: true, list: JSON.parse(res.data.data) });
+                this.setState({ isLoaded: true, list: JSON.parse(res.data.data) });
             }
         ).catch(err => {
             console.log(err);
@@ -28,7 +28,7 @@ class Page extends React.Component {
     render() {
         return (
             <div className="admin-pages">
-            {this.state.isLoading ?
+            {this.state.isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Container className="custom-col-6">
                     </Container>

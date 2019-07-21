@@ -9,7 +9,7 @@ class Page extends React.Component {
         super(props);
         this.state = {
             list: [],
-            isLoading: false
+            isLoaded: false
         }
         this.columns = [
             { Header: 'Name', accessor: 'page_name' }, { Header: 'Updated Date', accessor: 'updated_at' }
@@ -19,7 +19,7 @@ class Page extends React.Component {
     componentDidMount() {
         Http.get('/api/admin/pages').then(
             res => {
-                this.setState({ isLoading: true, list: res.data });
+                this.setState({ isLoaded: true, list: res.data });
             }
         ).catch(err => {
             console.log(err);
@@ -29,7 +29,7 @@ class Page extends React.Component {
     render() {
         return (
             <div className="admin-pages">
-            {this.state.isLoading ?
+            {this.state.isLoaded ?
                 <Segment vertical textAlign='center'>
                     {/* <ReactTable data={this.state.list} columns={this.columns} defaultPageSize={10} className="-striped -highlight"/> */}
                     <Container className="custom-col-6">
