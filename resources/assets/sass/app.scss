@@ -1153,6 +1153,10 @@ p {
             .figure {
               padding-left: 30px;
               padding-right: 30px;
+              img {
+                width: 50px;
+                height: 50px;
+              }
               p {
                 font-size: 18px;
               }
@@ -1344,8 +1348,18 @@ p {
     }
   }
   .admin-page {
-    min-height: 150vh;
+    min-height: 110vh;
     padding-top: 70px;
+    &.home {
+      min-height: 150vh;
+      .ui {
+        &.card {
+          textarea {
+            min-height: 150px;
+          }
+        }
+      }
+    }
     .ui {
       &.card {
         width: 100%;
@@ -1355,7 +1369,7 @@ p {
             margin-bottom: 10px;
           }
           textarea {
-            min-height: 150px;
+            min-height: 110px;
             margin-bottom: 10px;
           }
           .save-btn {

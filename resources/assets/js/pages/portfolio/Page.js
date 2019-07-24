@@ -22,26 +22,27 @@ class Page extends React.Component {
     }
 
     render() {
+        const {data} = this.state;
         return (
             <div className="portfolio-page">
                 {this.state.isLoaded ?
                     <React.Fragment>
-                        <div className="portfolio-header" style={{backgroundImage: `url(${this.state.data.header_url})`}}>
+                        <div className="portfolio-header" style={{backgroundImage: `url(${data.header_url})`}}>
                             <div className="header-gradient">
                                 <Container className="custom-col-6">
                                     <div className="portfolio-header-description">
                                         <div className="portfolio-header-text">
-                                            <h1>Portfolio</h1>
-                                            <p>Leading companies use FantasyLab to transform their business by great design, development and communication.</p>
+                                            <h1>{data.title}</h1>
+                                            <p>{data.description}</p>
                                         </div>
                                         <div className="portfolio-header-figure">
                                             <div className="figure">
-                                                <img src={`${ this.state.data.icon_urls.quality.path}`} />
-                                                <p>{this.state.data.icon_urls.quality.text}</p>
+                                                <img src={`${ data.icon_urls.quality.path}`} />
+                                                <p>{data.icon_urls.quality.text}</p>
                                             </div>
                                             <div className="figure">
-                                                <img src={`${ this.state.data.icon_urls.time.path}`} />
-                                                <p>{this.state.data.icon_urls.time.text}</p>
+                                                <img src={`${ data.icon_urls.time.path}`} />
+                                                <p>{data.icon_urls.time.text}</p>
                                             </div>
                                         </div>
                                     </div>

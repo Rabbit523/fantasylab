@@ -233,6 +233,85 @@ class PagesController extends Controller
                 $page->data = json_encode($data);
                 $page->save();
             }
+        } else if ($request->name == "portfolio") {
+            $service_type = $request->type;
+            if ($service_type == "header") {
+                if ($data->header_url != $request_data['header_url']) {
+                    if (strpos($request_data['header_url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['header_url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['header_url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'_header.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['header_url'] = $path;
+                } 
+                if ($data->footer_url != $request_data['footer_url']) {
+                    if (strpos($request_data['footer_url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['footer_url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['footer_url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'_footer.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['footer_url'] = $path;
+                }
+                if ($data->icon_urls->quality->path != $request_data['icon_urls']['quality']['path']) {
+                    if (strpos($request_data['icon_urls']['quality']['path'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['icon_urls']['quality']['path']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['icon_urls']['quality']['path']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'_quality.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['icon_urls']['quality']['path'] = $path;
+                } 
+                if ($data->icon_urls->time->path != $request_data['icon_urls']['time']['path']) {
+                    if (strpos($request_data['icon_urls']['time']['path'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['icon_urls']['time']['path']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['icon_urls']['time']['path']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'_time.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['icon_urls']['time']['path'] = $path;
+                }
+                $data = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            }
         }
         return response()->json('update success');
     }

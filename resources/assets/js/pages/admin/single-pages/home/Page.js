@@ -15,7 +15,6 @@ class Page extends React.Component {
             carousels: [],
             news: [],
             isLoaded: false,
-            file: '',
             accordion: false,
             service_activeKey: [],
             badge_activeKey: [],
@@ -303,7 +302,7 @@ class Page extends React.Component {
         const { header, services, badges, portfolios, carousels, news, service_activeKey, accordion, badge_activeKey, review_activeKey, news_activeKey } = this.state;
         var ref = this;
         return (
-            <div className="admin-page">
+            <div className="admin-page home">
             {this.state.isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Container>

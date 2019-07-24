@@ -36,7 +36,7 @@ class Page extends React.Component {
                         <List selection divided relaxed>
                             { this.state.list.map(function (item, i) {
                                     return (
-                                        <List.Item key={i}>
+                                        <List.Item key={i} as={Link} to={`/admin/single-page/${item.page_name}`}>
                                             <List.Icon name='github' size='large' verticalAlign='middle' />
                                             <List.Content>
                                                 <List.Header as={Link} to={`/admin/single-page/${item.page_name}`}>{item.page_name}</List.Header>
