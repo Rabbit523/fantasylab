@@ -274,25 +274,37 @@ p {
   line-height: normal !important;
   font-family: "Gotham Bold";
   font-weight: bold !important;
-  font-size: 18px;
+  font-size: 16px;
   position: inherit !important;
   margin-right: 10px !important;
   &.services {
-    &.active {
+    &.hover {
       border-bottom: 2px solid #8341ff !important;
       color: #8341ff !important;
     }
+    &.active {
+      border-bottom: 2px solid #3e75db !important;
+      color: #3e75db !important;
+    }
   }
   &.portfolio {
-    &.active {
+    &.hover {
       border-bottom: 2px solid #f84db8 !important;
       color: #f84db8 !important;
     }
-  }
-  &.features {
     &.active {
       border-bottom: 2px solid #f49d43 !important;
       color: #f49d43 !important;
+    }
+  }
+  &.features {
+    &.hover {
+      border-bottom: 2px solid #f49d43 !important;
+      color: #f49d43 !important;
+    }
+    &.active {
+      border-bottom: 2px solid #3e75db !important;
+      color: #3e75db !important;
     }
   }
   &.about {
@@ -306,12 +318,20 @@ p {
     }
   }
   &.blog {
-    &.active {
+    &.hover {
       border-bottom: 2px solid #94d544 !important;
       color: #94d544 !important;
     }
+    &.active {
+      border-bottom: 2px solid #3e75db !important;
+      color: #3e75db !important;
+    }
   }
   &.contact {
+    &.hover {
+      border-bottom: 2px solid #3e75db !important;
+      color: #3e75db !important;
+    }
     &.active {
       border-bottom: 2px solid #3e75db !important;
       color: #3e75db !important;
@@ -383,6 +403,7 @@ p {
   .description {
     display: none;
     padding-top: 5px;
+    text-align: left;
     p {
       font-size: 13px;
       font-family: "Gotham Book";
@@ -614,6 +635,124 @@ p {
         color: #7436e9;
       }
     }
+  }
+}
+.guide-card {
+  padding: 40px 20px;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  align-items: center;
+  .avatar {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .title {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+    p {
+      font-size: 16px;
+      font-family: "Gotham Book";
+      white-space: pre-wrap;
+      color: #fff;
+    }
+  }
+  .description {
+    padding-top: 5px;
+    text-align: center;
+    p {
+      font-size: 13px;
+      font-family: "Gotham Book";
+      white-space: pre-wrap;
+      color: #949dbf;
+      font-weight: 100;
+    }
+  }
+}
+.text-card {
+  padding: 40px;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  align-items: center;
+  .title {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+    p {
+      font-size: 16px;
+      font-family: "Gotham Book";
+      white-space: pre-wrap;
+      color: #fff;
+    }
+  }
+  .description {
+    padding-top: 5px;
+    text-align: center;
+    p {
+      font-size: 13px;
+      font-family: "Gotham Book";
+      white-space: pre-wrap;
+      color: #949dbf;
+      font-weight: 100;
+    }
+  }
+}
+.headquater-card {
+  padding: 25px;
+  background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  align-items: center;
+  .avatar {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .title {
+    display: flex;
+    align-items: flex-end;
+    flex: 1;
+    p {
+      font-size: 16px;
+      font-family: "Gotham Book";
+      white-space: pre-wrap;
+      color: #fff;
+    }
+  }
+  .description {
+    padding-top: 5px;
+    padding-bottom: 25px;
+    text-align: center;
+    p {
+      font-size: 13px;
+      font-family: "Gotham Book";
+      white-space: pre-wrap;
+      color: #949dbf;
+      font-weight: 100;
+    }
+  }
+  .headquater-button {
+    padding: 10px 16px;
+    font-size: 12px !important;
   }
 }
 @media (min-width: 320px) {
@@ -1013,7 +1152,7 @@ p {
   }
   .home-page {
     min-height: 110vh;
-    padding-top: 70px;
+    padding-top: 64px;
     background: #03051b;
     .homepage-header {
       min-height: 550px;
@@ -1126,7 +1265,7 @@ p {
   }
   .portfolio-page {
     min-height: 110vh;
-    padding-top: 70px;
+    padding-top: 64px;
     background: #03051b;
     .portfolio-header {
       min-height: 550px;
@@ -1142,8 +1281,6 @@ p {
           color: #fff;
           padding: 100px 150px 100px 150px;
           .portfolio-header-text {
-            padding-left: 100px;
-            padding-right: 100px;
             padding-bottom: 50px;
             p {
               color: #949dbf;
@@ -1175,24 +1312,100 @@ p {
       margin-top: -50px;
     }
   }
-  .home-header {
-    .pretitle {
-      font-family: $Montserrat;
-      font-size: 1.1em !important;
-      letter-spacing: 0.8em;
-      margin-top: 9em !important;
-      font-weight: 300;
+  .about-page {
+    min-height: 110vh;
+    padding-top: 64px;
+    background: #03051b;
+    .about-header {
+      min-height: 550px;
+      height: auto;
+      width: 100%;
+      background-size: cover;
+      .header-gradient {
+        width: 100%;
+        height: 650px;
+        background: linear-gradient(to left bottom, rgba(14, 27, 70, 0.6), rgba(3, 5, 28, 0.7)) !important;
+        .header-description {
+          text-align: center;
+          color: #fff;
+          padding-top: 100px;
+          padding-bottom: 85px;
+          .header-text {
+            padding-bottom: 50px;
+            padding-left: 10px;
+            padding-right: 10px;
+            p {
+              color: #949dbf;
+              font-size: 18px;
+            }
+          }
+          .counter-box {
+            display: flex;
+            justify-content: space-between;
+            .box {
+              p {
+                color: #949dbf;
+              }
+            }
+          }
+        }
+        .guide-tags {
+          .guide-card-observer {
+            height: 100%;
+          }
+        }
+      }
     }
-    .main-heading {
-      font-size: 3.8em !important;
-      margin-top: 0 !important;
+    .about-section {
+      min-height: 50vh;
+      color: #fff;
+      padding-top: 80px;
+      text-align: center;
+      .text-card-observer {
+        margin-top: 20px;
+      }
+      .service-item-observer {
+        height: 100%;
+        margin-top: 20px;
+        .service-item {
+          .avatar-item {
+            img {
+              left: 36px;
+            }
+          }
+        }
+      }
     }
-
-    .sub-heading {
-      font-size: 1.5em !important;
-    }
-    .free-signup-button {
-      margin-bottom: 5em;
+  }
+  .contact-page {
+    min-height: 110vh;
+    padding-top: 64px;
+    background: #03051b;
+    .contact-header {
+      min-height: 550px;
+      height: auto;
+      width: 100%;
+      background-size: cover;
+      .header-gradient {
+        width: 100%;
+        height: 650px;
+        background: linear-gradient(to right bottom, rgba(14, 27, 70, 0.8), rgba(3, 5, 28, 0.9)) !important;
+        .header-description {
+          text-align: center;
+          color: #fff;
+          padding-top: 100px;
+          padding-bottom: 45px;
+          .header-text {
+            padding-bottom: 50px;
+            padding-left: 200px;
+            padding-right: 200px;
+            p {
+              color: #949dbf;
+              font-size: 18px;
+            }
+          }
+        }
+      }
     }
   }
   .login-page {
