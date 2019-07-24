@@ -28,24 +28,22 @@ class Page extends React.Component {
     }
 
     render() {
+        const { data } = this.state;
         return (
             <div className="home-page">
                 {this.state.isLoaded ?
                     <React.Fragment>
-                        <div className="homepage-header" style={{ backgroundImage: `url(${this.state.data.header_url})` }}>
+                        <div className="homepage-header" style={{ backgroundImage: `url(${data.header.header_url})` }}>
                             <Container className="custom-col-6">
                                 <div className="homepage-header-description">
-                                    <h1>{this.state.data.header_title}</h1>
-                                    <p className="title">{this.state.data.header_description_title}</p>
+                                    <h1>{data.header.header_title}</h1>
+                                    <p className="title">{data.header.header_description_title}</p>
                                     {
-                                        this.state.data.header_description.length > 1 ?
-                                            this.state.data.header_description.map(function (item, i) {
-                                                return (
-                                                    <p key={i} className="normal">{item}</p>
-                                                )
-                                            })
-                                        :
-                                        <p className="normal">{this.state.data.header_description}</p>
+                                        data.header.header_description.split('\n').map(function (item, i) {
+                                            return (
+                                                <p key={i} className="normal">{item}</p>
+                                            )
+                                        })
                                     }
                                     <div className="homepage-header-buttons">
                                         <Button as={Link} to="/register" replace compact
@@ -61,24 +59,24 @@ class Page extends React.Component {
                                 <Grid padded="horizontally">
                                     <Grid.Row columns={2} className="custom-row">
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={this.state.data.services.desktop.url} type={this.state.data.services.desktop.type} title={this.state.data.services.desktop.title} color={this.state.data.services.desktop.color} description={this.state.data.services.desktop.description} backimage={this.state.data.services.desktop.backimage} />
+                                            <ServiceItem url={data.services.desktop.url} type={data.services.desktop.type} title={data.services.desktop.title} color={data.services.desktop.color} description={data.services.desktop.description} backimage={data.services.desktop.backimage} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={this.state.data.services.mobile.url} type={this.state.data.services.mobile.type} title={this.state.data.services.mobile.title} color={this.state.data.services.mobile.color} description={this.state.data.services.mobile.description} backimage={this.state.data.services.mobile.backimage} />
+                                            <ServiceItem url={data.services.mobile.url} type={data.services.mobile.type} title={data.services.mobile.title} color={data.services.mobile.color} description={data.services.mobile.description} backimage={data.services.mobile.backimage} />
                                         </Grid.Column>
                                     </Grid.Row>
                                     <Grid.Row columns={4} className="custom-row">
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={this.state.data.services.ui.url} type={this.state.data.services.ui.type} title={this.state.data.services.ui.title} color={this.state.data.services.ui.color} description={this.state.data.services.ui.description} backimage={this.state.data.services.ui.backimage} />
+                                            <ServiceItem url={data.services.ui.url} type={data.services.ui.type} title={data.services.ui.title} color={data.services.ui.color} description={data.services.ui.description} backimage={data.services.ui.backimage} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={this.state.data.services.branding.url} type={this.state.data.services.branding.type} title={this.state.data.services.branding.title} color={this.state.data.services.branding.color} description={this.state.data.services.branding.description} backimage={this.state.data.services.branding.backimage} />
+                                            <ServiceItem url={data.services.branding.url} type={data.services.branding.type} title={data.services.branding.title} color={data.services.branding.color} description={data.services.branding.description} backimage={data.services.branding.backimage} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={this.state.data.services.illustration.url} type={this.state.data.services.illustration.type} title={this.state.data.services.illustration.title} color={this.state.data.services.illustration.color} description={this.state.data.services.illustration.description} backimage={this.state.data.services.illustration.backimage} />
+                                            <ServiceItem url={data.services.illustration.url} type={data.services.illustration.type} title={data.services.illustration.title} color={data.services.illustration.color} description={data.services.illustration.description} backimage={data.services.illustration.backimage} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={this.state.data.services.marketing.url} type={this.state.data.services.marketing.type} title={this.state.data.services.marketing.title} color={this.state.data.services.marketing.color} description={this.state.data.services.marketing.description} backimage={this.state.data.services.marketing.backimage} />
+                                            <ServiceItem url={data.services.marketing.url} type={data.services.marketing.type} title={data.services.marketing.title} color={data.services.marketing.color} description={data.services.marketing.description} backimage={data.services.marketing.backimage} />
                                         </Grid.Column>
                                     </Grid.Row>
                                 </Grid>
@@ -93,24 +91,24 @@ class Page extends React.Component {
                                 <Grid padded="horizontally">
                                     <Grid.Row columns={3} className="custom-row">
                                         <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={this.state.data.badges.mapping.url} number={this.state.data.badges.mapping.number} title={this.state.data.badges.mapping.title} color={this.state.data.badges.mapping.color} description={this.state.data.badges.mapping.description} />
+                                            <BadgeTextCard url={data.badges.mapping.url} number={data.badges.mapping.number} title={data.badges.mapping.title} color={data.badges.mapping.color} description={data.badges.mapping.description} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={this.state.data.badges.estimation.url} number={this.state.data.badges.estimation.number} title={this.state.data.badges.estimation.title} color={this.state.data.badges.estimation.color} description={this.state.data.badges.estimation.description} />
+                                            <BadgeTextCard url={data.badges.estimation.url} number={data.badges.estimation.number} title={data.badges.estimation.title} color={data.badges.estimation.color} description={data.badges.estimation.description} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={this.state.data.badges.proposal.url} number={this.state.data.badges.proposal.number} title={this.state.data.badges.proposal.title} color={this.state.data.badges.proposal.color} description={this.state.data.badges.proposal.description} />
+                                            <BadgeTextCard url={data.badges.proposal.url} number={data.badges.proposal.number} title={data.badges.proposal.title} color={data.badges.proposal.color} description={data.badges.proposal.description} />
                                         </Grid.Column>
                                     </Grid.Row>
                                     <Grid.Row columns={3} className="custom-row">
                                         <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={this.state.data.badges.design.url} number={this.state.data.badges.design.number} title={this.state.data.badges.design.title} color={this.state.data.badges.design.color} description={this.state.data.badges.design.description} />
+                                            <BadgeTextCard url={data.badges.design.url} number={data.badges.design.number} title={data.badges.design.title} color={data.badges.design.color} description={data.badges.design.description} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={this.state.data.badges.devlopment.url} number={this.state.data.badges.devlopment.number} title={this.state.data.badges.devlopment.title} color={this.state.data.badges.devlopment.color} description={this.state.data.badges.devlopment.description} />
+                                            <BadgeTextCard url={data.badges.devlopment.url} number={data.badges.devlopment.number} title={data.badges.devlopment.title} color={data.badges.devlopment.color} description={data.badges.devlopment.description} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={this.state.data.badges.delivery.url} number={this.state.data.badges.delivery.number} title={this.state.data.badges.delivery.title} color={this.state.data.badges.delivery.color} description={this.state.data.badges.delivery.description} />
+                                            <BadgeTextCard url={data.badges.delivery.url} number={data.badges.delivery.number} title={data.badges.delivery.title} color={data.badges.delivery.color} description={data.badges.delivery.description} />
                                         </Grid.Column>
                                     </Grid.Row>
                                 </Grid>
@@ -126,24 +124,24 @@ class Page extends React.Component {
                                 <Grid padded="horizontally">
                                     <Grid.Row columns={3} className="custom-row">
                                         <Grid.Column className="custom-column">
-                                            <PortfolioCard from={this.state.data.portfolios.avollon.from} icon_url={this.state.data.portfolios.avollon.icon_url} />
+                                            <PortfolioCard from={data.portfolios.avollon.from} icon_url={data.portfolios.avollon.icon_url} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <PortfolioCard from={this.state.data.portfolios.maora.from} icon_url={this.state.data.portfolios.maora.icon_url} />
+                                            <PortfolioCard from={data.portfolios.maora.from} icon_url={data.portfolios.maora.icon_url} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <PortfolioCard from={this.state.data.portfolios.osg.from} icon_url={this.state.data.portfolios.osg.icon_url} />
+                                            <PortfolioCard from={data.portfolios.osg.from} icon_url={data.portfolios.osg.icon_url} />
                                         </Grid.Column>
                                     </Grid.Row>
                                     <Grid.Row columns={3} className="custom-row">
                                         <Grid.Column className="custom-column">
-                                            <PortfolioCard from={this.state.data.portfolios.attitude.from} icon_url={this.state.data.portfolios.attitude.icon_url} />
+                                            <PortfolioCard from={data.portfolios.attitude.from} icon_url={data.portfolios.attitude.icon_url} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <PortfolioCard from={this.state.data.portfolios.proguiden.from} icon_url={this.state.data.portfolios.proguiden.icon_url} />
+                                            <PortfolioCard from={data.portfolios.proguiden.from} icon_url={data.portfolios.proguiden.icon_url} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <PortfolioCard from={this.state.data.portfolios.apotek.from} icon_url={this.state.data.portfolios.apotek.icon_url} />
+                                            <PortfolioCard from={data.portfolios.apotek.from} icon_url={data.portfolios.apotek.icon_url} />
                                         </Grid.Column>
                                     </Grid.Row>
                                 </Grid>
@@ -155,7 +153,7 @@ class Page extends React.Component {
                                 <p>The scrum Framework and an Agile mindset is paramount.</p>
                             </Container>
                             <Container className="custom-col-8">
-                                <Gallery items={this.state.data.carousels} />
+                                <Gallery items={data.carousels} />
                             </Container>
                         </section>
                         <section className="home-section">
@@ -164,7 +162,7 @@ class Page extends React.Component {
                                 <Grid padded="horizontally">
                                     <Grid.Row columns={3} className="custom-row">
                                         {
-                                            this.state.data.news.map(function (item, i) {
+                                            data.news.map(function (item, i) {
                                                 return (
                                                     <Grid.Column key={i} className="custom-column">
                                                         <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
@@ -176,7 +174,7 @@ class Page extends React.Component {
                                 </Grid>
                             </Container>
                         </section>
-                        <PageFooter url={this.state.data.footer_url} />
+                        <PageFooter url={data.header.footer_url} />
                         <section className="divide"></section>
                     </React.Fragment>
                     :

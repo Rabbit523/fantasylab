@@ -12,6 +12,7 @@ import Blog from '../pages/blog'
 import Contact from '../pages/contact'
 import AdminPages from '../pages/admin/adminPages'
 import AdminHome from '../pages/admin/single-pages/home'
+import AdminPortfolio from '../pages/admin/single-pages/portfolio'
 const routes = [
     {
         path: '/',
@@ -132,6 +133,12 @@ const routes = [
         exact: true,
         admin: true,
         component: AdminHome
+    },
+    {
+        path: '/admin/single-page/portfolio',
+        exact: true,
+        admin: true,
+        component: AdminPortfolio
     },
     {
         path: '',

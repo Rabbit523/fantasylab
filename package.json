@@ -21,8 +21,10 @@
   },
   "dependencies": {
     "prop-types": "^15.6.0",
+    "rc-collapse": "^1.11.3",
     "react-alice-carousel": "^1.15.2",
     "react-burger-menu": "^2.6.10",
+    "react-dropzone": "^10.1.6",
     "react-hover-observer": "^2.1.1",
     "react-phone-number-input": "^2.3.20",
     "react-redux": "^5.0.6",
@@ -34,6 +36,7 @@
     "redux-persist": "^5.9.1",
     "redux-thunk": "^2.2.0",
     "ree-validate": "^3.0.2",
-    "semantic-ui-react": "^0.79.0"
+    "semantic-ui-react": "^0.79.0",
+    "yagoubi-upload-images": "^1.0.9"
   }
 }
