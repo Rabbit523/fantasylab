@@ -296,9 +296,13 @@ p {
     }
   }
   &.about {
-    &.active {
+    &.hover {
       border-bottom: 2px solid #f3dc17 !important;
       color: #f3dc17 !important;
+    }
+    &.active {
+      border-bottom: 2px solid #3e75db !important;
+      color: #3e75db !important;
     }
   }
   &.blog {
