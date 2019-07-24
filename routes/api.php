@@ -31,4 +31,5 @@ Route::middleware(['prefix'=> 'api'])->group(function(){
    Route::post('/front/get-page', 'Api\PagesController@getPage');
 
    Route::get('/admin/pages', 'Api\PagesController@getPages');
+   Route::post('/admin/update-page', 'Api\PagesController@updatePage');   
 });

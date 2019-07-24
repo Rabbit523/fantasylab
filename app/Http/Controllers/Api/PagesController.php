@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+
+use File;
 class PagesController extends Controller
 {
     /**
@@ -70,5 +72,168 @@ class PagesController extends Controller
     public function getPages() {
         $pages = Page::get();
         return response()->json($pages);
+    }
+
+    public function updatePage(Request $request) {
+        $page = Page::where('page_name', $request->name)->first();
+        $data = json_decode($page->data);
+        $request_data = json_decode($request->data, true);
+        $uploads_dir = "./assets/uploads/";
+        // identify the case with page name
+        if ($request->name == "home") {
+            // if the on going updated conent is header section
+            if ($request->type == "header") {
+                // if header background image is updated or not
+                if ($data->header->header_url != $request_data['header_url']) {
+                    if (strpos($request_data['header_url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['header_url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['header_url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'-header.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['header_url'] = $path;
+                } else if ($data->header->footer_url != $request_data['footer_url']) {
+                    if (strpos($request_data['footer_url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['footer_url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['footer_url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'-footer.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code);
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['footer_url'] = $path;
+                }
+                $data->header = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == "service") {
+                $service_type = $request->service_type;
+                if ($data->services->$service_type->url != $request_data[$service_type]['url']) {
+                    if (strpos($request_data[$service_type]['url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data[$service_type]['url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data[$service_type]['url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->type .'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data[$service_type]['url'] = $path;
+                } else if ($data->services->$service_type->backimage != $request_data[$service_type]['backimage']) {
+                    if (strpos($request_data[$service_type]['backimage'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data[$service_type]['backimage']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data[$service_type]['backimage']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->type .'-background.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data[$service_type]['backimage'] = $path;
+                }
+                $data->services = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == "badge") {
+                $service_type = $request->service_type;
+                if ($data->badges->$service_type->url != $request_data[$service_type]['url']) {
+                    if (strpos($request_data[$service_type]['url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data[$service_type]['url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data[$service_type]['url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->service_type .'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data[$service_type]['url'] = $path;
+                }
+                $data->badges = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == "carousel") {
+                $service_type = $request->service_type;
+                if ($data->carousels[$service_type]->avatar != $request_data[$service_type]['avatar']) {
+                    if (strpos($request_data[$service_type]['avatar'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data[$service_type]['avatar']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data[$service_type]['avatar']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request_data[$service_type]['name'] .'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data[$service_type]['avatar'] = $path;
+                }
+                $data->carousels = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == "news") {
+                $service_type = $request->service_type;
+                if ($data->news[$service_type]->url != $request_data[$service_type]['url']) {
+                    if (strpos($request_data[$service_type]['url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data[$service_type]['url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data[$service_type]['url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request_data[$service_type]['author'] .'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data[$service_type]['url'] = $path;
+                }
+                $request_data[$service_type]['time'] = date("d.m").".".substr(date("Y"), 2, 3);
+                $data->news = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            }
+        }
+        return response()->json('update success');
     }
 }

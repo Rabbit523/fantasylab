@@ -434,7 +434,7 @@ p {
   }
 }
 .portfolio-item {
-  padding: 20px 20px 30px 20px;
+  padding: 20px 20px 20px 20px;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
   height: 100%;
   display: flex;
@@ -460,15 +460,14 @@ p {
     margin-top: 130px;
     flex-direction: column;
     p {
-      font-size: 18px;
-      font-family: "Gotham Bold";
-      font-weight: bold;
+      font-size: 16px;
+      font-family: "Gotham Book";
       white-space: pre-wrap;
       color: #fff;
       margin: 0;
       &.portfolio-des {
         color: #8341ff;
-        font-size: 16px;
+        font-size: 12px;
         font-family: "Gotham Book";
       }
     }
@@ -1019,7 +1018,7 @@ p {
       background-size: cover;
       .homepage-header-description {
         display: inline-block;
-        margin-top: 120px;
+        margin-top: 60px;
         width: 50%;
         color: #fff;
         .normal {
@@ -1339,6 +1338,28 @@ p {
             &.header {
               font-weight: bold;
             }
+          }
+        }
+      }
+    }
+  }
+  .admin-page {
+    min-height: 150vh;
+    padding-top: 70px;
+    .ui {
+      &.card {
+        width: 100%;
+        .content {
+          text-align: left;
+          input {
+            margin-bottom: 10px;
+          }
+          textarea {
+            min-height: 150px;
+            margin-bottom: 10px;
+          }
+          .save-btn {
+            width: 100%;
           }
         }
       }

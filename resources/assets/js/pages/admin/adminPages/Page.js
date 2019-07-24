@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button, Container, Grid, Header, Icon, Responsive, Dimmer, Segment, Loader, List } from 'semantic-ui-react'
-import ReactTable from 'react-table';
+// import ReactTable from 'react-table';
 import { Link } from 'react-router-dom'
-import "react-table/react-table.css"
+// import "react-table/react-table.css"
 import Http from '../../../Http'
 class Page extends React.Component {
     constructor(props) {
