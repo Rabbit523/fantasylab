@@ -49,25 +49,27 @@ class Page extends React.Component {
         const value = event.target.value;
         const { errors } = this.validator;
         
-        this.validator.validate(name, value)
-        .then(() => {
-            this.setState({errors})
-        });
+        if (name != "company") {
+            this.validator.validate(name, value)
+            .then(() => {
+                this.setState({errors})
+            });
+        }
 
         var {message} = this.state;
         switch (type) {
             case 'name':
                 message.name = event.target.value;
-                return this.setState({data});
+                return this.setState({message});
             case 'company':
                 message.company = event.target.value;
-                return this.setState({data});
+                return this.setState({message});
             case 'email':
                 message.email = event.target.value;
-                return this.setState({data});
+                return this.setState({message});
             case 'message':
                 message.message = event.target.value;
-                return this.setState({data});
+                return this.setState({message});
         }
     }
 
@@ -77,7 +79,6 @@ class Page extends React.Component {
 
     handleSubmit(event) {
         const {message, phone, checked} = this.state;
-        console.log(message);
         this.validator.validateAll(message)
             .then(success => {
                 if (success) {
@@ -88,7 +89,7 @@ class Page extends React.Component {
                                 isLoading: true
                             });
                             message.phone = phone;
-                            this.submit(data);
+                            this.submit(message);
                         } else {
                             this.setState({checkbox_border: !this.state.checkbox_border});
                         }
@@ -165,7 +166,7 @@ class Page extends React.Component {
                                             <Form.Input
                                                 fluid
                                                 label="Company Name"
-                                                name='company_name'
+                                                name='company'
                                                 placeholder='Your company'
                                                 onChange={(val)=>this.handleChange(val, 'company')}
                                             />
