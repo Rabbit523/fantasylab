@@ -5,21 +5,17 @@ import ReactHoverObserver from 'react-hover-observer';
 class TextCard extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            hoverStyle: {
-                borderBottom: '2px solid',
-                cursor: 'pointer',
-                borderColor: this.props.color
-            }
-        }
+        this.hoverStyle = {
+            borderBottom: '2px solid',
+            cursor: 'pointer',
+            borderColor: props.color
+        };   
     }
-
     render() {
-        const {hoverStyle} = this.state;
         return (
             <ReactHoverObserver className='text-card-observer'>
                 {({ isHovering }) => (
-                    <div className="text-card" style={isHovering?hoverStyle:{}}>
+                    <div className="text-card" style={isHovering?this.hoverStyle:{}}>
                         <div className="title">
                             <p>{this.props.title}</p>
                         </div>

@@ -59,24 +59,24 @@ class Page extends React.Component {
                                 <Grid padded="horizontally">
                                     <Grid.Row columns={2} className="custom-row">
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.desktop.url} type={data.services.desktop.type} title={data.services.desktop.title} color={data.services.desktop.color} description={data.services.desktop.description} backimage={data.services.desktop.backimage} />
+                                            <ServiceItem url={data.services.desktop.url} title={data.services.desktop.title} color={data.services.desktop.color} description={data.services.desktop.description} backimage={data.services.desktop.backimage} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.mobile.url} type={data.services.mobile.type} title={data.services.mobile.title} color={data.services.mobile.color} description={data.services.mobile.description} backimage={data.services.mobile.backimage} />
+                                            <ServiceItem url={data.services.mobile.url} title={data.services.mobile.title} color={data.services.mobile.color} description={data.services.mobile.description} backimage={data.services.mobile.backimage} />
                                         </Grid.Column>
                                     </Grid.Row>
                                     <Grid.Row columns={4} className="custom-row">
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.ui.url} type={data.services.ui.type} title={data.services.ui.title} color={data.services.ui.color} description={data.services.ui.description} backimage={data.services.ui.backimage} />
+                                            <ServiceItem url={data.services.ui.url} title={data.services.ui.title} color={data.services.ui.color} description={data.services.ui.description} backimage={data.services.ui.backimage} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.branding.url} type={data.services.branding.type} title={data.services.branding.title} color={data.services.branding.color} description={data.services.branding.description} backimage={data.services.branding.backimage} />
+                                            <ServiceItem url={data.services.branding.url} title={data.services.branding.title} color={data.services.branding.color} description={data.services.branding.description} backimage={data.services.branding.backimage} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.illustration.url} type={data.services.illustration.type} title={data.services.illustration.title} color={data.services.illustration.color} description={data.services.illustration.description} backimage={data.services.illustration.backimage} />
+                                            <ServiceItem url={data.services.illustration.url} title={data.services.illustration.title} color={data.services.illustration.color} description={data.services.illustration.description} backimage={data.services.illustration.backimage} />
                                         </Grid.Column>
                                         <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.marketing.url} type={data.services.marketing.type} title={data.services.marketing.title} color={data.services.marketing.color} description={data.services.marketing.description} backimage={data.services.marketing.backimage} />
+                                            <ServiceItem url={data.services.marketing.url} title={data.services.marketing.title} color={data.services.marketing.color} description={data.services.marketing.description} backimage={data.services.marketing.backimage} />
                                         </Grid.Column>
                                     </Grid.Row>
                                 </Grid>

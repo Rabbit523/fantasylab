@@ -374,6 +374,11 @@ p {
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  .item-hover-back {
+    background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+    width: 100%;
+    height: 100%;            
+  }
   .avatar-item {
     border-radius: 50%;
     border: 2px solid #202c5a;
@@ -387,6 +392,12 @@ p {
       position: absolute;
       margin-left: 8px;
       margin-top: 8px;
+    }
+    i {
+      position: absolute;
+      right: 20px;
+      font-size: 15px;
+      font-weight: 100;
     }
   }
   .text-item {
@@ -645,14 +656,13 @@ p {
   flex-direction: column;
   border-radius: 5px;
   align-items: center;
+  &.service {
+    padding: 20px;
+  }
   .avatar {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    margin-bottom: 20px;
     img {
-      width: 50px;
-      height: 50px;
+      width: 100%;
+      height: auto;
     }
   }
   .title {
@@ -1140,6 +1150,7 @@ p {
         font-family: "Gotham Bold";
         font-weight: bold !important;
         font-size: 16px;
+        padding-top: 3px;
       }
     }
     .logo img {
@@ -1530,6 +1541,82 @@ p {
             width: 50%;
           }
         }
+      }
+    }
+  }
+  .service-page {
+    min-height: 110vh;
+    padding-top: 64px;
+    background: #03051b;
+    .service-header {
+      min-height: 550px;
+      height: auto;
+      width: 100%;
+      background-size: cover;
+      .header-gradient {
+        width: 100%;
+        height: 800px;
+        background: linear-gradient(to right bottom, rgba(5, 20, 68, 0.6), rgba(3, 5, 28, 0.7)) !important;
+        .header-description {
+          text-align: center;
+          color: #fff;
+          padding-top: 100px;
+          padding-bottom: 45px;
+          .header-text {
+            padding-bottom: 50px;
+            padding-left: 210px;
+            padding-right: 210px;
+            p {
+              color: #949dbf;
+              font-size: 18px;
+            }
+          }
+        }
+        .figures {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .figure {
+            padding-left: 30px;
+            padding-right: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            img {
+              width: 50px;
+              height: 50px;
+            }
+            p {
+              font-size: 18px;
+              color: #c6c8d0;
+              padding-top: 20px;
+            }
+          }
+        }
+        .starter-group {
+          margin-top: 100px;
+          color: #fff;
+          text-align: center;
+          .service-item-observer {
+            height: 100%;
+            .service-item {
+              .avatar-item {
+                img {
+                  left: 36px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .service-section {
+      min-height: 50vh;
+      color: #fff;
+      text-align: center;
+      .service-review {
+        padding-top: 250px;
       }
     }
   }

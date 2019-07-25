@@ -36,14 +36,12 @@ class Page extends React.Component {
                                             <p>{data.description}</p>
                                         </div>
                                         <div className="portfolio-header-figure">
-                                            <div className="figure">
-                                                <img src={`${ data.icon_urls.quality.path}`} />
-                                                <p>{data.icon_urls.quality.text}</p>
-                                            </div>
-                                            <div className="figure">
-                                                <img src={`${ data.icon_urls.time.path}`} />
-                                                <p>{data.icon_urls.time.text}</p>
-                                            </div>
+                                            {data.icon_urls.map((item, i) => (
+                                                <div className="figure" key={i}>
+                                                    <img src={`${ item.path}`} />
+                                                    <p>{item.text}</p>
+                                                </div>
+                                            ))}
                                         </div>
                                     </div>
                                 </Container>

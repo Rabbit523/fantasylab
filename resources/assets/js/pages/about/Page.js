@@ -77,7 +77,7 @@ class Page extends React.Component {
                                 <Grid padded="horizontally">
                                     <Grid.Column width={8}>
                                         {data.values.data.map((item, i) => (
-                                            <React.Fragment key={i}> 
+                                            <React.Fragment key={i}>
                                                 {i < 3 &&  <TextCard color={item.color} title={item.title} description={item.description} />}
                                             </React.Fragment>
                                         ))}
