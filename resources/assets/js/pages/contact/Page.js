@@ -18,8 +18,14 @@ class Page extends React.Component {
         this.state = {
             isLoaded: false,
             errors: this.validator.errors,
+            message: {
+                name: '',
+                email: '',
+                message: '',
+                phone: '',
+                company: ''
+            },
             phone: '',
-            message: '',
             checked: false,
             checkbox_border: true
         }
@@ -42,12 +48,27 @@ class Page extends React.Component {
         const name = event.target.name;
         const value = event.target.value;
         const { errors } = this.validator;
-
+        
         this.validator.validate(name, value)
         .then(() => {
             this.setState({errors})
         });
 
+        var {message} = this.state;
+        switch (type) {
+            case 'name':
+                message.name = event.target.value;
+                return this.setState({data});
+            case 'company':
+                message.company = event.target.value;
+                return this.setState({data});
+            case 'email':
+                message.email = event.target.value;
+                return this.setState({data});
+            case 'message':
+                message.message = event.target.value;
+                return this.setState({data});
+        }
     }
 
     handleCheckBoxClick() {
@@ -55,9 +76,49 @@ class Page extends React.Component {
     }
 
     handleSubmit(event) {
-
+        const {message, phone, checked} = this.state;
+        console.log(message);
+        this.validator.validateAll(message)
+            .then(success => {
+                if (success) {
+                    // Manually verify the password confirmation fields
+                    if (isValidPhoneNumber(phone)) {
+                        if (checked) {
+                            this.setState({
+                                isLoading: true
+                            });
+                            message.phone = phone;
+                            this.submit(data);
+                        } else {
+                            this.setState({checkbox_border: !this.state.checkbox_border});
+                        }
+                    }
+                    else{
+                        const responseError = {
+                            isError: true,
+                            code: 401,
+                            text: "Oops! Phone number doesn't exit!"
+                        };
+                        this.setState({responseError});
+                    }
+                } else {
+                    const { errors } = this.validator;
+                    const ref = this;
+                    Object.keys(message).map(function(key, item) {
+                        if (key != "phone" && key != "company") {
+                            ref.validator.validate(key, message[key])
+                            .then(() => {
+                                ref.setState({errors})
+                            }); 
+                        }
+                    });
+                }
+            });
     }
 
+    submit(data) {
+        console.log(data);
+    }
     render() {
         const {data, errors, phone, checkbox_border} = this.state;
         return (
