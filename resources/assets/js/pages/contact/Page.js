@@ -1,13 +1,31 @@
 import React from 'react'
-import { Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import { Container, Grid, Dimmer, Segment, Loader, Form, TextArea, Checkbox, Button, Header } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input'
+import ReeValidate from 'ree-validate'
+import 'react-phone-number-input/style.css'
+import flags from 'react-phone-number-input/flags'
 import HeadquaterItem from '../../common/headQuaterItem'
 import Http from '../../Http'
 class Page extends React.Component {
     constructor(props) {
         super(props);
+        this.validator = new ReeValidate({
+            name: 'required|min:3',
+            email: 'required|email',
+            message: 'required'
+        });
         this.state = {
-            isLoaded: false
+            isLoaded: false,
+            errors: this.validator.errors,
+            phone: '',
+            message: '',
+            checked: false,
+            checkbox_border: true
         }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
     }
 
     componentDidMount() {
@@ -20,8 +38,28 @@ class Page extends React.Component {
         });
     }
 
+    handleChange(event, type) {
+        const name = event.target.name;
+        const value = event.target.value;
+        const { errors } = this.validator;
+
+        this.validator.validate(name, value)
+        .then(() => {
+            this.setState({errors})
+        });
+
+    }
+
+    handleCheckBoxClick() {
+        this.setState({checked: !this.state.checked, checkbox_border: !this.state.checked});
+    }
+
+    handleSubmit(event) {
+
+    }
+
     render() {
-        const {data} = this.state;
+        const {data, errors, phone, checkbox_border} = this.state;
         return (
             <div className="contact-page">
                 {this.state.isLoaded ?
@@ -35,7 +73,7 @@ class Page extends React.Component {
                                             <p>{data.description}</p>
                                         </div>
                                     </div>
-                                    <Grid padded="horizontally" style={{paddingTop: 70}}>
+                                    <Grid padded="horizontally" style={{paddingTop: 50}}>
                                         <Grid.Row columns={4} className="custom-row">
                                             {data.headquarters.map((item, i) => (
                                                 <Grid.Column className="custom-column" key={i}>
@@ -49,6 +87,71 @@ class Page extends React.Component {
                         </div>
                         <div className="contact-section">
                             <Container className="custom-col-6">
+                                <Form size='large' className="message-form">
+                                    <Segment stacked>
+                                        <div className="form-group">
+                                            <Form.Input
+                                                fluid
+                                                label="Name"
+                                                name='name'
+                                                placeholder='Name'
+                                                onChange={(val)=>this.handleChange(val, 'name')}
+                                                error={errors.has('name')}
+                                            />
+                                            {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>
+                                                {errors.first('name')}
+                                            </Header>}
+                                            <Form.Input
+                                                fluid
+                                                label="Company Name"
+                                                name='company_name'
+                                                placeholder='Your company'
+                                                onChange={(val)=>this.handleChange(val, 'company')}
+                                            />
+                                        </div>
+                                        <div className="form-group">
+                                            <Form.Input
+                                                fluid
+                                                label="Work email"
+                                                name='email'
+                                                placeholder='E-mail address'
+                                                className="input-form"
+                                                onChange={(val)=>this.handleChange(val, 'email')}
+                                                error={errors.has('email')}
+                                            />
+                                            {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
+                                                {errors.first('email')}
+                                            </Header>}
+                                            <div className="phone-form">
+                                                <label>Phone</label>
+                                                <PhoneInput
+                                                    placeholder="Your phone number"
+                                                    value={ phone }
+                                                    flags={flags}
+                                                    onChange={ phone => this.setState({ phone }) } 
+                                                    error={ phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required'}/>
+                                            </div>
+                                        </div>
+                                        <Form.Field 
+                                            label='What can we help you with?' 
+                                            name="message"
+                                            placeholder='Write your message'
+                                            control='textarea' 
+                                            rows='5'
+                                            onChange={(val)=>this.handleChange(val, 'message')}
+                                        />
+                                        {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>
+                                            {errors.first('message')}
+                                        </Header>}
+                                        <div className={checkbox_border?'privacy-section': 'privacy-section checkbox_border'}>
+                                            <Checkbox onClick={this.handleCheckBoxClick} label="By clicking 'Send message', I agree to FantasyLab's " />
+                                            <div className="terms-section">
+                                                <Link to='/privacy-policy' replace>Privacy Policy</Link>
+                                            </div>
+                                        </div>
+                                        <Button fluid size='large' className="primary-button" onClick={this.handleSubmit}>Send message</Button>
+                                    </Segment>
+                                </Form>
                             </Container>
                         </div>
                         <section className="divide"></section>
