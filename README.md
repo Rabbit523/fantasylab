@@ -1,5 +1,5 @@
 # react-laravel-with-jwt-authentication
-Boilerplate for reactjs (15.6) and laravel (5.5) with jwt-authentication.  0 
+FantasyLab Company site using reactjs (15.6), reducer, sass, laravel (5.8), mysql with jwt-authentication.
 
 # usage :
 1. Rename .env.example to .env
@@ -10,13 +10,7 @@ Boilerplate for reactjs (15.6) and laravel (5.5) with jwt-authentication.  0
    - php artisan migrate
 4. npm install
 5. npm run dev
-
-# features:
-This repository already configured with:
-- Semantic UI React => https://react.semantic-ui.com/introduction
-- Animate css => https://daneden.github.io/animate.css/
-- Redux persist (For local storage) => https://www.npmjs.com/package/redux-persist
-- Socialite => (https://laravel.com/docs/5.5/socialite)
+6. php artisan serve
 
 # To-Do list :
 - User registration => Done
@@ -24,7 +18,7 @@ This repository already configured with:
 - Forgot password => Done
 - Limit login attempts
 - social login => Done (Facebook, Twitter, LinkedIn, Google)
+- Front-end pages
+- Admin panel 
+- CMS
 
-This project is open for contribution.
-
-For any suggestion and query contact me at : sumityadavbadli@gmail.com
