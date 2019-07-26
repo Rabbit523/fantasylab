@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid, Dimmer, Segment, Loader, Form, TextArea, Checkbox, Button, Header } from 'semantic-ui-react'
+import { Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Button, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input'
 import ReeValidate from 'ree-validate'
