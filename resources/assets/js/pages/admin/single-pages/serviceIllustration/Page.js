@@ -18,11 +18,12 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        Http.post('/api/front/get-page', {name: 'portfolio'}).then(
+        Http.post('/api/front/get-page', { name: 'portfolio' })
+        .then(
             res => {
                 var list = JSON.parse(res.data.data);
                 var portfolios = {};
-                Object.keys(list).map(function(key, index) {
+                Object.keys(list).map((key, index) => {
                     if (key == "portfolios") {
                         portfolios = list[key];
                     }
@@ -34,7 +35,7 @@ class Page extends React.Component {
                 });
             }
         ).catch(err => {
-            console.log(err);
+            console.error(err);
         });
     }
 
@@ -45,16 +46,16 @@ class Page extends React.Component {
         switch (type) {
             case 'title':
                 list.title = event.target.value;
-                return this.setState({list});
+                return this.setState({ list });
             case 'description':
                 list.description = event.target.value;
-                return this.setState({list});
+                return this.setState({ list });
         }
 
-        Object.keys(list['icon_urls']).map(function (key, index) {
+        Object.keys(list['icon_urls']).map((key, index) => {
             if (key == type) {
                 list['icon_urls'][key].text = event.target.value;
-                ref.setState({list});
+                ref.setState({ list });
             }
         });
     }
@@ -66,7 +67,7 @@ class Page extends React.Component {
         if (infile.files && infile.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                if (type == "header") { list.header_url = e.target.result; ref.setState({list}); } 
+                if (type == "header") { list.header_url = e.target.result; ref.setState({ list }); } 
             }
             reader.readAsDataURL(infile.files[0]);
         }
@@ -76,20 +77,20 @@ class Page extends React.Component {
             var reader = new FileReader();
             reader.onload = new FileReader();
             reader.onload = function (e) {
-                if (type == "footer") { list.footer_url = e.target.result; ref.setState({list}); }
+                if (type == "footer") { list.footer_url = e.target.result; ref.setState({ list }); }
             }
             reader.readAsDataURL(footer_file.files[0]);
         }
 
         var icon_file = document.getElementsByClassName("icon-file");
-        Object.keys(icon_file).map(function (key, index) {
+        Object.keys(icon_file).map((key, index) => {
             if (icon_file[index].files && icon_file[index].files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    Object.keys(list['icon_urls']).map(function (key, i) {
+                    Object.keys(list['icon_urls']).map((key, i) => {
                         if (key == type) {
                             list["icon_urls"][type].path = e.target.result;
-                            ref.setState({list});
+                            ref.setState({ list });
                         }
                     });
                 }
@@ -105,12 +106,13 @@ class Page extends React.Component {
     updateHeader() {
         var { list } = this.state;
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', {name: 'portfolio', data: JSON.stringify(list), type: 'header'}).then(
+        Http.post('/api/admin/update-page', { name: 'portfolio', data: JSON.stringify(list), type: 'header'})
+        .then(
             res => {
                 this.setState({ isLoaded: true });
             }
         ).catch(err => {
-            console.log(err);
+            console.error(err);
         });
     }
     // Update portfolio section
@@ -157,7 +159,7 @@ class Page extends React.Component {
                                                 </Form>
                                                 <div style={{display: 'flex', justifyContent: 'space-between'}}>
                                                     {
-                                                        Object.keys(list.icon_urls).map(function (key, index) {
+                                                        Object.keys(list.icon_urls).map((key, index) =>{
                                                             return (
                                                                 <Form key={index}>
                                                                     <Form.Input fluid label="Text" name='text' placeholder='Icon text' className="input-form" value={list.icon_urls[key].text} onChange={(val)=>ref.handleChange(val, key)} />
@@ -182,11 +184,11 @@ class Page extends React.Component {
                                         <Card.Content>
                                             <Card.Description>
                                                 {
-                                                    Object.keys(portfolios).map(function(key, i) {
+                                                    Object.keys(portfolios).map((key, i) => {
                                                         return (
-                                                            <div key={i} style={{display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: "10px 16px", color: '#666', cursor: 'pointer' }}>
-                                                                <p style={{textTransform: 'uppercase', margin: 0}}>{key}</p>
-                                                                <label onClick={(e) => ref.onDeletePortfolio(e, key)}><Icon name="trash outline" style={{cursor: 'pointer'}}></Icon></label>
+                                                            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: "10px 16px", color: '#666', cursor: 'pointer' }}>
+                                                                <p style={{ textTransform: 'uppercase', margin: 0}}>{key}</p>
+                                                                <label onClick={(e) => ref.onDeletePortfolio(e, key)}><Icon name="trash outline" style={{ cursor: 'pointer' }}></Icon></label>
                                                             </div>
                                                         )
                                                     })  

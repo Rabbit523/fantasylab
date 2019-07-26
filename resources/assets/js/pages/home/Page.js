@@ -18,7 +18,7 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        Http.post('api/front/get-page', {name: 'home'}).then(
+        Http.post('api/front/get-page', { name: 'home' }).then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
             }
@@ -30,51 +30,51 @@ class Page extends React.Component {
     render() {
         const { data } = this.state;
         return (
-            <div className="home-page">
+            <div className='home-page'>
                 {this.state.isLoaded ?
                     <React.Fragment>
-                        <div className="homepage-header" style={{ backgroundImage: `url(${data.header.header_url})` }}>
-                            <Container className="custom-col-6">
-                                <div className="homepage-header-description">
+                        <div className='homepage-header' style={{ backgroundImage: `url(${data.header.header_url})` }}>
+                            <Container className='custom-col-6'>
+                                <div className='homepage-header-description'>
                                     <h1>{data.header.header_title}</h1>
-                                    <p className="title">{data.header.header_description_title}</p>
+                                    <p className='title'>{data.header.header_description_title}</p>
                                     {
-                                        data.header.header_description.split('\n').map(function (item, i) {
+                                        data.header.header_description.split('\n').map((item, i) => {
                                             return (
-                                                <p key={i} className="normal">{item}</p>
+                                                <p key={i} className='normal'>{item}</p>
                                             )
                                         })
                                     }
-                                    <div className="homepage-header-buttons">
-                                        <Button as={Link} to="/register" replace compact
-                                            className="register primary-button">Craft Enterprise</Button>
-                                        <p>Existing user?<Link to="/login" className="item-link">Log in to FantasyLab</Link></p>
+                                    <div className='homepage-header-buttons'>
+                                        <Button as={Link} to='/register' replace compact
+                                            className='register primary-button'>Craft Enterprise</Button>
+                                        <p>Existing user?<Link to='/login' className='item-link'>Log in to FantasyLab</Link></p>
                                     </div>
                                 </div>
                             </Container>
                         </div>
-                        <section className="home-section">
-                            <Container className="custom-col-6">
+                        <section className='home-section'>
+                            <Container className='custom-col-6'>
                                 <h3>Services</h3>
-                                <Grid padded="horizontally">
-                                    <Grid.Row columns={2} className="custom-row">
-                                        {Object.keys(data.services).map(function(key, index) {
+                                <Grid padded='horizontally'>
+                                    <Grid.Row columns={2} className='custom-row'>
+                                        {Object.keys(data.services).map((key, index) => {
                                             return (
                                                 <React.Fragment key={index}>
                                                     {index<2 && 
-                                                        <Grid.Column className="custom-column">
+                                                        <Grid.Column className='custom-column'>
                                                             <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
                                                     </Grid.Column>}                                                        
                                                 </React.Fragment>
                                             )
                                         })}
                                     </Grid.Row>
-                                    <Grid.Row className="custom-row" columns={4}>
-                                        {Object.keys(data.services).map(function(key, index) {
+                                    <Grid.Row className='custom-row' columns={4}>
+                                        {Object.keys(data.services).map((key, index) => {
                                             return (
                                                 <React.Fragment key={index}>
                                                     {index>=2 && 
-                                                        <Grid.Column className="custom-column">
+                                                        <Grid.Column className='custom-column'>
                                                             <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
                                                         </Grid.Column>}
                                                 </React.Fragment>
@@ -84,31 +84,31 @@ class Page extends React.Component {
                                 </Grid>
                             </Container>
                         </section>
-                        <section className="home-estimation">
-                            <Container className="custom-col-6">
-                                <div className="home-estimation-description">
+                        <section className='home-estimation'>
+                            <Container className='custom-col-6'>
+                                <div className='home-estimation-description'>
                                     <h3>Estimation. Proposal. Delivery.</h3>
                                     <p>Don't get a goat. Get a quote.</p>
                                 </div>
-                                <Grid padded="horizontally">
-                                    <Grid.Row columns={3} className="custom-row">
-                                        {Object.keys(data.badges).map(function(key, index) {
+                                <Grid padded='horizontally'>
+                                    <Grid.Row columns={3} className='custom-row'>
+                                        {Object.keys(data.badges).map((key, index) => {
                                             return (
                                                 <React.Fragment key={index}>
                                                     {index<3 && 
-                                                        <Grid.Column className="custom-column">
+                                                        <Grid.Column className='custom-column'>
                                                             <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
                                                     </Grid.Column>}
                                                 </React.Fragment>
                                             )
                                         })}
                                     </Grid.Row>
-                                    <Grid.Row columns={3} className="custom-row">
-                                        {Object.keys(data.badges).map(function(key, index) {
+                                    <Grid.Row columns={3} className='custom-row'>
+                                        {Object.keys(data.badges).map((key, index) => {
                                             return (
                                                 <React.Fragment key={index}>
                                                     {index>=3 && 
-                                                        <Grid.Column className="custom-column">
+                                                        <Grid.Column className='custom-column'>
                                                             <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
                                                     </Grid.Column>}
                                                 </React.Fragment>
@@ -116,34 +116,34 @@ class Page extends React.Component {
                                         })}
                                     </Grid.Row>
                                 </Grid>
-                                <div className="home-button-group">
-                                    <Button as={Link} to="/register" replace compact className="primary-button">Craft Enterprise</Button>
-                                    <Button as={Link} to="/login" replace compact className="secondary-button">Platform</Button>
+                                <div className='home-button-group'>
+                                    <Button as={Link} to='/register' replace compact className='primary-button'>Craft Enterprise</Button>
+                                    <Button as={Link} to='/login' replace compact className='secondary-button'>Platform</Button>
                                 </div>
                             </Container>
                         </section>
-                        <section className="home-section">
-                            <Container className="custom-col-6">
+                        <section className='home-section'>
+                            <Container className='custom-col-6'>
                                 <h3>Portfolio</h3>
-                                <Grid padded="horizontally">
-                                    <Grid.Row columns={3} className="custom-row">
-                                        {Object.keys(data.portfolios).map(function(key, index) {
+                                <Grid padded='horizontally'>
+                                    <Grid.Row columns={3} className='custom-row'>
+                                        {Object.keys(data.portfolios).map((key, index) => {
                                             return (
                                                 <React.Fragment key={index}>
                                                     {index<3 && 
-                                                        <Grid.Column className="custom-column">
+                                                        <Grid.Column className='custom-column'>
                                                             <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
                                                     </Grid.Column>}
                                                 </React.Fragment>
                                             )
                                         })}
                                     </Grid.Row>
-                                    <Grid.Row columns={3} className="custom-row">
-                                        {Object.keys(data.portfolios).map(function(key, index) {
+                                    <Grid.Row columns={3} className='custom-row'>
+                                        {Object.keys(data.portfolios).map((key, index) => {
                                             return (
                                                 <React.Fragment key={index}>
                                                     {index>=3 && 
-                                                        <Grid.Column className="custom-column">
+                                                        <Grid.Column className='custom-column'>
                                                             <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
                                                     </Grid.Column>}
                                                 </React.Fragment>
@@ -153,24 +153,24 @@ class Page extends React.Component {
                                 </Grid>
                             </Container>
                         </section>
-                        <section className="home-section">
-                            <Container className="custom-col-6 home-review">
+                        <section className='home-section'>
+                            <Container className='custom-col-6 home-review'>
                                 <h3>Choose excellence, always.</h3>
                                 <p>The scrum Framework and an Agile mindset is paramount.</p>
                             </Container>
-                            <Container className="custom-col-8">
+                            <Container className='custom-col-8'>
                                 <Gallery items={data.carousels} />
                             </Container>
                         </section>
-                        <section className="home-section">
-                            <Container className="custom-col-6">
+                        <section className='home-section'>
+                            <Container className='custom-col-6'>
                                 <h3>Latest News</h3>
-                                <Grid padded="horizontally">
-                                    <Grid.Row columns={3} className="custom-row">
+                                <Grid padded='horizontally'>
+                                    <Grid.Row columns={3} className='custom-row'>
                                         {
-                                            data.news.map(function (item, i) {
+                                            data.news.map(function(item, i) {
                                                 return (
-                                                    <Grid.Column key={i} className="custom-column">
+                                                    <Grid.Column key={i} className='custom-column'>
                                                         <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
                                                     </Grid.Column>
                                                 )
@@ -181,7 +181,7 @@ class Page extends React.Component {
                             </Container>
                         </section>
                         <PageFooter url={data.header.footer_url} />
-                        <section className="divide"></section>
+                        <section className='divide'></section>
                     </React.Fragment>
                     :
                     <Segment className='page-loader'>

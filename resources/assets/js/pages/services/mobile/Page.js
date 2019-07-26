@@ -14,34 +14,35 @@ class Page extends React.Component {
     }
     
     componentDidMount() {
-        Http.post('api/front/get-page', {name: 'serviceMobile'}).then(
+        Http.post('api/front/get-page', { name: 'serviceMobile' })
+        .then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
             }
         ).catch(err => {
-            console.log(err);
+            console.error(err);
         });
     }
 
     render() {
-        const {data} = this.state;
+        const { data } = this.state;
         return (
-            <div className="service-page">
+            <div className='service-page'>
                 {this.state.isLoaded ?
                     <React.Fragment>
-                        <div className="service-header" style={{backgroundImage: `url(${data.header_url})`}}>
-                            <div className="header-gradient mobile">
-                                <Container className="custom-col-6">
-                                    <div className="header-description">
-                                        <div className="header-text">
+                        <div className='service-header' style={{ backgroundImage: `url(${data.header_url})` }}>
+                            <div className='header-gradient mobile'>
+                                <Container className='custom-col-6'>
+                                    <div className='header-description'>
+                                        <div className='header-text'>
                                             <h1>{data.title}</h1>
                                             <p>{data.description}</p>
                                         </div>
                                     </div>
-                                    <Container className="custom-col-6">
-                                        <div className="figures">
+                                    <Container className='custom-col-6'>
+                                        <div className='figures'>
                                             {data.icons.map((item, i) => (
-                                                <div className="figure" key={i}>
+                                                <div className='figure' key={i}>
                                                     <img src={`${ item.icon}`} />
                                                     <p>{item.text}</p>
                                                 </div>
@@ -49,63 +50,63 @@ class Page extends React.Component {
                                         </div>
                                     </Container>
                                 </Container>
-                                <div className="starter-group">
-                                    <Container className="custom-col-6">
+                                <div className='starter-group'>
+                                    <Container className='custom-col-6'>
                                         <h2>Let's start. What do you need?</h2>
-                                        <Container className="custom-col-6">
-                                            <Grid padded="horizontally">
-                                                <Grid.Row columns={3} className="custom-row">
+                                        <Container className='custom-col-6'>
+                                            <Grid padded='horizontally'>
+                                                <Grid.Row columns={3} className='custom-row'>
                                                     {data.starting.map((item, i) => (
-                                                        <Grid.Column className="custom-column" key={i}>
-                                                            <ServiceItem from="service" url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
+                                                        <Grid.Column className='custom-column' key={i}>
+                                                            <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
                                                         </Grid.Column>
                                                     ))}
                                                 </Grid.Row>
                                             </Grid>
                                         </Container>
-                                        <Button className="primary-button" style={{marginTop: 60}}>Craft Enterprise <Icon name="arrow right"></Icon></Button>
+                                        <Button className='primary-button' style={{marginTop: 20}}>Craft Enterprise <Icon name='arrow right'></Icon></Button>
                                     </Container>
                                 </div>
                             </div>
                         </div>
-                        <div className="service-section" style={{ background: `url(${data.study.backimage}) no-repeat center`, backgroundSize: '100% 100%', minHeight: '100vh'}}>
-                            <Container className="custom-col-6">
-                                <Container className="custom-col-4">
-                                    <div className="service-review">
+                        <div className='service-section' style={{ background: `url(${data.study.backimage}) no-repeat center`, backgroundSize: '100% 100%', minHeight: '100vh' }}>
+                            <Container className='custom-col-6'>
+                                <Container className='custom-col-4'>
+                                    <div className='service-review'>
                                         <p>CASE STUDY</p>
                                         <h2>{data.study.title}</h2>
-                                        <p>"{data.study.description}"</p>
-                                        <div className="avatar"><img src={`${ data.study.avatar}`} /></div>
+                                        <p>'{data.study.description}'</p>
+                                        <div className='avatar'><img src={`${ data.study.avatar}`} /></div>
                                         <p>{data.study.job}</p>
-                                        <Button className="third-button">Read case study</Button>
+                                        <Button className='third-button'>Read case study</Button>
                                     </div>
                                 </Container>
                             </Container>
                         </div>
-                        <div className="service-section">
+                        <div className='service-section'>
                             <h3>Technologies we excel at</h3>
-                            <Container className="custom-col-6">
-                                <Container className="custom-col-8">
-                                    <Grid padded="horizontally">
-                                        <Grid.Row className="custom-row" columns={4}>
-                                            {data.technologies.map(function(item, i) {
+                            <Container className='custom-col-6'>
+                                <Container className='custom-col-8'>
+                                    <Grid padded='horizontally'>
+                                        <Grid.Row className='custom-row' columns={4}>
+                                            {data.technologies.map((item, i) => {
                                                 return (
                                                     <React.Fragment  key={i}>
                                                         {i<4 && 
-                                                            <Grid.Column className="custom-column">
-                                                                <GuideCard from="service_mobile" avatar={item.icon} title={item.lang} description={item.text}/>
+                                                            <Grid.Column className='custom-column'>
+                                                                <GuideCard from='service_mobile' avatar={item.icon} title={item.lang} description={item.text}/>
                                                             </Grid.Column>}
                                                     </React.Fragment>
                                                 )
                                             })}
                                         </Grid.Row>
-                                        <Grid.Row className="custom-row" columns={4}>
-                                            {data.technologies.map(function(item, i) {
+                                        <Grid.Row className='custom-row' columns={4}>
+                                            {data.technologies.map((item, i) => {
                                                 return (
                                                     <React.Fragment  key={i}>
                                                         {i>=4 && 
-                                                            <Grid.Column className="custom-column">
-                                                                <GuideCard from="service_mobile" avatar={item.icon} title={item.lang} description={item.text}/>
+                                                            <Grid.Column className='custom-column'>
+                                                                <GuideCard from='service_mobile' avatar={item.icon} title={item.lang} description={item.text}/>
                                                             </Grid.Column>}
                                                     </React.Fragment>
                                                 )
@@ -115,32 +116,32 @@ class Page extends React.Component {
                                 </Container>
                             </Container>
                         </div>
-                        <div className="service-estimation">
-                            <Container className="custom-col-6">
-                                <div className="service-estimation-description">
+                        <div className='service-estimation'>
+                            <Container className='custom-col-6'>
+                                <div className='service-estimation-description'>
                                     <h3>Estimation. Proposal. Delivery.</h3>
                                     <p>Don't get a goat. Get a quote.</p>
                                 </div>
-                                <Grid padded="horizontally">
-                                    <Grid.Row columns={3} className="custom-row">
-                                        {data.estimation.map(function(item, i) {
+                                <Grid padded='horizontally'>
+                                    <Grid.Row columns={3} className='custom-row'>
+                                        {data.estimation.map((item, i) => {
                                             return (
                                                 <React.Fragment key={i}>
                                                     {i<3 && 
-                                                        <Grid.Column className="custom-column">
-                                                            <BadgeTextCard from="service" url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                                        <Grid.Column className='custom-column'>
+                                                            <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
                                                         </Grid.Column>}
                                                 </React.Fragment>
                                             )
                                         })}
                                     </Grid.Row>
-                                    <Grid.Row columns={3} className="custom-row">
-                                        {data.estimation.map(function(item, i) {
+                                    <Grid.Row columns={3} className='custom-row'>
+                                        {data.estimation.map((item, i) => {
                                             return (
                                                 <React.Fragment key={i}>
                                                     {i>=3 && 
-                                                        <Grid.Column className="custom-column">
-                                                            <BadgeTextCard from="service" url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                                        <Grid.Column className='custom-column'>
+                                                            <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
                                                         </Grid.Column>}
                                                 </React.Fragment>
                                             )
@@ -150,7 +151,7 @@ class Page extends React.Component {
                             </Container>
                         </div>
                         <PageFooter url={data.footer_url} />
-                        <div className="divide"></div>
+                        <div className='divide'></div>
                     </React.Fragment>
                     :
                     <Segment className='page-loader'>

@@ -12,9 +12,9 @@ class PageHeader extends React.Component {
 
     render() {
         return (
-            <div className="main-header" style={{backgroundImage: `url(${this.props.url})`}}>
-                <Container className="custom-col-6">
-                    <div className="main-header-description">
+            <div className='main-header' style={{backgroundImage: `url(${this.props.url})`}}>
+                <Container className='custom-col-6'>
+                    <div className='main-header-description'>
                         <h1>{this.props.title}</h1>
                     </div>
                 </Container>

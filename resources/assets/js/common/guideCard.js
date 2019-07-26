@@ -7,22 +7,22 @@ const hoverStyle = {
     cursor: 'pointer'
 };
 const serviceWebStyle = {
-    display: "inline-block",
+    display: 'inline-block',
     width: 100,
     height: 80
 }
 const serviceMobileStyle = {
-    display: "inline-block",
+    display: 'inline-block',
     width: 70,
     height: 90
 }
 const serviceUIStyle = {
-    display: "inline-block",
+    display: 'inline-block',
     width: 60,
     height: 80
 }
 var aboutStyle = {
-    display: "inline-block",
+    display: 'inline-block',
     width: 50,
     height: 50,
     marginBottom: 20
@@ -43,14 +43,14 @@ class GuideCard extends React.Component {
         return (
             <ReactHoverObserver className='guide-card-observer'>
                 {({ isHovering }) => (
-                    <div className={this.props.from?"guide-card service":"guide-card"} style={isHovering?hoverStyle:null}>
-                        <div className="avatar" style={aboutStyle}>
+                    <div className={this.props.from?'guide-card service':'guide-card'} style={isHovering?hoverStyle:null}>
+                        <div className='avatar' style={aboutStyle}>
                             <img src={`${ this.props.avatar}`} />
                         </div>
-                        <div className="title">
+                        <div className='title'>
                             <p>{this.props.title}</p>
                         </div>
-                        <div className="description">
+                        <div className='description'>
                             <p>{this.props.description}</p>
                         </div>
                     </div>

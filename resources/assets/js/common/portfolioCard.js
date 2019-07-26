@@ -8,15 +8,15 @@ class PortfolioCard extends React.Component {
 
     render() {
         return (
-            <div className="portfolio-item">
+            <div className='portfolio-item'>
                 {this.props.from == 'home' ? 
-                    <div className="portfolio">
+                    <div className='portfolio'>
                         <img src={`${ this.props.icon_url}`} />
                     </div>
                 : 
-                    <div className="portfolio-text">
+                    <div className='portfolio-text'>
                         <p>{this.props.title}</p>
-                        <p className="portfolio-des">{this.props.description}</p>
+                        <p className='portfolio-des'>{this.props.description}</p>
                     </div>
                 }
             </div>

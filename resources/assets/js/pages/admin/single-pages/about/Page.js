@@ -23,7 +23,8 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        Http.post('/api/front/get-page', {name: 'about'}).then(
+        Http.post('/api/front/get-page', { name: 'about' })
+        .then(
             res => {
                 var list = JSON.parse(res.data.data);
                 console.log(list);
@@ -53,7 +54,7 @@ class Page extends React.Component {
                 });
             }
         ).catch(err => {
-            console.log(err);
+            console.error(err);
         });
     }
 
@@ -123,7 +124,7 @@ class Page extends React.Component {
         //         reader.readAsDataURL(icon_file[index].files[0]);
         //     }
         // });
-    }
+    }    
     
     onCollapseChange(activeKey) {
         this.setState({ activeKey });
@@ -137,7 +138,7 @@ class Page extends React.Component {
                 this.setState({ isLoaded: true });
             }
         ).catch(err => {
-            console.log(err);
+            console.error(err);
         });
     }
     // Update portfolio section
@@ -166,8 +167,8 @@ class Page extends React.Component {
                                                     <label>Description</label>
                                                     <TextArea
                                                         placeholder='Tell us more'
-                                                        value={list.description}
-                                                        onChange={(val)=>this.handleChange(val, 'description')}
+                                                        value={ list.description }
+                                                        onChange={ (val) => this.handleChange(val, 'description') }
                                                     />
                                                 </Form>
                                                 <Form>
