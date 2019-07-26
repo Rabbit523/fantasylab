@@ -1,8 +1,6 @@
 import React from 'react'
-import { Button, Container, Grid, Header, Icon, Responsive, Dimmer, Segment, Loader, List } from 'semantic-ui-react'
-// import ReactTable from 'react-table';
+import { Container, Dimmer, Segment, Loader, List } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-// import "react-table/react-table.css"
 import Http from '../../../Http'
 class Page extends React.Component {
     constructor(props) {
@@ -19,6 +17,7 @@ class Page extends React.Component {
     componentDidMount() {
         Http.get('/api/admin/pages').then(
             res => {
+                console.log(res.data);
                 this.setState({ isLoaded: true, list: res.data });
             }
         ).catch(err => {
@@ -31,7 +30,6 @@ class Page extends React.Component {
             <div className="admin-pages">
             {this.state.isLoaded ?
                 <Segment vertical textAlign='center'>
-                    {/* <ReactTable data={this.state.list} columns={this.columns} defaultPageSize={10} className="-striped -highlight"/> */}
                     <Container className="custom-col-6">
                         <List selection divided relaxed>
                             { this.state.list.map(function (item, i) {
@@ -39,8 +37,8 @@ class Page extends React.Component {
                                         <List.Item key={i} as={Link} to={`/admin/single-page/${item.page_name}`}>
                                             <List.Icon name='github' size='large' verticalAlign='middle' />
                                             <List.Content>
-                                                <List.Header as={Link} to={`/admin/single-page/${item.page_name}`}>{item.page_name}</List.Header>
-                                                <List.Description as='a'>Updated at {item.updated_at}</List.Description>
+                                                <List.Header><p>{item.page_name}</p></List.Header>
+                                                <List.Description>Updated at {item.updated_at}</List.Description>
                                             </List.Content>
                                         </List.Item>
                                     )
@@ -49,13 +47,12 @@ class Page extends React.Component {
                         </List>
                     </Container>
                  </Segment>
-            :
+                :
                 <Segment className='page-loader'>
                     <Dimmer active inverted>
                         <Loader size='large'>Loading...</Loader>
                     </Dimmer>
-                </Segment>
-            }
+                </Segment>}
             </div>
         );
     }
