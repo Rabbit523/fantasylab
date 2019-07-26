@@ -44,6 +44,12 @@ class Page extends React.Component {
         const ref = this;
 
         switch (type) {
+            case 'meta_title':
+                list.meta_title = event.target.value;
+                return this.setState({ list });
+            case 'meta_description':
+                list.meta_description = event.target.value;
+                return this.setState({ list });
             case 'title':
                 list.title = event.target.value;
                 return this.setState({ list });
@@ -136,6 +142,8 @@ class Page extends React.Component {
                                         </Card.Content>
                                         <Card.Content>
                                             <Card.Description>
+                                                <Form.Input fluid label='Meta Title' name='meta_title' placeholder='Meta title' className='input-form' value={list.meta_title} onChange={(val) => this.handleChange(val, 'meta_title')} />
+                                                <Form.Input fluid label='Meta Description' name='meta_description' placeholder='Meta description' className='input-form' value={list.meta_description} onChange={(val) => this.handleChange(val, 'meta_description')} />
                                                 <Form.Input fluid label='Title' name='title' placeholder='Header title' className='input-form' value={list.title} onChange={(val)=>this.handleChange(val, 'title')} />
                                                 <Form>
                                                     <label>Description</label>
