@@ -1,29 +1,45 @@
 import React from 'react'
-import {
-    Button,
-    Container,
-    Grid,
-    Header,
-    Icon,
-    Responsive,
-    Segment,
-    Step
-} from 'semantic-ui-react'
-import PageHeader from '../../common/pageHeader'
-
+import { Header, Segment, Dimmer, Loader } from 'semantic-ui-react'
+import PageMetaTag from '../../common/pageMetaTag'
+import Http from '../../Http'
 class Page extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            isLoaded: false
+        };
+    }
+
+    componentDidMount() {
+        Http.post('api/front/get-page', { name: 'blog' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
     }
 
     render() {
+        const { isLoaded, data } = this.state;
         return (
-            <React.Fragment>
-                <PageHeader heading="Blog"/>
-                <Segment vertical textAlign='center' style={{minHeight: '100vh'}}>
-                    <Header as='h1'>Blog</Header>
-                </Segment>
-            </React.Fragment>
+            <div className='blog-page'>
+                {isLoaded ?
+                    <React.Fragment>
+                        <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
+                        <Segment vertical textAlign='center' style={{minHeight: '100vh'}}>
+                            <Header as='h1'>Blog</Header>
+                        </Segment>
+                    </React.Fragment>
+                    :
+                    <Segment className='page-loader'>
+                        <Dimmer active inverted>
+                            <Loader size='large'>Loading...</Loader>
+                        </Dimmer>
+                    </Segment>
+                }
+            </div>
         );
     }
 }

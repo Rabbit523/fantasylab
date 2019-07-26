@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import PageMetaTag from '../../common/pageMetaTag'
 import PageFooter from '../../common/pageFooter'
 import PortfolioCard from '../../common/portfolioCard'
 import Http from '../../Http'
@@ -22,11 +23,12 @@ class Page extends React.Component {
     }
 
     render() {
-        const { data } = this.state;
+        const { isLoaded, data } = this.state;
         return (
             <div className='portfolio-page'>
-                {this.state.isLoaded ?
+                {isLoaded ?
                     <React.Fragment>
+                        <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
                         <div className='portfolio-header' style={{ backgroundImage: `url(${data.header_url})` }}>
                             <div className='header-gradient'>
                                 <Container className='custom-col-6'>

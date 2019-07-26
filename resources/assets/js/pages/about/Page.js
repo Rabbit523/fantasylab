@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import PageMetaTag from '../../common/pageMetaTag'
 import GuideCard from '../../common/guideCard'
 import TextCard from '../../common/textCard'
 import ServiceItem from '../../common/serviceItem'
@@ -15,7 +16,7 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        Http.post('api/front/get-page', {name: 'about'}).then(
+        Http.post('api/front/get-page', { name: 'about' }).then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
             }
@@ -25,11 +26,12 @@ class Page extends React.Component {
     }
 
     render() {
-        const {data} = this.state;
+        const { isLoaded, data } = this.state;
         return (
             <div className="about-page">
-                {this.state.isLoaded ?
+                {isLoaded ?
                     <React.Fragment>
+                        <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
                         <div className="about-header" style={{backgroundImage: `url(${data.header_url})`}}>
                             <div className="header-gradient">
                                 <Container className="custom-col-6">

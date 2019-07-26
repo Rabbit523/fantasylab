@@ -63,6 +63,12 @@ class Page extends React.Component {
         var ref = this;
         console.log(type);
         switch (type) {
+            case 'meta_title':
+                list.meta_title = event.target.value;
+                return this.setState({ list });
+            case 'meta_description':
+                list.meta_description = event.target.value;
+                return this.setState({ list });
             case 'title':
                 list.title = event.target.value;
                 return this.setState({list});
@@ -133,7 +139,8 @@ class Page extends React.Component {
     updateHeader() {
         var { list } = this.state;
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', {name: 'about', data: JSON.stringify(list), type: 'header'}).then(
+        Http.post('/api/admin/update-page', {name: 'about', data: JSON.stringify(list), type: 'header'})
+        .then(
             res => {
                 this.setState({ isLoaded: true });
             }
@@ -146,11 +153,11 @@ class Page extends React.Component {
     //     console.log(type);
     // }
     render() {
-        const { list, services, values, headquarters, guides, counters, news, activeKey, accordion } = this.state;
-        var ref = this;
+        const { isLoaded, list, services, values, headquarters, guides, counters, news, activeKey, accordion } = this.state;
+        const ref = this;
         return (
             <div className="admin-page">
-            {this.state.isLoaded ?
+            {isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Container>
                         <Grid padded="vertically">
@@ -162,6 +169,8 @@ class Page extends React.Component {
                                         </Card.Content>
                                         <Card.Content>
                                             <Card.Description>
+                                                <Form.Input fluid label='Meta Title' name='meta_title' placeholder='Meta title' className='input-form' value={list.meta_title} onChange={(val) => this.handleChange(val, 'meta_title')} />
+                                                <Form.Input fluid label='Meta Description' name='meta_description' placeholder='Meta description' className='input-form' value={list.meta_description} onChange={(val) => this.handleChange(val, 'meta_description')} />
                                                 <Form.Input fluid label="Title" name='title' placeholder='Header title' className="input-form" value={list.title} onChange={(val)=>this.handleChange(val, 'title')} />
                                                 <Form>
                                                     <label>Description</label>

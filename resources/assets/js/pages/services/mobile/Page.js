@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Container, Grid, Dimmer, Segment, Loader, Icon } from 'semantic-ui-react'
+import PageMetaTag from '../../../common/pageMetaTag'
 import Http from '../../../Http'
 import PageFooter from '../../../common/pageFooter'
 import ServiceItem from '../../../common/serviceItem'
@@ -25,11 +26,12 @@ class Page extends React.Component {
     }
 
     render() {
-        const { data } = this.state;
+        const { isLoaded, data } = this.state;
         return (
             <div className='service-page'>
-                {this.state.isLoaded ?
+                {isLoaded ?
                     <React.Fragment>
+                        <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
                         <div className='service-header' style={{ backgroundImage: `url(${data.header_url})` }}>
                             <div className='header-gradient mobile'>
                                 <Container className='custom-col-6'>

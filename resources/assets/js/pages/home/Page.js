@@ -7,6 +7,7 @@ import BadgeTextCard from '../../common/badgeTextCard'
 import PortfolioCard from '../../common/portfolioCard'
 import Gallery from '../../common/carousel'
 import NewsCard from '../../common/newsCard'
+import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
 class Page extends React.Component {
     constructor(props) {
@@ -28,11 +29,12 @@ class Page extends React.Component {
     }
 
     render() {
-        const { data } = this.state;
+        const { isLoaded, data } = this.state;
         return (
             <div className='home-page'>
-                {this.state.isLoaded ?
+                {isLoaded ?
                     <React.Fragment>
+                        <PageMetaTag meta_title={data.header.meta_title} meta_description={data.header.meta_description}/>
                         <div className='homepage-header' style={{ backgroundImage: `url(${data.header.header_url})` }}>
                             <Container className='custom-col-6'>
                                 <div className='homepage-header-description'>
