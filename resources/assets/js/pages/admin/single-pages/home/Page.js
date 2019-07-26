@@ -67,7 +67,7 @@ class Page extends React.Component {
 
     handleChange(event, type) {
         var { header, services, badges, carousels, news } = this.state;
-        var ref = this;
+        const ref = this;
 
         switch (type) {
             case 'header_title':
@@ -116,7 +116,7 @@ class Page extends React.Component {
     onAvatarChange(type, e){
         var infile = document.getElementById('input-file');
         var { header, services, badges, carousels, news } = this.state;
-        var ref = this;
+        const ref = this;
         if (infile.files && infile.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
@@ -305,11 +305,11 @@ class Page extends React.Component {
         });
     }
     render() {
-        const { header, services, badges, portfolios, carousels, news, service_activeKey, accordion, badge_activeKey, review_activeKey, news_activeKey } = this.state;
-        var ref = this;
+        const { isLoaded, header, services, badges, portfolios, carousels, news, service_activeKey, accordion, badge_activeKey, review_activeKey, news_activeKey } = this.state;
+        const ref = this;
         return (
             <div className='admin-page home'>
-            {this.state.isLoaded ?
+            {isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Container>
                         <Grid padded='horizontally'>

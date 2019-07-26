@@ -133,7 +133,8 @@ class Page extends React.Component {
     updateHeader() {
         var { list } = this.state;
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', {name: 'about', data: JSON.stringify(list), type: 'header'}).then(
+        Http.post('/api/admin/update-page', {name: 'about', data: JSON.stringify(list), type: 'header'})
+        .then(
             res => {
                 this.setState({ isLoaded: true });
             }
@@ -146,11 +147,11 @@ class Page extends React.Component {
     //     console.log(type);
     // }
     render() {
-        const { list, services, values, headquarters, guides, counters, news, activeKey, accordion } = this.state;
-        var ref = this;
+        const { isLoaded, list, services, values, headquarters, guides, counters, news, activeKey, accordion } = this.state;
+        const ref = this;
         return (
             <div className="admin-page">
-            {this.state.isLoaded ?
+            {isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Container>
                         <Grid padded="vertically">

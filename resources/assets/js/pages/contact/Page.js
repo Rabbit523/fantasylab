@@ -5,6 +5,7 @@ import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-n
 import ReeValidate from 'ree-validate'
 import 'react-phone-number-input/style.css'
 import flags from 'react-phone-number-input/flags'
+import PageMetaTag from '../../common/pageMetaTag'
 import HeadquaterItem from '../../common/headQuaterItem'
 import Http from '../../Http'
 class Page extends React.Component {
@@ -122,11 +123,12 @@ class Page extends React.Component {
         console.log(data);
     }
     render() {
-        const { data, errors, phone, checkbox_border } = this.state;
+        const { isLoaded, data, errors, phone, checkbox_border } = this.state;
         return (
             <div className='contact-page'>
-                {this.state.isLoaded ?
+                {isLoaded ?
                     <React.Fragment>
+                        <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
                         <div className='contact-header' style={{ backgroundImage: `url(${data.header_url})` }}>
                             <div className='header-gradient'>
                                 <Container className='custom-col-6'>

@@ -41,7 +41,7 @@ class Page extends React.Component {
 
     handleChange(event, type) {
         var { list } = this.state;
-        var ref = this;
+        const ref = this;
 
         switch (type) {
             case 'title':
@@ -63,7 +63,7 @@ class Page extends React.Component {
     onAvatarChange(type, e){
         var infile = document.getElementById('input-file');
         var { list } = this.state;
-        var ref = this;
+        const ref = this;
         if (infile.files && infile.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
@@ -120,11 +120,11 @@ class Page extends React.Component {
         console.log(type);
     }    
     render() {
-        const { list, portfolios, activeKey, accordion } = this.state;
-        var ref = this;
+        const { isLoaded, list, portfolios, activeKey, accordion } = this.state;
+        const ref = this;
         return (
             <div className='admin-page'>
-            {this.state.isLoaded ?
+            {isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Container>
                         <Grid padded='vertically'>

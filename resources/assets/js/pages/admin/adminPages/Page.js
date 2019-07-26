@@ -25,10 +25,10 @@ class Page extends React.Component {
     }
 
     render() {
-        const { list } = this.state;
+        const { isLoaded, list } = this.state;
         return (
             <div className='admin-pages'>
-            {this.state.isLoaded ?
+            {isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Container className='custom-col-6'>
                         <List selection divided relaxed>
