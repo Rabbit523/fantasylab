@@ -42,9 +42,9 @@ class ServiceItem extends React.Component {
                         <div className="text-item">
                             <p>{this.props.title}</p>
                         </div>
-                        <div className="description" style={isHovering?this.state.des_hover:{}}>
+                        {this.props.description && <div className="description" style={isHovering?this.state.des_hover:{}}>
                             <p>{this.props.description}</p>
-                        </div>
+                        </div>}
                     </div>
                 )}
             </ReactHoverObserver>

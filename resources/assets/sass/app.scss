@@ -206,6 +206,9 @@ p {
 .custom-col-3 {
   width: 30% !important;
 }
+.custom-col-4 {
+  width: 40% !important;
+}
 .custom-col-6 {
   width: 60% !important;
 }
@@ -259,6 +262,14 @@ p {
   &:active {
     border: 2px solid #fff !important;
   }
+}
+.third-button {
+  background: linear-gradient(to bottom, #09133a 0%, #070e29 100%) !important;
+  border-radius: 5px;
+  color: #fff !important;
+  font-family: "Gotham Bold" !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
 }
 .item {
   &.hover {
@@ -374,6 +385,7 @@ p {
   display: flex;
   flex-direction: column;
   border-radius: 5px;
+  text-align: left;
   .item-hover-back {
     background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
     width: 100%;
@@ -1561,7 +1573,6 @@ p {
           text-align: center;
           color: #fff;
           padding-top: 100px;
-          padding-bottom: 45px;
           .header-text {
             padding-bottom: 50px;
             padding-left: 210px;
@@ -1617,6 +1628,37 @@ p {
       text-align: center;
       .service-review {
         padding-top: 250px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+        .avatar {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    .service-estimation {
+      min-height: 50vh;
+      color: #fff;
+      margin-top: 90px;
+      .service-estimation-description {
+        margin-bottom: 40px;
+        text-align: center;
+        h3 {
+          margin: 0;
+        }
+        p {
+          padding: 0;
+          color: #747b96;
+        }
       }
     }
   }

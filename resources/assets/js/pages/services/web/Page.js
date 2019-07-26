@@ -4,6 +4,7 @@ import Http from '../../../Http'
 import PageFooter from '../../../common/pageFooter'
 import ServiceItem from '../../../common/serviceItem'
 import GuideCard from '../../../common/guideCard'
+import BadgeTextCard from '../../../common/badgeTextCard'
 class Page extends React.Component {
     constructor(props) {
         super(props);
@@ -15,144 +16,7 @@ class Page extends React.Component {
     componentDidMount() {
         Http.post('api/front/get-page', {name: 'serviceWeb'}).then(
             res => {
-                var data = {
-                    header_url: "/images/about-header-back.png",
-                    footer_url: "/images/home-footer-back.png",
-                    title: "Web Development",
-                    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-                    icons: [
-                        {
-                            icon: "/images/design_dev.png",
-                            text: "Design and Development"
-                        },
-                        {
-                            icon: "/images/quality.png",
-                            text: "Testing and Quality Assurance"
-                        },
-                        {
-                            icon: "/images/measurement.png",
-                            text: "Measurement and Data Analyzation"
-                        }
-                    ],
-                    starting: [
-                        {
-                            url: "/images/web_site.png",
-                            title: "Website",
-                            description: "",
-                            backimage: "",
-                            color: "#7436e9"
-                        },
-                        {
-                            url: "/images/ecommerce.png",
-                            title: "Ecommerce",
-                            description: "Lorem Ipsum is simply dummy text of the printing",
-                            backimage: "/images/ecommerce_back.png",
-                            color: "#7436e9"
-                        },
-                        {
-                            url: "/images/web_app.png",
-                            title: "Web App",
-                            description: "",
-                            backimage: "",
-                            color: "#7436e9"
-                        }
-                    ],
-                    study: {
-                        title: "Web develpment for a headhunter platform",
-                        description: "The team in FantasyLab is highly competent and distinguishes itself through flexibility, speed and good understanding of the users. They are nice to work with.",
-                        avatar: "/images/maora_avatar.jpg",
-                        job: "Cato Backer, CEO at Avollon AS",
-                        backimage: "/images/development-study-back.png"
-                    },
-                    technologies: [
-                        {
-                            icon: "/images/angular.png",
-                            lang: "Angular.js",
-                            text: "4 projects"
-                        },
-                        {
-                            icon: "/images/vue.png",
-                            lang: "Vue.js",
-                            text: "2 projects"
-                        },
-                        {
-                            icon: "/images/react.png",
-                            lang: "React.js",
-                            text: "1 projects"
-                        },
-                        {
-                            icon: "/images/node.png",
-                            lang: "Node.js",
-                            text: "3 projects"
-                        },
-                        {
-                            icon: "/images/sass.png",
-                            lang: "Sass",
-                            text: "15+ projects"
-                        },
-                        {
-                            icon: "/images/wordpress.png",
-                            lang: "Wordpress",
-                            text: "20+ projects"
-                        },
-                        {
-                            icon: "/images/laravel.png",
-                            lang: "Laravel",
-                            text: "10+ projects"
-                        },
-                        {
-                            icon: "/images/asp_net.png",
-                            lang: "ASP.NET",
-                            text: "2 projects"
-                        }
-                    ],
-                    estimation: [
-                        {
-                            color: "#7436e9",
-                            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            number: "1",
-                            title: "Mapping of requirements",
-                            url: "/images/purple-badge.png"
-                        },
-                        {
-                            color: "#f34cb5",
-                            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            number: "2",
-                            title: "Estimation",
-                            url: "/images/pink-badge.png"
-                        },                        
-                        {
-                            color: "#f3a864",
-                            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            number: "3",
-                            title: "Propsal & acceptance",
-                            url: "/images/orange-badge.png"
-                        },
-                        {
-                            color: "#e4cb0d",
-                            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            number: "4",
-                            title: "Design process",
-                            url: "/images/yellow-badge.png"
-                        },
-                        {
-                            color: "#90ce41",
-                            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            number: "5",
-                            title: "Development process",
-                            url: "/images/blue-badge.png"
-                        },
-                        {
-                            color: "#90ce41",
-                            description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            number: "6",
-                            title: "Delivery",
-                            url: "/images/green-badge.png"
-                        }
-                    ]
-                };
-                this.setState({ isLoaded: true, data: data });
-                // this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
+                this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
             }
         ).catch(err => {
             console.log(err);
@@ -205,14 +69,16 @@ class Page extends React.Component {
                         </div>
                         <div className="service-section" style={{ background: `url(${data.study.backimage}) no-repeat center`, backgroundSize: '100% 100%', minHeight: '100vh'}}>
                             <Container className="custom-col-6">
-                                <div className="service-review">
-                                    <p>CASE STUDY</p>
-                                    <h1>{data.study.title}</h1>
-                                    <p>"{data.study.description}"</p>
-                                    <img src={`${ data.study.avatar}`} />
-                                    <p>{data.study.job}</p>
-                                    <Button className="third_button">Read case study</Button>
-                                </div>
+                                <Container className="custom-col-4">
+                                    <div className="service-review">
+                                        <p>CASE STUDY</p>
+                                        <h2>{data.study.title}</h2>
+                                        <p>"{data.study.description}"</p>
+                                        <div className="avatar"><img src={`${ data.study.avatar}`} /></div>
+                                        <p>{data.study.job}</p>
+                                        <Button className="third-button">Read case study</Button>
+                                    </div>
+                                </Container>
                             </Container>
                         </div>
                         <div className="service-section">
@@ -226,7 +92,7 @@ class Page extends React.Component {
                                                     <React.Fragment  key={i}>
                                                         {i<4 && 
                                                             <Grid.Column className="custom-column">
-                                                                <GuideCard from="service" avatar={item.icon} title={item.lang} description={item.text}/>
+                                                                <GuideCard from="service_web" avatar={item.icon} title={item.lang} description={item.text}/>
                                                             </Grid.Column>}
                                                     </React.Fragment>
                                                 )
@@ -238,7 +104,7 @@ class Page extends React.Component {
                                                     <React.Fragment  key={i}>
                                                         {i>=4 && 
                                                             <Grid.Column className="custom-column">
-                                                                <GuideCard from="service" avatar={item.icon} title={item.lang} description={item.text}/>
+                                                                <GuideCard from="service_web" avatar={item.icon} title={item.lang} description={item.text}/>
                                                             </Grid.Column>}
                                                     </React.Fragment>
                                                 )
@@ -246,6 +112,40 @@ class Page extends React.Component {
                                         </Grid.Row>
                                     </Grid>
                                 </Container>
+                            </Container>
+                        </div>
+                        <div className="service-estimation">
+                            <Container className="custom-col-6">
+                                <div className="service-estimation-description">
+                                    <h3>Estimation. Proposal. Delivery.</h3>
+                                    <p>Don't get a goat. Get a quote.</p>
+                                </div>
+                                <Grid padded="horizontally">
+                                    <Grid.Row columns={3} className="custom-row">
+                                        {data.estimation.map(function(item, i) {
+                                            return (
+                                                <React.Fragment key={i}>
+                                                    {i<3 && 
+                                                        <Grid.Column className="custom-column">
+                                                            <BadgeTextCard from="service" url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                                        </Grid.Column>}
+                                                </React.Fragment>
+                                            )
+                                        })}
+                                    </Grid.Row>
+                                    <Grid.Row columns={3} className="custom-row">
+                                        {data.estimation.map(function(item, i) {
+                                            return (
+                                                <React.Fragment key={i}>
+                                                    {i>=3 && 
+                                                        <Grid.Column className="custom-column">
+                                                            <BadgeTextCard from="service" url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                                        </Grid.Column>}
+                                                </React.Fragment>
+                                            )
+                                        })}
+                                    </Grid.Row>
+                                </Grid>
                             </Container>
                         </div>
                         <PageFooter url={data.footer_url} />
