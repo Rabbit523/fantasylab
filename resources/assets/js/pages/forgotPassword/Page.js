@@ -4,7 +4,7 @@ import {Link, Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ReeValidate from 'ree-validate'
 import AuthService from '../../services'
-import PageHeader from '../../common/pageHeader'
+import PageMetaTag from '../../common/pageMetaTag'
 
 class Page extends React.Component {
     constructor(props) {
@@ -99,6 +99,7 @@ class Page extends React.Component {
 
         return (
             <React.Fragment>
+                <PageMetaTag meta_title="Forgot password" meta_description="" />
                 <Segment className='page-loader' style={{display: this.state.isLoading ? 'block' : 'none'}}>
                     <Dimmer active inverted>
                         <Loader size='large'>Resetting Password...</Loader>

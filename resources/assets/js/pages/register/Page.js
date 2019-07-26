@@ -7,6 +7,7 @@ import AuthService from '../../services'
 import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import flags from 'react-phone-number-input/flags'
+import PageMetaTag from '../../common/pageMetaTag'
 class Page extends React.Component {
     constructor(props) {
         super(props);
@@ -161,6 +162,7 @@ class Page extends React.Component {
         const { errors, phone, checkbox_border } = this.state;
         return (
             <React.Fragment>
+                <PageMetaTag meta_title="Sign up" meta_description="" />
                 <Segment className='page-loader' style={{ display: this.state.isLoading ? 'block' : 'none' }}>
                     <Dimmer active inverted>
                         <Loader size='large'>Registering...</Loader>
