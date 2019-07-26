@@ -1,6 +1,6 @@
 import React from 'react'
-import { NavLink, Link } from 'react-router-dom'
-import { Header, Icon, Image, Menu, Segment, Sidebar, Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Icon, Menu, Sidebar } from 'semantic-ui-react'
 
 class AdminSidebar extends React.Component {
     constructor(props) {
@@ -10,17 +10,7 @@ class AdminSidebar extends React.Component {
     render() {
         return (
             <React.Fragment>
-                 <Sidebar
-                    as={Menu}
-                    animation='push'
-                    direction='left'
-                    icon='labeled'
-                    inverted
-                    vertical
-                    visible={true}
-                    width='thin'
-                    className="admin-sidebar"
-                >
+                <Sidebar as={Menu} animation='push' direction='left' icon='labeled' inverted vertical visible={true} width='thin' className="admin-sidebar">
                     <Menu.Item as={Link} to="/admin/dashboard" > <Icon name='home' /> Dashboard </Menu.Item>
                     <Menu.Item as={Link} to="/admin/pages" > <Icon name='gamepad' /> Pages </Menu.Item>
                     <Menu.Item as={Link} to="/admin/services" > <Icon name='camera' /> Services </Menu.Item>

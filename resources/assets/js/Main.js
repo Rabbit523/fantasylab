@@ -17,11 +17,13 @@ class Main extends React.Component {
     return (
       (this.props.isAdmin && this.props.isAuthenticated) ? (
         <div>
-          {!!is_dashboard && <AdminSidebar />}
           <Navigation />
-          <main className="fadeIn animated" style={is_dashboard ? { paddingLeft: 150 } : { paddingLeft: 0 }}>
-            {this.props.children}
-          </main>
+            <div className="page">
+              {!!is_dashboard && <AdminSidebar />}
+              <main className="fadeIn animated">
+                {this.props.children}
+              </main>
+            </div>
           <Footer />
         </div>
       ) : (
