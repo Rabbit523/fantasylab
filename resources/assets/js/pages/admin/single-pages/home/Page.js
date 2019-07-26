@@ -393,7 +393,7 @@ class Page extends React.Component {
                                         <Card.Content>
                                             <Card.Description>
                                                 <Collapse accordion={accordion} onChange={this.onBadgeCollapseChange} activeKey={badge_activeKey}>
-                                                { Object.keys(badges).map((key, i) => {
+                                                    {Object.keys(badges).map((key, i) => {
                                                         return (
                                                             <Panel header={badges[key].title} key={i}>
                                                                 <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={badges[key].title} onChange={(val) => ref.handleChange(val, key+'_title')} />
@@ -408,8 +408,7 @@ class Page extends React.Component {
                                                                 <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateBadge(e, key)}> Save </label>
                                                             </Panel>
                                                         )
-                                                    })
-                                                }
+                                                    })}
                                                 </Collapse>
                                             </Card.Description>
                                         </Card.Content>
@@ -424,16 +423,14 @@ class Page extends React.Component {
                                         </Card.Content>
                                         <Card.Content>
                                             <Card.Description>
-                                                {
-                                                    Object.keys(portfolios).map(function(key, i) {
-                                                        return (
-                                                            <div key={i} style={{display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
-                                                                <p style={{textTransform: 'uppercase', margin: 0}}>{key}</p>
-                                                                <label onClick={(e) => ref.onDeletePortfolio(e, key)}><Icon name='trash outline' style={{cursor: 'pointer'}}></Icon></label>
-                                                            </div>
-                                                        )
-                                                    })  
-                                                }
+                                                {Object.keys(portfolios).map((key, i) => {
+                                                    return (
+                                                        <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
+                                                            <p style={{textTransform: 'uppercase', margin: 0}}>{key}</p>
+                                                            <label onClick={(e) => ref.onDeletePortfolio(e, key)}><Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon></label>
+                                                        </div>
+                                                    )
+                                                })}
                                             </Card.Description>
                                         </Card.Content>
                                     </Card>
