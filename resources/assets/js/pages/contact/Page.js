@@ -35,12 +35,13 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        Http.post('api/front/get-page', {name: 'contact'}).then(
+        Http.post('api/front/get-page', { name: 'contact' })
+        .then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
             }
         ).catch(err => {
-            console.log(err);
+            console.error(err);
         });
     }
 
@@ -49,10 +50,10 @@ class Page extends React.Component {
         const value = event.target.value;
         const { errors } = this.validator;
         
-        if (name != "company") {
+        if (name != 'company') {
             this.validator.validate(name, value)
             .then(() => {
-                this.setState({errors})
+                this.setState({ errors })
             });
         }
 
@@ -60,25 +61,25 @@ class Page extends React.Component {
         switch (type) {
             case 'name':
                 message.name = event.target.value;
-                return this.setState({message});
+                return this.setState({ message });
             case 'company':
                 message.company = event.target.value;
-                return this.setState({message});
+                return this.setState({ message });
             case 'email':
                 message.email = event.target.value;
-                return this.setState({message});
+                return this.setState({ message });
             case 'message':
                 message.message = event.target.value;
-                return this.setState({message});
+                return this.setState({ message });
         }
     }
 
     handleCheckBoxClick() {
-        this.setState({checked: !this.state.checked, checkbox_border: !this.state.checked});
+        this.setState({ checked: !this.state.checked, checkbox_border: !this.state.checked });
     }
 
     handleSubmit(event) {
-        const {message, phone, checked} = this.state;
+        const { message, phone, checked } = this.state;
         this.validator.validateAll(message)
             .then(success => {
                 if (success) {
@@ -91,7 +92,7 @@ class Page extends React.Component {
                             message.phone = phone;
                             this.submit(message);
                         } else {
-                            this.setState({checkbox_border: !this.state.checkbox_border});
+                            this.setState({ checkbox_border: !this.state.checkbox_border });
                         }
                     }
                     else{
@@ -100,16 +101,16 @@ class Page extends React.Component {
                             code: 401,
                             text: "Oops! Phone number doesn't exit!"
                         };
-                        this.setState({responseError});
+                        this.setState({ responseError });
                     }
                 } else {
                     const { errors } = this.validator;
                     const ref = this;
-                    Object.keys(message).map(function(key, item) {
-                        if (key != "phone" && key != "company") {
+                    Object.keys(message).map((key, item) => {
+                        if (key != 'phone' && key != 'company') {
                             ref.validator.validate(key, message[key])
                             .then(() => {
-                                ref.setState({errors})
+                                ref.setState({ errors })
                             }); 
                         }
                     });
@@ -121,24 +122,24 @@ class Page extends React.Component {
         console.log(data);
     }
     render() {
-        const {data, errors, phone, checkbox_border} = this.state;
+        const { data, errors, phone, checkbox_border } = this.state;
         return (
-            <div className="contact-page">
+            <div className='contact-page'>
                 {this.state.isLoaded ?
                     <React.Fragment>
-                        <div className="contact-header" style={{backgroundImage: `url(${data.header_url})`}}>
-                            <div className="header-gradient">
-                                <Container className="custom-col-6">
-                                    <div className="header-description">
-                                        <div className="header-text">
+                        <div className='contact-header' style={{ backgroundImage: `url(${data.header_url})` }}>
+                            <div className='header-gradient'>
+                                <Container className='custom-col-6'>
+                                    <div className='header-description'>
+                                        <div className='header-text'>
                                             <h1>{data.title}</h1>
                                             <p>{data.description}</p>
                                         </div>
                                     </div>
-                                    <Grid padded="horizontally" style={{paddingTop: 50}}>
-                                        <Grid.Row columns={4} className="custom-row">
+                                    <Grid padded='horizontally' style={{paddingTop: 50}}>
+                                        <Grid.Row columns={4} className='custom-row'>
                                             {data.headquarters.map((item, i) => (
-                                                <Grid.Column className="custom-column" key={i}>
+                                                <Grid.Column className='custom-column' key={i}>
                                                     <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
                                                 </Grid.Column>
                                             ))}
@@ -147,17 +148,17 @@ class Page extends React.Component {
                                 </Container>
                             </div>
                         </div>
-                        <div className="contact-section">
-                            <Container className="custom-col-6">
-                                <Form size='large' className="message-form">
+                        <div className='contact-section'>
+                            <Container className='custom-col-6'>
+                                <Form size='large' className='message-form'>
                                     <Segment stacked>
-                                        <div className="form-group">
+                                        <div className='form-group'>
                                             <Form.Input
                                                 fluid
-                                                label="Name"
+                                                label='Name'
                                                 name='name'
                                                 placeholder='Name'
-                                                onChange={(val)=>this.handleChange(val, 'name')}
+                                                onChange={(val) => this.handleChange(val, 'name')}
                                                 error={errors.has('name')}
                                             />
                                             {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>
@@ -165,30 +166,30 @@ class Page extends React.Component {
                                             </Header>}
                                             <Form.Input
                                                 fluid
-                                                label="Company Name"
+                                                label='Company Name'
                                                 name='company'
                                                 placeholder='Your company'
-                                                onChange={(val)=>this.handleChange(val, 'company')}
+                                                onChange={(val) => this.handleChange(val, 'company')}
                                             />
                                         </div>
-                                        <div className="form-group">
+                                        <div className='form-group'>
                                             <Form.Input
                                                 fluid
-                                                label="Work email"
+                                                label='Work email'
                                                 name='email'
                                                 placeholder='E-mail address'
-                                                className="input-form"
-                                                onChange={(val)=>this.handleChange(val, 'email')}
+                                                className='input-form'
+                                                onChange={(val) => this.handleChange(val, 'email')}
                                                 error={errors.has('email')}
                                             />
                                             {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
                                                 {errors.first('email')}
                                             </Header>}
-                                            <div className="phone-form">
+                                            <div className='phone-form'>
                                                 <label>Phone</label>
                                                 <PhoneInput
-                                                    placeholder="Your phone number"
-                                                    value={ phone }
+                                                    placeholder='Your phone number'
+                                                    value={phone}
                                                     flags={flags}
                                                     onChange={ phone => this.setState({ phone }) } 
                                                     error={ phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required'}/>
@@ -196,7 +197,7 @@ class Page extends React.Component {
                                         </div>
                                         <Form.Field 
                                             label='What can we help you with?' 
-                                            name="message"
+                                            name='message'
                                             placeholder='Write your message'
                                             control='textarea' 
                                             rows='5'
@@ -207,16 +208,16 @@ class Page extends React.Component {
                                         </Header>}
                                         <div className={checkbox_border?'privacy-section': 'privacy-section checkbox_border'}>
                                             <Checkbox onClick={this.handleCheckBoxClick} label="By clicking 'Send message', I agree to FantasyLab's " />
-                                            <div className="terms-section">
+                                            <div className='terms-section'>
                                                 <Link to='/privacy-policy' replace>Privacy Policy</Link>
                                             </div>
                                         </div>
-                                        <Button fluid size='large' className="primary-button" onClick={this.handleSubmit}>Send message</Button>
+                                        <Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>Send message</Button>
                                     </Segment>
                                 </Form>
                             </Container>
                         </div>
-                        <section className="divide"></section>
+                        <section className='divide'></section>
                     </React.Fragment>
                     :
                     <Segment className='page-loader'>

@@ -34,15 +34,15 @@ class ServiceItem extends React.Component {
         return (
             <ReactHoverObserver className='service-item-observer'>
                 {({ isHovering }) => (
-                    <div className="service-item" style={isHovering?this.props.from?item_service_hover:item_hover:{}}>
-                        <div className="avatar-item" style={isHovering?this.state.avatar_hover:{}}>
+                    <div className='service-item' style={isHovering?this.props.from?item_service_hover:item_hover:{}}>
+                        <div className='avatar-item' style={isHovering?this.state.avatar_hover:{}}>
                             <img src={`${ this.props.url}`} />
-                            {isHovering?this.props.from?<Icon name='arrow right' className="icon-right-arrow"/>:'':''}
+                            {isHovering?this.props.from?<Icon name='arrow right' className='icon-right-arrow'/>:'':''}
                         </div>
-                        <div className="text-item">
+                        <div className='text-item'>
                             <p>{this.props.title}</p>
                         </div>
-                        {this.props.description && <div className="description" style={isHovering?this.state.des_hover:{}}>
+                        {this.props.description && <div className='description' style={isHovering?this.state.des_hover:{}}>
                             <p>{this.props.description}</p>
                         </div>}
                     </div>

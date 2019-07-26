@@ -20,17 +20,17 @@ class Page extends React.Component {
                 this.setState({ isLoaded: true, list: res.data });
             }
         ).catch(err => {
-            console.log(err);
+            console.error(err);
         });
     }
 
     render() {
         const { list } = this.state;
         return (
-            <div className="admin-pages">
+            <div className='admin-pages'>
             {this.state.isLoaded ?
                 <Segment vertical textAlign='center'>
-                    <Container className="custom-col-6">
+                    <Container className='custom-col-6'>
                         <List selection divided relaxed>
                             {list.map(function (item, i) {
                                 return (

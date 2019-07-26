@@ -12,15 +12,15 @@ class BadgeTextCard extends React.Component {
 
     render() {
         return (
-            <div className="badge-item" style={this.props.from?serviceStyle:{}}>
-                <div className="badge">
+            <div className='badge-item' style={this.props.from?serviceStyle:{}}>
+                <div className='badge'>
                     <img src={`${ this.props.url}`} />
                     <p>{this.props.number}</p>
                 </div>
-                <div className="badge-title">
+                <div className='badge-title'>
                     <p>{this.props.title}</p>
                 </div>
-                <div className="badge-description">
+                <div className='badge-description'>
                     <p>{this.props.description}</p>
                 </div>
             </div>

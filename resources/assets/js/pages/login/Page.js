@@ -123,7 +123,7 @@ class Page extends React.Component {
 
                 <Grid textAlign='center' verticalAlign='middle' className='login-page'>
                     <Grid.Column style={{ maxWidth: '450px' }}>
-                        <div className="login_title">
+                        <div className='login_title'>
                             <h2>Sign into FantasyLab</h2>                            
                             <Link to='/register' replace><h3>or create a free FantasyLab account</h3></Link>
                         </div>
@@ -132,14 +132,14 @@ class Page extends React.Component {
                                 {this.state.responseError.text}
                             </Message.Content>
                         </Message>}
-                        <Form size='large' className="login-form">
+                        <Form size='large' className='login-form'>
                             <Segment stacked>
                                 <Form.Input
                                     fluid
-                                    label="Work email"
+                                    label='Work email'
                                     name='email'
                                     placeholder='E-mail address'
-                                    className="input-form"
+                                    className='input-form'
                                     onChange={this.handleChange}
                                     error={errors.has('email')}
                                 />
@@ -148,10 +148,10 @@ class Page extends React.Component {
                                 </Header>}
                                 <Form.Input
                                     fluid
-                                    label="Password"
+                                    label='Password'
                                     name='password'
                                     placeholder='Password'
-                                    className="input-form"
+                                    className='input-form'
                                     type='password'
                                     onChange={this.handleChange}
                                     error={errors.has('password')}
@@ -159,12 +159,12 @@ class Page extends React.Component {
                                 {errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
                                     {errors.first('password')}
                                 </Header>}
-                                <div className="remember-section">
-                                    <Checkbox label="Remember me" />
-                                    <Link to='/forgot-password' replace><Icon name="lock"/>Forgot password?</Link>
+                                <div className='remember-section'>
+                                    <Checkbox label='Remember me' />
+                                    <Link to='/forgot-password' replace><Icon name='lock'/>Forgot password?</Link>
                                 </div>
-                                <Button fluid size='large' className="primary-button" onClick={this.handleSubmit}>Login</Button>
-                                <Button onClick={this.onSocialClick.bind(this)} service="google" className="ui google icon button google-button">
+                                <Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>Login</Button>
+                                <Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
                                     <img src='images/google.png'/> Login with Google
                                 </Button>
                             </Segment>
