@@ -2,18 +2,8 @@
  * Created by Sumit-Yadav on 12-10-2017.
  */
 import React from 'react'
-import {
-    Button,
-    Container,
-    Grid,
-    Header,
-    Icon,
-    List,
-    Segment,
-    Responsive
-} from 'semantic-ui-react'
-
-import { NavLink, Link } from 'react-router-dom'
+import { Container, Grid, Responsive } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 class Footer extends React.Component {
     constructor(props) {
@@ -33,12 +23,12 @@ class Footer extends React.Component {
                                         <p>Services</p>
                                     </div>
                                     <div className="footer-item">
-                                        <p>Web Development</p>
-                                        <p>Mobile Development</p>
-                                        <p>UI/UX Design</p>
-                                        <p>Branding</p>
-                                        <p>Illustration</p>
-                                        <p>Marketing</p>
+                                        <Link to="/service-web" className="item-link">Web Development</Link>
+                                        <Link to="/service-mobile" className="item-link">Mobile Development</Link>
+                                        <Link to="/service-ui" className="item-link">UI/UX Design</Link>
+                                        <Link to="/service-branding" className="item-link">Branding</Link>
+                                        <Link to="/service-illustration" className="item-link">Illustration</Link>
+                                        <Link to="/service-marketing" className="item-link">Marketing</Link>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column>
@@ -47,8 +37,8 @@ class Footer extends React.Component {
                                     </div>
                                     <div className="footer-item">
                                         <p>Creatives</p>
-                                        <p>Features</p>
-                                        <p>Portfolio</p>
+                                        <Link to="/features" className="item-link">Features</Link>
+                                        <Link to="/portfolio" className="item-link">Portfolio</Link>
                                         <p>Pricing</p>
                                     </div>
                                 </Grid.Column>
@@ -57,9 +47,10 @@ class Footer extends React.Component {
                                         <p>Company</p>
                                     </div>
                                     <div className="footer-item">
-                                        <p>About us</p>
-                                        <p>Blog</p>
-                                        <p>Contact</p>
+                                        <p></p>
+                                        <Link to="/about" className="item-link">About us</Link>
+                                        <Link to="/blog" className="item-link">Blog</Link>
+                                        <Link to="/contact" className="item-link">Contact</Link>
                                         <p>Facebook</p>
                                         <p>Instagram</p>
                                     </div>

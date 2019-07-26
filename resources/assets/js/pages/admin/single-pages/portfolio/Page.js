@@ -21,7 +21,6 @@ class Page extends React.Component {
         Http.post('/api/front/get-page', {name: 'portfolio'}).then(
             res => {
                 var list = JSON.parse(res.data.data);
-                console.log(list);
                 var portfolios = {};
                 Object.keys(list).map(function(key, index) {
                     if (key == "portfolios") {
@@ -105,7 +104,6 @@ class Page extends React.Component {
     // Update header section
     updateHeader() {
         var { list } = this.state;
-        console.log(list);
         this.setState({ isLoaded: false });
         Http.post('/api/admin/update-page', {name: 'portfolio', data: JSON.stringify(list), type: 'header'}).then(
             res => {

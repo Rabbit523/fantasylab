@@ -79,7 +79,7 @@ class Page extends React.Component {
                                                     <Container className="custom-col-6">
                                                         <Grid padded='horizontally'>
                                                             <Grid.Row columns={6} className="custom-row">
-                                                                <Grid.Column className="custom-dropdown">
+                                                                <Grid.Column className="custom-dropdown" as={Link} to="/service-web">
                                                                     <div className="custom-dropdown-item">
                                                                         <div className="avatar-item desktop">
                                                                             <img src={require('../../../images/theme/desktop.png')} />
@@ -90,7 +90,7 @@ class Page extends React.Component {
                                                                         </div>
                                                                     </div>
                                                                 </Grid.Column>
-                                                                <Grid.Column className="custom-dropdown">
+                                                                <Grid.Column className="custom-dropdown" as={Link} to="/service-mobile">
                                                                     <div className="custom-dropdown-item mobile">
                                                                         <div className="avatar-item mobile">
                                                                             <img src={require('../../../images/theme/mobile.png')} />
@@ -104,7 +104,7 @@ class Page extends React.Component {
                                                                         </div>
                                                                     </div>
                                                                 </Grid.Column>
-                                                                <Grid.Column className="custom-dropdown">
+                                                                <Grid.Column className="custom-dropdown" as={Link} to="/service-ui">
                                                                     <div className="custom-dropdown-item">
                                                                         <div className="avatar-item ui">
                                                                             <img src={require('../../../images/theme/ui.png')} />
@@ -115,7 +115,7 @@ class Page extends React.Component {
                                                                         </div>
                                                                     </div>
                                                                 </Grid.Column>
-                                                                <Grid.Column className="custom-dropdown">
+                                                                <Grid.Column className="custom-dropdown" as={Link} to="/service-branding">
                                                                     <div className="custom-dropdown-item">
                                                                         <div className="avatar-item branding">
                                                                             <img src={require('../../../images/theme/branding.png')} />
@@ -126,7 +126,7 @@ class Page extends React.Component {
                                                                         </div>
                                                                     </div>
                                                                 </Grid.Column>
-                                                                <Grid.Column className="custom-dropdown">
+                                                                <Grid.Column className="custom-dropdown" as={Link} to="/service-illustration">
                                                                     <div className="custom-dropdown-item">
                                                                         <div className="avatar-item illustration">
                                                                             <img src={require('../../../images/theme/illustration.png')} />
@@ -137,7 +137,7 @@ class Page extends React.Component {
                                                                         </div>
                                                                     </div>
                                                                 </Grid.Column>
-                                                                <Grid.Column className="custom-dropdown">
+                                                                <Grid.Column className="custom-dropdown" as={Link} to="/service-marketing">
                                                                     <div className="custom-dropdown-item">
                                                                         <div className="avatar-item marketing">
                                                                             <img src={require('../../../images/theme/marketing.png')} />

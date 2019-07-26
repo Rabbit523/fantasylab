@@ -58,26 +58,28 @@ class Page extends React.Component {
                                 <h3>Services</h3>
                                 <Grid padded="horizontally">
                                     <Grid.Row columns={2} className="custom-row">
-                                        <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.desktop.url} type={data.services.desktop.type} title={data.services.desktop.title} color={data.services.desktop.color} description={data.services.desktop.description} backimage={data.services.desktop.backimage} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.mobile.url} type={data.services.mobile.type} title={data.services.mobile.title} color={data.services.mobile.color} description={data.services.mobile.description} backimage={data.services.mobile.backimage} />
-                                        </Grid.Column>
+                                        {Object.keys(data.services).map(function(key, index) {
+                                            return (
+                                                <React.Fragment key={index}>
+                                                    {index<2 && 
+                                                        <Grid.Column className="custom-column">
+                                                            <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
+                                                    </Grid.Column>}                                                        
+                                                </React.Fragment>
+                                            )
+                                        })}
                                     </Grid.Row>
-                                    <Grid.Row columns={4} className="custom-row">
-                                        <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.ui.url} type={data.services.ui.type} title={data.services.ui.title} color={data.services.ui.color} description={data.services.ui.description} backimage={data.services.ui.backimage} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.branding.url} type={data.services.branding.type} title={data.services.branding.title} color={data.services.branding.color} description={data.services.branding.description} backimage={data.services.branding.backimage} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.illustration.url} type={data.services.illustration.type} title={data.services.illustration.title} color={data.services.illustration.color} description={data.services.illustration.description} backimage={data.services.illustration.backimage} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <ServiceItem url={data.services.marketing.url} type={data.services.marketing.type} title={data.services.marketing.title} color={data.services.marketing.color} description={data.services.marketing.description} backimage={data.services.marketing.backimage} />
-                                        </Grid.Column>
+                                    <Grid.Row className="custom-row" columns={4}>
+                                        {Object.keys(data.services).map(function(key, index) {
+                                            return (
+                                                <React.Fragment key={index}>
+                                                    {index>=2 && 
+                                                        <Grid.Column className="custom-column">
+                                                            <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
+                                                        </Grid.Column>}
+                                                </React.Fragment>
+                                            )
+                                        })}
                                     </Grid.Row>
                                 </Grid>
                             </Container>
@@ -90,26 +92,28 @@ class Page extends React.Component {
                                 </div>
                                 <Grid padded="horizontally">
                                     <Grid.Row columns={3} className="custom-row">
-                                        <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={data.badges.mapping.url} number={data.badges.mapping.number} title={data.badges.mapping.title} color={data.badges.mapping.color} description={data.badges.mapping.description} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={data.badges.estimation.url} number={data.badges.estimation.number} title={data.badges.estimation.title} color={data.badges.estimation.color} description={data.badges.estimation.description} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={data.badges.proposal.url} number={data.badges.proposal.number} title={data.badges.proposal.title} color={data.badges.proposal.color} description={data.badges.proposal.description} />
-                                        </Grid.Column>
+                                        {Object.keys(data.badges).map(function(key, index) {
+                                            return (
+                                                <React.Fragment key={index}>
+                                                    {index<3 && 
+                                                        <Grid.Column className="custom-column">
+                                                            <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                                    </Grid.Column>}
+                                                </React.Fragment>
+                                            )
+                                        })}
                                     </Grid.Row>
                                     <Grid.Row columns={3} className="custom-row">
-                                        <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={data.badges.design.url} number={data.badges.design.number} title={data.badges.design.title} color={data.badges.design.color} description={data.badges.design.description} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={data.badges.devlopment.url} number={data.badges.devlopment.number} title={data.badges.devlopment.title} color={data.badges.devlopment.color} description={data.badges.devlopment.description} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <BadgeTextCard url={data.badges.delivery.url} number={data.badges.delivery.number} title={data.badges.delivery.title} color={data.badges.delivery.color} description={data.badges.delivery.description} />
-                                        </Grid.Column>
+                                        {Object.keys(data.badges).map(function(key, index) {
+                                            return (
+                                                <React.Fragment key={index}>
+                                                    {index>=3 && 
+                                                        <Grid.Column className="custom-column">
+                                                            <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                                    </Grid.Column>}
+                                                </React.Fragment>
+                                            )
+                                        })}
                                     </Grid.Row>
                                 </Grid>
                                 <div className="home-button-group">
@@ -123,26 +127,28 @@ class Page extends React.Component {
                                 <h3>Portfolio</h3>
                                 <Grid padded="horizontally">
                                     <Grid.Row columns={3} className="custom-row">
-                                        <Grid.Column className="custom-column">
-                                            <PortfolioCard from={data.portfolios.avollon.from} icon_url={data.portfolios.avollon.icon_url} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <PortfolioCard from={data.portfolios.maora.from} icon_url={data.portfolios.maora.icon_url} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <PortfolioCard from={data.portfolios.osg.from} icon_url={data.portfolios.osg.icon_url} />
-                                        </Grid.Column>
+                                        {Object.keys(data.portfolios).map(function(key, index) {
+                                            return (
+                                                <React.Fragment key={index}>
+                                                    {index<3 && 
+                                                        <Grid.Column className="custom-column">
+                                                            <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                                    </Grid.Column>}
+                                                </React.Fragment>
+                                            )
+                                        })}
                                     </Grid.Row>
                                     <Grid.Row columns={3} className="custom-row">
-                                        <Grid.Column className="custom-column">
-                                            <PortfolioCard from={data.portfolios.attitude.from} icon_url={data.portfolios.attitude.icon_url} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <PortfolioCard from={data.portfolios.proguiden.from} icon_url={data.portfolios.proguiden.icon_url} />
-                                        </Grid.Column>
-                                        <Grid.Column className="custom-column">
-                                            <PortfolioCard from={data.portfolios.apotek.from} icon_url={data.portfolios.apotek.icon_url} />
-                                        </Grid.Column>
+                                        {Object.keys(data.portfolios).map(function(key, index) {
+                                            return (
+                                                <React.Fragment key={index}>
+                                                    {index>=3 && 
+                                                        <Grid.Column className="custom-column">
+                                                            <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                                    </Grid.Column>}
+                                                </React.Fragment>
+                                            )
+                                        })}
                                     </Grid.Row>
                                 </Grid>
                             </Container>

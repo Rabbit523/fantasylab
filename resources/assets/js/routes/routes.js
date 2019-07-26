@@ -5,6 +5,12 @@ import ForgotPassword from '../pages/forgotPassword'
 import ResetPassword from '../pages/resetPassword'
 import Dashboard from '../pages/dashboard'
 import NoMatch from '../pages/noMatch'
+import ServiceWeb from '../pages/services/web'
+import ServiceMobile from '../pages/services/mobile'
+import ServiceUI from '../pages/services/ui'
+import ServiceBranding from '../pages/services/branding'
+import ServiceIllustration from '../pages/services/illustration'
+import ServiceMarketing from '../pages/services/marketing'
 import Portfolio from '../pages/portfolio'
 import Features from '../pages/features'
 import About from '../pages/about'
@@ -49,6 +55,42 @@ const routes = [
         exact: true,
         auth: false,
         component: ResetPassword
+    },
+    {
+        path: '/service-web',
+        exact: true,
+        auth: false,
+        component: ServiceWeb
+    },
+    {
+        path: '/service-mobile',
+        exact: true,
+        auth: false,
+        component: ServiceMobile
+    },
+    {
+        path: '/service-ui',
+        exact: true,
+        auth: false,
+        component: ServiceUI
+    },
+    {
+        path: '/service-branding',
+        exact: true,
+        auth: false,
+        component: ServiceBranding
+    },
+    {
+        path: '/service-illustration',
+        exact: true,
+        auth: false,
+        component: ServiceIllustration
+    },
+    {
+        path: '/service-marketing',
+        exact: true,
+        auth: false,
+        component: ServiceMarketing
     },
     {
         path: '/portfolio',
