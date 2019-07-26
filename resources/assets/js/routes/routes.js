@@ -19,6 +19,14 @@ import Contact from '../pages/contact'
 import AdminPages from '../pages/admin/adminPages'
 import AdminHome from '../pages/admin/single-pages/home'
 import AdminPortfolio from '../pages/admin/single-pages/portfolio'
+import AdminAbout from '../pages/admin/single-pages/about'
+import AdminContact from '../pages/admin/single-pages/contact'
+import AdminServiceWeb from '../pages/admin/single-pages/serviceWeb'
+import AdminServiceMobile from '../pages/admin/single-pages/serviceMobile'
+import AdminServiceUI from '../pages/admin/single-pages/serviceUI'
+import AdminServiceBranding from '../pages/admin/single-pages/serviceBranding'
+import AdminServiceIllustration from '../pages/admin/single-pages/serviceIllustration'
+import AdminServiceMarket from '../pages/admin/single-pages/serviceMarket'
 const routes = [
     {
         path: '/',
@@ -181,6 +189,54 @@ const routes = [
         exact: true,
         admin: true,
         component: AdminPortfolio
+    },
+    {
+        path: '/admin/single-page/about',
+        exact: true,
+        admin: true,
+        component: AdminAbout
+    },
+    {
+        path: '/admin/single-page/contact',
+        exact: true,
+        admin: true,
+        component: AdminContact
+    },
+    {
+        path: '/admin/single-page/serviceWeb',
+        exact: true,
+        admin: true,
+        component: AdminServiceWeb
+    },
+    {
+        path: '/admin/single-page/serviceMobile',
+        exact: true,
+        admin: true,
+        component: AdminServiceMobile
+    },
+    {
+        path: '/admin/single-page/serviceUI',
+        exact: true,
+        admin: true,
+        component: AdminServiceUI
+    },
+    {
+        path: '/admin/single-page/serviceBranding',
+        exact: true,
+        admin: true,
+        component: AdminServiceBranding
+    },
+    {
+        path: '/admin/single-page/serviceIllustration',
+        exact: true,
+        admin: true,
+        component: AdminServiceIllustration
+    },
+    {
+        path: '/admin/single-page/serviceMarket',
+        exact: true,
+        admin: true,
+        component: AdminServiceMarket
     },
     {
         path: '',

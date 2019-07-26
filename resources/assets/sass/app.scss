@@ -1804,15 +1804,16 @@ p {
     .list {
       .item {
         .content {
-          a {
+          p {
+            cursor: pointer;
+            color: #4183C4 !important;
             text-align: left;
             text-transform: uppercase;
             font-size: 18px;
             font-family: "Gotham Bold";
             padding-bottom: 10px;
-            &.header {
-              font-weight: bold;
-            }
+            font-weight: bold;
+            padding: 0;
           }
         }
       }
@@ -1836,6 +1837,19 @@ p {
         width: 100%;
         .content {
           text-align: left;
+          .admin-form-group {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            .flex-form {
+              display: flex;
+              justify-content: space-between;
+              flex-direction: row;
+              .input-form {
+                flex: 1;
+              }
+            }
+          }          
           input {
             margin-bottom: 10px;
           }

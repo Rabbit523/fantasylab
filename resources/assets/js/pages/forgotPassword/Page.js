@@ -1,15 +1,5 @@
 import React from 'react'
-import {
-    Button,
-    Divider,
-    Dimmer,
-    Form,
-    Grid,
-    Header,
-    Icon,
-    Loader,
-    Message,
-    Segment} from 'semantic-ui-react'
+import {Button, Dimmer, Form, Grid, Loader, Message, Segment, Header} from 'semantic-ui-react'
 import {Link, Redirect} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import ReeValidate from 'ree-validate'
@@ -109,7 +99,6 @@ class Page extends React.Component {
 
         return (
             <React.Fragment>
-                <PageHeader heading="login"/>
                 <Segment className='page-loader' style={{display: this.state.isLoading ? 'block' : 'none'}}>
                     <Dimmer active inverted>
                         <Loader size='large'>Resetting Password...</Loader>
@@ -119,7 +108,7 @@ class Page extends React.Component {
                 <Grid
                     textAlign='center'
                     verticalAlign='middle'
-                    className='login-form'
+                    className='login-form login-page'
                 >
                     <Grid.Column style={{maxWidth: '450px'}}>
                         <Header as='h2' color='teal' textAlign='center'>

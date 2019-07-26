@@ -312,6 +312,31 @@ class PagesController extends Controller
                 $page->data = json_encode($data);
                 $page->save();
             }
+        } else if ($request->name == "about") {
+            $service_type = $request->type;
+            if ($service_type == "header") {
+                if ($data->header_url != $request_data['header_url']) {
+                    if (strpos($request_data['header_url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['header_url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['header_url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'_header.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['header_url'] = $path;
+                }
+                $data = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            }
         }
         return response()->json('update success');
     }
