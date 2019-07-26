@@ -52,7 +52,7 @@ class Page extends React.Component {
                                 <div className='starter-group'>
                                     <Container className='custom-col-6'>
                                         <h2>Let's start. What do you need?</h2>
-                                        <Container className='custom-col-6'>
+                                        <Container className='custom-col-7'>
                                             <Grid padded='horizontally'>
                                                 <Grid.Row columns={3} className='custom-row'>
                                                     {data.starting.map((item, i) => (

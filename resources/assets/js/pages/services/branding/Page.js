@@ -82,7 +82,7 @@ class Page extends React.Component {
                                             </Grid>
                                         </Container>
                                     </Container>
-                                    <Button className='primary-button' style={{marginTop: 20}}>Craft Enterprise</Button>
+                                    <Button className='primary-button' style={{marginTop: 10}}>Craft Enterprise</Button>
                                 </div>
                             </div>
                         </div>
