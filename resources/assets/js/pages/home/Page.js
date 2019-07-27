@@ -24,7 +24,7 @@ class Page extends React.Component {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
             }
         ).catch(err => {
-            console.log(err);
+            console.error(err);
         });
     }
 
