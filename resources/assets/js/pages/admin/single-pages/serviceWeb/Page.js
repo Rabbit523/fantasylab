@@ -75,12 +75,10 @@ class Page extends React.Component {
     // Update header section
     updateHeader() {
         var { list } = this.state;
-        console.log(list);
         this.setState({ isLoaded: false });
         Http.post('/api/admin/update-page', {name: 'serviceWeb', data: JSON.stringify(list), type: 'header'})
         .then(
             res => {
-                console.log(res);
                 this.setState({ isLoaded: true });
             }
         ).catch(err => {

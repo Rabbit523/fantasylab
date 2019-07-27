@@ -26,7 +26,6 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.data);
-                console.log(list);
                 var services = {}, values = {}, headquarters = {}, guides = [], counters = [], news = {};
                 Object.keys(list).map(function(key, index) {
                     if (key == "values") {
