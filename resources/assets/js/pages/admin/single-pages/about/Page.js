@@ -18,7 +18,6 @@ class Page extends React.Component {
             accordion: false,
             activeKey: []            
         }
-        // this.onAvatarChange = this.onAvatarChange.bind(this);
         // this.onCollapseChange = this.onCollapseChange.bind(this);
     }
 
@@ -61,7 +60,6 @@ class Page extends React.Component {
     handleChange(event, type) {
         var { list, counters } = this.state;
         var ref = this;
-        console.log(type);
         switch (type) {
             case 'meta_title':
                 list.meta_title = event.target.value;
@@ -85,12 +83,6 @@ class Page extends React.Component {
                 ref.setState({counters});
             }
         });
-        // Object.keys(list['icon_urls']).map(function (key, index) {
-        //     if (key == type) {
-        //         list['icon_urls'][key].text = event.target.value;
-        //         ref.setState({list});
-        //     }
-        // });
     }
 
     onAvatarChange(type, e){
@@ -104,32 +96,6 @@ class Page extends React.Component {
             }
             reader.readAsDataURL(infile.files[0]);
         }
-
-        // var footer_file = document.getElementById("footer-file");
-        // if (footer_file.files && footer_file.files[0]) {
-        //     var reader = new FileReader();
-        //     reader.onload = new FileReader();
-        //     reader.onload = function (e) {
-        //         if (type == "footer") { list.footer_url = e.target.result; ref.setState({list}); }
-        //     }
-        //     reader.readAsDataURL(footer_file.files[0]);
-        // }
-
-        // var icon_file = document.getElementsByClassName("icon-file");
-        // Object.keys(icon_file).map(function (key, index) {
-        //     if (icon_file[index].files && icon_file[index].files[0]) {
-        //         var reader = new FileReader();
-        //         reader.onload = function(e) {
-        //             Object.keys(list['icon_urls']).map(function (key, i) {
-        //                 if (key == type) {
-        //                     list["icon_urls"][type].path = e.target.result;
-        //                     ref.setState({list});
-        //                 }
-        //             });
-        //         }
-        //         reader.readAsDataURL(icon_file[index].files[0]);
-        //     }
-        // });
     }    
     
     onCollapseChange(activeKey) {
@@ -148,10 +114,7 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-    // Update portfolio section
-    // onDeletePortfolio (e, type) {
-    //     console.log(type);
-    // }
+    
     render() {
         const { isLoaded, list, services, values, headquarters, guides, counters, news, activeKey, accordion } = this.state;
         const ref = this;
@@ -188,16 +151,14 @@ class Page extends React.Component {
                                                 </Form>
 
                                                 <div className="admin-form-group" style={{display: 'flex', justifyContent: 'space-between'}}>
-                                                    {
-                                                        counters.map(function (item, i) {
-                                                            return (
-                                                                <Form className="flex-form" key={i}>
-                                                                    <Form.Input fluid label="Number" name='text' className="input-form" value={item.number} onChange={(val)=>ref.handleChange(val, "number_"+i)} />
-                                                                    <Form.Input fluid label="Text" name='text' className="input-form" value={item.text} onChange={(val)=>ref.handleChange(val, "text_"+i)} />
-                                                                </Form>
-                                                            )
-                                                        })
-                                                    }
+                                                    {counters.map((item, i) => {
+                                                        return (
+                                                            <Form className="flex-form" key={i}>
+                                                                <Form.Input fluid label="Number" name='text' className="input-form" value={item.number} onChange={(val)=>ref.handleChange(val, "number_"+i)} />
+                                                                <Form.Input fluid label="Text" name='text' className="input-form" value={item.text} onChange={(val)=>ref.handleChange(val, "text_"+i)} />
+                                                            </Form>
+                                                        )
+                                                    })}
                                                 </div>
                                                 <label className="ui floated button save-btn" onClick={this.updateHeader.bind(this)}> Save </label>
                                             </Card.Description>
