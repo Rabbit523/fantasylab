@@ -69,7 +69,7 @@ class Page extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='service-section' style={{ background: `url(${data.study.backimage}) no-repeat center`, backgroundSize: '100% 100%', minHeight: '100vh'}}>
+                        <div className='service-section review' style={{ background: `url(${data.study.backimage}) no-repeat center`, backgroundSize: '100% 100%' }}>
                             <Container className='custom-col-6'>
                                 <Container className='custom-col-4'>
                                     <div className='service-review'>
