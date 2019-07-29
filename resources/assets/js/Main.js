@@ -18,20 +18,22 @@ class Main extends React.Component {
       (this.props.isAdmin && this.props.isAuthenticated) ? (
         <div>
           <Navigation />
-            <div className="page">
-              {!!is_dashboard && <AdminSidebar />}
-              <main className="fadeIn animated">
-                {this.props.children}
-              </main>
-            </div>
+          <div className="page">
+            {!!is_dashboard && <AdminSidebar />}
+            <main className="fadeIn animated">
+              {this.props.children}
+            </main>
+          </div>
           <Footer />
         </div>
       ) : (
           <div>
             <Navigation />
-            <main className="fadeIn animated">
-              {this.props.children}
-            </main>
+            <div className="page">
+              <main className="fadeIn animated">
+                {this.props.children}
+              </main>
+            </div>
             <Footer />
           </div>
         )
