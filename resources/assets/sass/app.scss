@@ -3,6 +3,7 @@
 /* ************************************************************************* */
 
 /* **** Lato Font **** */
+
 @font-face {
   font-family: 'Lato';
   font-style: italic;
@@ -358,7 +359,7 @@ p {
     flex: 1;
     width: 100%;
     .divide {
-      background-image: url('../images/theme/divide-back3.png') !important;
+      background-image: url('/images/divide-back.png') !important;
       height: 160px;
       width: 100%;
       background-size: cover !important;
