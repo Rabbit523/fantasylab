@@ -1998,6 +1998,15 @@ p {
   }
 }
 
+@media (min-width: 1366px) {
+  .page {
+    main {
+      .divide {
+        height: 160px;
+      }
+    }
+  }
+}
 @media (min-width: 1762px) {
   .page {
     main {
