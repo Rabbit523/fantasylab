@@ -284,6 +284,7 @@ p {
   font-size: 16px;
   position: inherit !important;
   margin-right: 10px !important;
+  height: 100%;
   &.services {
     &.hover {
       border-bottom: 2px solid #8341ff !important;
@@ -1907,6 +1908,33 @@ p {
 
 }
 
+@media (min-width: 1057px) {
+  .segment.navbar {
+    .item {
+      &.logo {
+        padding: 0px 10px 0px 0px !important;
+      }
+    }
+  }
+  .nav-color {
+    font-size: 12px;
+    padding: 18px 8px 18px 8px !important;
+  }
+  .login {
+    font-size: 12px !important;
+  }
+  .primary-button {
+    font-size: 12px !important;
+  }
+  .page {
+    main {
+      .divide {
+        height: 110px;
+      }
+    }
+  }
+}
+
 @media (min-width: 1224px) {
   .segment.navbar {
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
@@ -1929,6 +1957,68 @@ p {
     }
   }
 
+}
+
+@media (min-width: 1321px) {
+  .nav-color {
+    padding: 22px 11px 22px 11px !important;
+  }
+  .page {
+    main {
+      .service-page {
+        .service-header {
+          .header-gradient {
+            .header-description {
+              .header-text {
+                padding-left: 150px;
+                padding-right: 150px;
+              }
+            }
+          }
+        }
+        .service-section {
+          &.review {
+            min-height: 120vh;
+            .service-review {
+              padding-top: 170px;
+              h2 {
+                font-size: 30px;
+              }
+            }
+          }
+        }
+      }
+      .divide {
+        height: 140px;
+      }   
+    }
+  }
+}
+
+@media (min-width: 1762px) {
+  .page {
+    main {
+      .home-page {
+        .homepage-header {
+          .homepage-header-description {
+            margin-top: 120px;
+          }
+        }
+      }
+      .service-page {
+        .service-section {
+          &.review {
+            .service-review {
+              padding-top: 210px;
+            }
+          }
+        }
+      }
+      .divide {
+        height: 190px;
+      }   
+    }
+  }
 }
 
 @media (min-width: 1920px) {
