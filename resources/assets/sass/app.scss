@@ -1636,6 +1636,9 @@ p {
     .service-section {
       color: #fff;
       text-align: center;
+      &.review {
+        min-height: 100vh;
+      }
       .service-review {
         padding-top: 180px;
         display: flex;
@@ -1928,4 +1931,30 @@ p {
 
 }
 
+@media (min-width: 1920px) {
+  .page {
+    main {
+      .home-page {
+        .homepage-header {
+          .homepage-header-description {
+            margin-top: 120px;
+          }
+        }
+      }
+      .service-page {
+        .service-section {
+          &.review {
+            min-height: 80vh;
+            .service-review {
+              padding-top: 270px;
+            }
+          }
+        }
+      }
+      .divide {
+        height: 210px;
+      }   
+    }
+  }
+}
 
