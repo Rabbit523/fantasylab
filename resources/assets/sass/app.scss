@@ -1962,51 +1962,52 @@ p {
 
 }
 
-@media (min-width: 1321px) {
-  .nav-color {
-    padding: 22px 11px 22px 11px !important;
-  }
-  .page {
-    main {
-      .service-page {
-        .service-header {
-          .header-gradient {
-            .header-description {
-              .header-text {
-                padding-left: 150px;
-                padding-right: 150px;
-              }
-            }
-          }
-        }
-        .service-section {
-          &.review {
-            min-height: 120vh;
-            .service-review {
-              padding-top: 170px;
-              h2 {
-                font-size: 30px;
-              }
-            }
-          }
-        }
-      }
-      .divide {
-        height: 140px;
-      }   
-    }
-  }
-}
+// @media (min-width: 1321px) {
+//   .nav-color {
+//     padding: 22px 11px 22px 11px !important;
+//   }
+//   .page {
+//     main {
+//       .service-page {
+//         .service-header {
+//           .header-gradient {
+//             .header-description {
+//               .header-text {
+//                 padding-left: 150px;
+//                 padding-right: 150px;
+//               }
+//             }
+//           }
+//         }
+//         .service-section {
+//           &.review {
+//             min-height: 120vh;
+//             .service-review {
+//               padding-top: 170px;
+//               h2 {
+//                 font-size: 30px;
+//               }
+//             }
+//           }
+//         }
+//       }
+//       .divide {
+//         height: 140px;
+//       }   
+//     }
+//   }
+// }
 
 @media (min-width: 1366px) {
   .page {
     main {
       .divide {
-        height: 160px;
+        height: 150px;
       }
     }
   }
 }
+
 @media (min-width: 1762px) {
   .page {
     main {
