@@ -180,7 +180,7 @@ class Page extends React.Component {
                                     : <Button.Group>
                                         <Button as={Link} to='/login' replace positive compact
                                             className='login'>Login</Button>
-                                        <div style={{paddingTop: 15}}>
+                                        <div className="register">
                                         <Button as={Link} to='/register' replace compact
                                             className='primary-button'>Craft Enterprise</Button>
                                         </div>
