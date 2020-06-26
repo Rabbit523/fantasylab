@@ -1,24 +1,36 @@
-import {applyMiddleware,createStore,compose} from 'redux'
-import logger from 'redux-logger'
+import {createStore, applyMiddleware} from 'redux'
 import RootReducer from './reducers'
-import ReduxThunk from 'redux-thunk'
-import {persistStore, persistReducer} from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
-import hardSet from 'redux-persist/lib/stateReconciler/hardSet'
 
-const persistConfig = {
-    key: 'root',
-    storage,
-    stateReconciler: hardSet,
+let user = null;
+let isAuthenticated = false;
+let isAdmin = false;
+
+if (typeof window !== 'undefined') {
+    let local_user = localStorage.getItem('user');
+    if (local_user) {
+        user = JSON.parse(local_user);
+        isAdmin = localStorage.getItem('is_admin');
+        isAuthenticated = true;
+    } else {
+        user = {
+            id: null,
+            name: null,
+            email: null,
+            createdAt: null,
+            updatedAt: null
+        };
+        isAuthenticated = false;
+        isAdmin = false;
+    }
 }
+const initialState = {
+    Auth: { 
+        user,
+        lang: 'en',
+        isAuthenticated,
+        isAdmin
+    }
+}
+const store = createStore(RootReducer, initialState);
 
-const persistedReducer = persistReducer(persistConfig, RootReducer);
-
-const store = createStore(
-    persistedReducer,
-    compose(
-        applyMiddleware(ReduxThunk,logger)
-    )
-);
-persistStore(store);
 export default store;

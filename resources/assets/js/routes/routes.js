@@ -3,7 +3,6 @@ import Login from '../pages/login'
 import Register from '../pages/register'
 import ForgotPassword from '../pages/forgotPassword'
 import ResetPassword from '../pages/resetPassword'
-import Dashboard from '../pages/dashboard'
 import NoMatch from '../pages/noMatch'
 import ServiceWeb from '../pages/services/web'
 import ServiceMobile from '../pages/services/mobile'
@@ -11,25 +10,39 @@ import ServiceUI from '../pages/services/ui'
 import ServiceBranding from '../pages/services/branding'
 import ServiceIllustration from '../pages/services/illustration'
 import ServiceMarketing from '../pages/services/marketing'
+import Hosting from '../pages/hosting'
+import WPService from '../pages/wp-service'
 import Portfolio from '../pages/portfolio'
+import SinglePortfolio from '../pages/singlePortfolio'
 import Features from '../pages/features'
 import About from '../pages/about'
 import Blog from '../pages/blog'
 import Contact from '../pages/contact'
+import Privacy from '../pages/privacy'
 import AdminPages from '../pages/admin/adminPages'
 import AdminHome from '../pages/admin/single-pages/home'
 import AdminPortfolio from '../pages/admin/single-pages/portfolio'
 import AdminAbout from '../pages/admin/single-pages/about'
 import AdminContact from '../pages/admin/single-pages/contact'
-import AdminServiceWeb from '../pages/admin/single-pages/serviceWeb'
-import AdminServiceMobile from '../pages/admin/single-pages/serviceMobile'
-import AdminServiceUI from '../pages/admin/single-pages/serviceUI'
-import AdminServiceBranding from '../pages/admin/single-pages/serviceBranding'
-import AdminServiceIllustration from '../pages/admin/single-pages/serviceIllustration'
-import AdminServiceMarket from '../pages/admin/single-pages/serviceMarket'
+import AdminFeature from '../pages/admin/single-pages/feature'
+import AdminServicePage from '../pages/admin/single-pages/servicePage'
+import AdminHosting from '../pages/admin/single-pages/hosting'
+import AdminWPServiceServer from '../pages/admin/single-pages/wp-service'
+import AdminBlog from '../pages/admin/adminBlog'
+import AdminPrivacy from '../pages/admin/single-pages/privacy'
+import AdminPortfolios from '../pages/admin/adminPortfolios'
+import AdminReviews from '../pages/admin/adminReviews'
+import AdminSinglePortfolio from '../pages/admin/single-pages/singlePortfolio'
+
 const routes = [
     {
         path: '/',
+        exact: true,
+        auth: false,
+        component: Home
+    },
+    {
+        path: '/no',
         exact: true,
         auth: false,
         component: Home
@@ -47,7 +60,19 @@ const routes = [
         component: Login
     },
     {
+        path: '/no/logginn',
+        exact: true,
+        auth: false,
+        component: Login
+    },
+    {
         path: '/register',
+        exact: true,
+        auth: false,
+        component: Register
+    },
+    {
+        path: '/no/start-prosjekt',
         exact: true,
         auth: false,
         component: Register
@@ -65,43 +90,109 @@ const routes = [
         component: ResetPassword
     },
     {
-        path: '/service-web',
+        path: '/web-development',
         exact: true,
         auth: false,
         component: ServiceWeb
     },
     {
-        path: '/service-mobile',
+        path: '/no/webutvikling',
+        exact: true,
+        auth: false,
+        component: ServiceWeb
+    },
+    {
+        path: '/mobile-development',
         exact: true,
         auth: false,
         component: ServiceMobile
     },
     {
-        path: '/service-ui',
+        path: '/no/mobilutvikling',
+        exact: true,
+        auth: false,
+        component: ServiceMobile
+    },
+    {
+        path: '/ui-ux-design',
         exact: true,
         auth: false,
         component: ServiceUI
     },
     {
-        path: '/service-branding',
+        path: '/no/ui-ux-design',
+        exact: true,
+        auth: false,
+        component: ServiceUI
+    },
+    {
+        path: '/branding',
         exact: true,
         auth: false,
         component: ServiceBranding
     },
     {
-        path: '/service-illustration',
+        path: '/no/merkevarebygging',
+        exact: true,
+        auth: false,
+        component: ServiceBranding
+    },
+    {
+        path: '/illustration',
         exact: true,
         auth: false,
         component: ServiceIllustration
     },
     {
-        path: '/service-marketing',
+        path: '/no/illustrasjon',
+        exact: true,
+        auth: false,
+        component: ServiceIllustration
+    },
+    {
+        path: '/marketing-material',
         exact: true,
         auth: false,
         component: ServiceMarketing
     },
     {
+        path: '/no/markedsføringsmateriell',
+        exact: true,
+        auth: false,
+        component: ServiceMarketing
+    },
+    {
+        path: '/managed-hosting',
+        exact: true,
+        auth: false,
+        component: Hosting
+    },
+    {
+        path: '/no/administrert-hosting',
+        exact: true,
+        auth: false,
+        component: Hosting
+    },
+    {
+        path: '/wordpress-service-agreement',
+        exact: true,
+        auth: false,
+        component: WPService
+    },
+    {
+        path: '/no/wordpress-serviceavtale',
+        exact: true,
+        auth: false,
+        component: WPService
+    },
+    {
         path: '/portfolio',
+        exact: true,
+        auth: false,
+        component: Portfolio
+    },
+    {
+        path: '/no/portefolje',
         exact: true,
         auth: false,
         component: Portfolio
@@ -113,7 +204,19 @@ const routes = [
         component: Features
     },
     {
+        path: '/no/funksjoner',
+        exact: true,
+        auth: false,
+        component: Features
+    },
+    {
         path: '/about',
+        exact: true,
+        auth: false,
+        component: About
+    },
+    {
+        path: '/no/om-oss',
         exact: true,
         auth: false,
         component: About
@@ -125,16 +228,70 @@ const routes = [
         component: Blog
     },
     {
+        path: '/no/blogg',
+        exact: true,
+        auth: false,
+        component: Blog
+    },
+    {
         path: '/contact',
         exact: true,
         auth: false,
         component: Contact
     },
     {
-        path: '/admin/dashboard',
+        path: '/no/kontakt',
         exact: true,
-        admin: true,
-        component: Dashboard
+        auth: false,
+        component: Contact
+    },
+    {
+        path: '/privacy',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/no/personvern',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/data-processor',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/no/databehandler',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/terms',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/no/vilkar',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/confidentiality',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/no/konfidensialitet',
+        exact: true,
+        auth: false,
+        component: Privacy
     },
     {
         path: '/admin/pages',
@@ -143,40 +300,22 @@ const routes = [
         component: AdminPages
     },
     {
-        path: '/admin/services',
+        path: '/admin/blog',
         exact: true,
         admin: true,
-        component: Dashboard
+        component: AdminBlog
     },
     {
-        path: '/admin/clients',
+        path: '/admin/portfolio',
         exact: true,
         admin: true,
-        component: Dashboard
+        component: AdminPortfolios
     },
     {
-        path: '/admin/projects',
+        path: '/admin/reviews',
         exact: true,
         admin: true,
-        component: Dashboard
-    },
-    {
-        path: '/admin/teams',
-        exact: true,
-        admin: true,
-        component: Dashboard
-    },
-    {
-        path: '/admin/invoices',
-        exact: true,
-        admin: true,
-        component: Dashboard
-    },
-    {
-        path: '/admin/settings',
-        exact: true,
-        admin: true,
-        component: Dashboard
+        component: AdminReviews
     },
     {
         path: '/admin/single-page/home',
@@ -191,6 +330,12 @@ const routes = [
         component: AdminPortfolio
     },
     {
+        path: '/admin/single-page/single_portfolio',
+        exact: true,
+        admin: true,
+        component: AdminSinglePortfolio
+    },
+    {
         path: '/admin/single-page/about',
         exact: true,
         admin: true,
@@ -203,40 +348,76 @@ const routes = [
         component: AdminContact
     },
     {
-        path: '/admin/single-page/serviceWeb',
+        path: '/admin/single-page/features',
         exact: true,
         admin: true,
-        component: AdminServiceWeb
+        component: AdminFeature
     },
     {
-        path: '/admin/single-page/serviceMobile',
+        path: '/admin/single-page/service-web',
         exact: true,
         admin: true,
-        component: AdminServiceMobile
+        component: AdminServicePage
     },
     {
-        path: '/admin/single-page/serviceUI',
+        path: '/admin/single-page/service-mobile',
         exact: true,
         admin: true,
-        component: AdminServiceUI
+        component: AdminServicePage
     },
     {
-        path: '/admin/single-page/serviceBranding',
+        path: '/admin/single-page/service-ui',
         exact: true,
         admin: true,
-        component: AdminServiceBranding
+        component: AdminServicePage
     },
     {
-        path: '/admin/single-page/serviceIllustration',
+        path: '/admin/single-page/service-branding',
         exact: true,
         admin: true,
-        component: AdminServiceIllustration
+        component: AdminServicePage
     },
     {
-        path: '/admin/single-page/serviceMarket',
+        path: '/admin/single-page/service-illustration',
         exact: true,
         admin: true,
-        component: AdminServiceMarket
+        component: AdminServicePage
+    },
+    {
+        path: '/admin/single-page/service-market',
+        exact: true,
+        admin: true,
+        component: AdminServicePage
+    },
+    {
+        path: '/admin/single-page/hosting',
+        exact: true,
+        admin: true,
+        component: AdminHosting
+    },
+    {
+        path: '/admin/single-page/wp-service',
+        exact: true,
+        admin: true,
+        component: AdminWPServiceServer
+    },
+    {
+        path: '/admin/legal',
+        exact: true,
+        admin: true,
+        component: AdminPrivacy
+    },
+    {
+        path: '/portfolio/:type',
+        exact: true,
+        auth: false,
+        component: SinglePortfolio
+    },
+    {
+        path: '/no/portefolje/:type',
+        exact: true,
+        auth: false,
+        component: SinglePortfolio
     },
     {
         path: '',
